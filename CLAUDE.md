@@ -43,3 +43,19 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `brand/logos/` | Logotipos SVG y PNG, avatar, favicon e icono de Apple |
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
+
+## Verificación antes de publicar
+
+Todo cambio importante pasa esta verificación **antes del commit**. Si algo no cumple, se corrige primero.
+
+1. **Capturas con Playwright MCP** de cada página cambiada en **375 px** y **1440 px** de ancho, en **tema claro y oscuro** (cuatro capturas por página). Revisa que no haya scroll horizontal, que el logotipo cambie a `-reversed` en oscuro y que todo se lea.
+2. **Lighthouse en móvil**: **90 o más** en rendimiento, accesibilidad, buenas prácticas y SEO.
+   `npx -y lighthouse@latest <url> --form-factor=mobile --output=html --output=json --output-path=auditoria/lighthouse-movil --chrome-flags="--headless=new"`
+3. **pa11y sin errores** (WCAG 2 AA) en cada página:
+   `npx -y pa11y@latest --standard WCAG2AA <url>`
+4. **html-validate sin errores**:
+   `npx -y html-validate@latest *.html`
+
+Los informes se guardan en `auditoria/`, que está en `.gitignore` y no se sube. Las herramientas se ejecutan con `npx`, sin instalación global. Para auditar en local, sirve la web con `python -m http.server 8080` y usa `http://localhost:8080/`.
+
+Nunca guardes tokens, claves ni credenciales en el repositorio.
