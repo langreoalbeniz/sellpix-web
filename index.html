@@ -20,22 +20,41 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "SellPix",
-  "url": "https://sellpix.es/",
-  "email": "hola@sellpix.es",
-  "logo": "https://sellpix.es/brand/logos/png/sellpix-symbol-512.png",
-  "image": "https://sellpix.es/brand/logos/png/sellpix-avatar-800.png",
-  "description": "Diseño web, landing pages y tiendas Shopify para pequeños negocios, con criterio comercial.",
-  "slogan": "Engineered to sell.",
-  "founder": { "@type": "Person", "name": "Alberto Domínguez Barreiro" },
-  "areaServed": { "@type": "Country", "name": "España" },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Oviedo",
-    "addressRegion": "Asturias",
-    "addressCountry": "ES"
-  }
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sellpix.es/#sellpix",
+      "name": "SellPix",
+      "url": "https://sellpix.es/",
+      "email": "hola@sellpix.es",
+      "logo": "https://sellpix.es/brand/logos/png/sellpix-symbol-512.png",
+      "image": "https://sellpix.es/brand/logos/png/sellpix-avatar-800.png",
+      "description": "Diseño web, landing pages y tiendas Shopify para pequeños negocios, con criterio comercial.",
+      "slogan": "Engineered to sell.",
+      "founder": { "@id": "https://sellpix.es/sobre-mi/#alberto" },
+      "areaServed": { "@type": "Country", "name": "España" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oviedo",
+        "addressRegion": "Asturias",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sellpix.es/sobre-mi/#alberto",
+      "name": "Alberto Domínguez",
+      "jobTitle": "Fundador de SellPix",
+      "url": "https://sellpix.es/sobre-mi/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sellpix.es/img/alberto-dominguez-800.jpg",
+        "width": 800,
+        "height": 1000
+      },
+      "worksFor": { "@id": "https://sellpix.es/#sellpix" }
+    }
+  ]
 }
 </script>
 <link rel="icon" href="brand/logos/favicon.svg" type="image/svg+xml">
@@ -327,7 +346,7 @@
       <a href="sobre-mi/">Sobre mí</a>
       <a href="contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="cookies/">Cookies</a>
     </nav>
@@ -343,6 +362,7 @@
     toggle.setAttribute('aria-expanded', open);
     toggle.querySelector('rect:nth-child(2)').style.opacity = open ? '0' : '1';
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 </body>
 </html>

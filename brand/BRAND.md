@@ -130,4 +130,4 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 - **Favicon:** en SVG y como icono de Apple de 180 px.
 - **Propuesta de portada web:** `index.html`, con tema claro y oscuro y adaptada a móvil.
 
-Los textos entre corchetes ([tu email], [tu dominio]) quedan pendientes hasta que estén definidos.
+Datos de contacto para las aplicaciones: hola@sellpix.es · sellpix.es.

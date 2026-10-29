@@ -103,6 +103,7 @@
   }
   details[open] summary::after { content: "−"; }
   details p { margin: var(--space-3) 0 0; color: var(--color-text-muted); }
+  .faq-figure { font-family: var(--font-display); font-weight: 800; color: var(--color-text); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -297,7 +298,7 @@
         </details>
         <details>
           <summary>¿Haces el mantenimiento?</summary>
-          <p>Los primeros 30 días corrijo sin coste cualquier error de mi parte. Para mantenimiento mensual o actualizaciones frecuentes hay un servicio aparte. [PENDIENTE: añadir precio de mantenimiento]</p>
+          <p>Sí. Los primeros 30 días corrijo sin coste cualquier error de mi parte. Después, el mantenimiento cuesta <span class="faq-figure">29 €/mes</span> e incluye pequeños cambios de contenido, una revisión técnica mensual y copias de seguridad.</p>
         </details>
         <details>
           <summary>¿Trabajas con clientes de cualquier sector?</summary>
@@ -305,7 +306,7 @@
         </details>
         <details>
           <summary>¿Cuándo y cómo se paga?</summary>
-          <p>50 % al inicio y 50 % antes de publicar. Transferencia bancaria. [PENDIENTE: confirmar si se acepta Bizum u otros métodos]</p>
+          <p>Transferencia bancaria o tarjeta. 50 % al empezar y 50 % al entregar.</p>
         </details>
         <details>
           <summary>¿Qué necesitas de mí para empezar?</summary>
@@ -351,7 +352,7 @@
       <a href="../sobre-mi/">Sobre mí</a>
       <a href="../contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
     </nav>
@@ -365,6 +366,7 @@
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 </body>
 </html>

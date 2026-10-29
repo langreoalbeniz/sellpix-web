@@ -42,17 +42,20 @@
     padding-left: var(--space-5);
   }
 
-  /* Avatar placeholder */
-  .avatar {
-    width: 120px; height: 120px; border-radius: var(--radius-xl);
-    background: var(--color-surface-alt); border: 1px solid var(--color-line);
-    display: grid; place-items: center; font-family: var(--font-pixel);
-    font-size: 13px; color: var(--color-text-muted); text-transform: uppercase;
-    letter-spacing: .06em; text-align: center; line-height: 1.4;
-    margin-bottom: var(--space-5);
+  /* Foto */
+  .about-body { display: grid; gap: var(--space-7); align-items: start; }
+  @media (min-width: 1024px) { .about-body { grid-template-columns: 360px 1fr; gap: var(--space-8); } }
+  .about-photo { position: relative; margin: 0; max-width: 360px; }
+  .about-photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg); background: var(--color-surface-alt);
+    border: 1px solid var(--color-line);
   }
-
-  .about-body { display: grid; gap: var(--space-8); align-items: start; }
+  .about-photo::after {
+    content: ""; position: absolute; right: calc(var(--space-2) * -1); bottom: calc(var(--space-2) * -1);
+    width: var(--space-5); height: var(--space-5); border-radius: calc(var(--space-5) * .16);
+    background: var(--color-lime);
+  }
 
   /* Cuerpo de texto */
   .prose { max-width: 640px; }
@@ -133,8 +136,13 @@
     <div class="sp-container">
       <div class="about-body">
 
+        <figure class="about-photo">
+          <picture>
+            <source type="image/webp" srcset="../img/alberto-dominguez-480.webp 480w, ../img/alberto-dominguez-800.webp 800w" sizes="(min-width: 392px) 360px, calc(100vw - 32px)">
+            <img src="../img/alberto-dominguez-800.jpg" srcset="../img/alberto-dominguez-480.jpg 480w, ../img/alberto-dominguez-800.jpg 800w" sizes="(min-width: 392px) 360px, calc(100vw - 32px)" width="800" height="1000" alt="Alberto Domínguez, fundador de SellPix" fetchpriority="high">
+          </picture>
+        </figure>
         <div>
-          <div class="avatar" role="img" aria-label="Foto de Alberto [PENDIENTE]">Foto<br>[PENDIENTE]</div>
           <div class="prose">
             <p>Soy Alberto, fundador de SellPix. <strong>Vengo de la dirección comercial</strong>: he gestionado equipos de ventas y he visto de cerca qué hace que un cliente entre, entienda una oferta y compre.</p>
             <p>Ese conocimiento es el punto de partida de cada web que hago. No diseño por estética, diseño para que tu cliente tome una decisión.</p>
@@ -240,7 +248,7 @@
       <a href="../sobre-mi/">Sobre mí</a>
       <a href="../contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
     </nav>
@@ -254,6 +262,7 @@
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 </body>
 </html>

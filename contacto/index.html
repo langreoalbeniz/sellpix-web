@@ -138,20 +138,6 @@
               <dd><a href="mailto:hola@sellpix.es">hola@sellpix.es</a></dd>
             </dl>
           </div>
-          <div class="contact-detail">
-            <span class="detail-dot" aria-hidden="true"></span>
-            <dl>
-              <dt>WhatsApp</dt>
-              <dd>[PENDIENTE: añadir número de WhatsApp]</dd>
-            </dl>
-          </div>
-          <div class="contact-detail">
-            <span class="detail-dot" aria-hidden="true"></span>
-            <dl>
-              <dt>LinkedIn</dt>
-              <dd>[PENDIENTE: añadir perfil de LinkedIn]</dd>
-            </dl>
-          </div>
         </div>
 
         <div class="u-mt-7">
@@ -199,7 +185,7 @@
       <a href="../sobre-mi/">Sobre mí</a>
       <a href="../contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
     </nav>
@@ -213,6 +199,7 @@
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
 </body>

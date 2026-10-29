@@ -69,6 +69,11 @@
   .project-meta h2 { margin: 0; }
   .project-meta p { margin: 0; color: var(--color-text-muted); flex: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .project-card--link { position: relative; }
+  .project-link { color: inherit; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+  .project-link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-xl); }
+  .project-link:focus-visible { outline: none; }
+  .project-link:focus-visible::after { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
   .project-card--placeholder {
     border-style: dashed; border-color: var(--color-line-strong);
     background: transparent;
@@ -150,10 +155,10 @@
       <div class="projects-grid">
 
         <!-- Media Luna – proyecto real en curso -->
-        <article class="project-card">
+        <article class="project-card project-card--link">
           <div class="project-bar">
             <i></i><i></i><i></i>
-            <span class="bar-url">[PENDIENTE]</span>
+            <span class="bar-url">medialuna.store</span>
           </div>
           <div class="project-canvas fill-paper">
             Media Luna
@@ -163,7 +168,7 @@
               <span class="badge">En curso</span>
               <span class="badge">Shopify</span>
             </div>
-            <h2 class="sp-h4">Media Luna</h2>
+            <h2 class="sp-h4"><a class="project-link" href="https://medialuna.store" target="_blank" rel="noopener">Media Luna<span class="u-sr-only"> (se abre en otra pestaña)</span></a></h2>
             <p>Rediseño de tienda Shopify de artículos personalizados. Nuevo tema, carga de catálogo y configuración de pagos y envíos.</p>
           </div>
         </article>
@@ -213,7 +218,6 @@
             <span class="soon-label">Próximamente</span>
           </div>
           <div class="project-meta">
-            <div class="project-tags"><span class="badge">[PENDIENTE]</span></div>
             <h2 class="sp-h4">Próximo proyecto</h2>
             <p>¿El tuyo? Cuéntame qué vendes.</p>
           </div>
@@ -259,7 +263,7 @@
       <a href="../sobre-mi/">Sobre mí</a>
       <a href="../contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
     </nav>
@@ -273,6 +277,7 @@
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 </body>
 </html>

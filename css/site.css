@@ -191,3 +191,9 @@ footer .sp-container {
   .legal-table td { display: block; padding: var(--space-1) 0; border: 0; }
   .legal-table td::before { content: attr(data-label); display: block; font-weight: 600; font-size: var(--text-caption-size); color: var(--color-text-muted); }
 }
+
+/* Texto solo para lectores de pantalla */
+.u-sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

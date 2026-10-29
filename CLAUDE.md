@@ -42,6 +42,8 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
 | `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
+| `img/` | Fotos de contenido (no de marca) en .webp y .jpg, a 480 y 800 px de ancho, servidas con `<picture>` y `srcset` |
+| `_config.yml` | Archivos del repositorio que GitHub Pages no publica (por ejemplo, `CLAUDE.md`) |
 | `css/site.css` | Estilos compartidos (cabecera, pie, componentes, utilidades) |
 | `brand/BRAND.md` | Manual de marca completo |
 | `brand/tokens.json` · `brand/tokens.css` · `brand/tailwind.preset.js` | Valores de marca |
@@ -66,6 +68,9 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
+6. **Ningún marcador «PENDIENTE» publicado.** Antes de cada push, busca la palabra en todos los archivos que se publican (HTML, CSS, JS, JSON, textos, también en comentarios y atributos `alt`):
+   `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md"`
+   Si aparece algo, **no se publica**: completa el dato o quita el elemento. Este archivo no se publica en la web (`_config.yml` lo excluye), por eso puede nombrar la palabra.
 
 La 404 lleva `noindex` a propósito: su SEO en Lighthouse sale bajo y no cuenta para el objetivo.
 

@@ -150,7 +150,7 @@
       <a href="../sobre-mi/">Sobre mí</a>
       <a href="../contacto/">Contacto</a>
     </nav>
-    <span>© 2025 SellPix · Engineered to sell.</span>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
       <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/" aria-current="page">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
     </nav>
@@ -164,6 +164,7 @@
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 </body>
 </html>
