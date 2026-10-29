@@ -124,12 +124,23 @@ footer .sp-container {
 .sp-cta-block p { margin: var(--space-3) 0 0; opacity: .8; }
 .sp-cta-block .sp-eyebrow { opacity: .7; }
 
-/* Formulario de contacto */
-.contact-form { display: grid; gap: var(--space-3); }
-.contact-form label { font-size: 14px; }
-.contact-form .sp-input {
-  background: transparent; color: inherit;
-  border-color: color-mix(in srgb, currentColor 45%, transparent);
-}
-.contact-form .sp-input::placeholder { color: currentColor; opacity: .55; }
-.contact-form textarea.sp-input { min-height: 120px; resize: vertical; }
+.sp-cta-block .sp-eyebrow { display: block; margin-bottom: var(--space-4); }
+.pixel-stair--faint { opacity: .12; }
+.pixel-stair--soft { opacity: .15; }
+
+/* Antetítulo en bloque, con su separación */
+.eyebrow-block { display: block; margin-bottom: var(--space-4); color: var(--color-text-muted); }
+.eyebrow-block--tight { margin-bottom: var(--space-3); }
+
+/* Lienzos de marca para miniaturas de proyecto: colores fijos en los dos temas */
+.fill-paper { background: var(--color-paper); color: var(--color-ink); }
+.fill-ink { background: var(--color-ink); color: var(--color-paper); }
+.fill-lime { background: var(--color-lime); color: var(--color-on-lime); }
+
+/* Utilidades */
+.section-alt { background: var(--color-surface-alt); }
+.u-muted { color: var(--color-text-muted); }
+.u-nowrap { white-space: nowrap; }
+.u-mt-5 { margin-top: var(--space-5); }
+.u-mt-6 { margin-top: var(--space-6); }
+.u-mt-7 { margin-top: var(--space-7); }

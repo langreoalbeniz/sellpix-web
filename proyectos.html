@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -55,6 +55,12 @@
   .project-meta h2 { margin: 0; }
   .project-meta p { margin: 0; color: var(--color-text-muted); flex: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .project-card--placeholder { border-style: dashed; opacity: .5; }
+  .soon-label {
+    font-family: var(--font-pixel); font-size: 14px; color: var(--color-text-muted);
+    text-transform: uppercase; letter-spacing: .08em;
+  }
+  .sp-section--flush-bottom { padding-bottom: 0; }
 
   /* Nota de concepto */
   .concept-note {
@@ -81,7 +87,7 @@
       <a href="sobre-mi.html">Sobre mí</a>
       <a href="contacto.html">Contacto</a>
     </nav>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
         <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
         <rect y="10" width="22" height="2" rx="1" fill="currentColor"/>
@@ -110,10 +116,10 @@
   </section>
 
   <!-- Nota sobre los conceptos -->
-  <section class="sp-section" style="padding-bottom: 0">
+  <section class="sp-section sp-section--flush-bottom">
     <div class="sp-container">
       <div class="concept-note">
-        <span class="sp-eyebrow" style="color: var(--color-text-muted)">Transparencia</span>
+        <span class="sp-eyebrow u-muted">Transparencia</span>
         <p>Los proyectos marcados como <strong>CONCEPTO</strong> son demostraciones de diseño creadas para mostrar el tipo de trabajo que hago. No son clientes reales.</p>
       </div>
     </div>
@@ -130,7 +136,7 @@
             <i></i><i></i><i></i>
             <span class="bar-url">[PENDIENTE]</span>
           </div>
-          <div class="project-canvas" style="background: var(--color-paper); color: var(--color-ink)">
+          <div class="project-canvas fill-paper">
             Media Luna
           </div>
           <div class="project-meta">
@@ -149,7 +155,7 @@
             <i></i><i></i><i></i>
             <span class="bar-url">concepto</span>
           </div>
-          <div class="project-canvas" style="background: var(--color-ink); color: var(--color-paper)">
+          <div class="project-canvas fill-ink">
             Cafetería
           </div>
           <div class="project-meta">
@@ -168,7 +174,7 @@
             <i></i><i></i><i></i>
             <span class="bar-url">concepto</span>
           </div>
-          <div class="project-canvas" style="background: var(--color-lime); color: var(--color-on-lime)">
+          <div class="project-canvas fill-lime">
             Fisioterapia
           </div>
           <div class="project-meta">
@@ -182,10 +188,10 @@
         </article>
 
         <!-- Placeholder para proyecto próximo -->
-        <article class="project-card" style="border-style: dashed; opacity: .5">
+        <article class="project-card project-card--placeholder">
           <div class="project-bar"><i></i><i></i><i></i></div>
-          <div class="project-canvas" style="background: var(--color-surface-alt)">
-            <span style="font-family: var(--font-pixel); font-size: 14px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .08em">Próximamente</span>
+          <div class="project-canvas section-alt">
+            <span class="soon-label">Próximamente</span>
           </div>
           <div class="project-meta">
             <div class="project-tags"><span class="badge">[PENDIENTE]</span></div>
@@ -202,14 +208,14 @@
   <section class="sp-section sp-cta-block">
     <div class="sp-container">
       <div>
-        <span class="sp-eyebrow" style="display:block; margin-bottom: var(--space-4); opacity:.7">¿El siguiente eres tú?</span>
+        <span class="sp-eyebrow">¿El siguiente eres tú?</span>
         <h2 class="sp-h2">¿Hablamos de tu web?</h2>
         <p class="sp-lead">Cuéntame qué vendes y te respondo con una propuesta y un precio cerrado.</p>
-        <div style="margin-top: var(--space-5)">
+        <div class="u-mt-5">
           <a class="sp-btn sp-btn--primary" href="contacto.html">Pide presupuesto</a>
         </div>
       </div>
-      <div class="pixel-stair" aria-hidden="true" style="opacity:.12">
+      <div class="pixel-stair pixel-stair--faint" aria-hidden="true">
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span>
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span><span class="on"></span>
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span><span class="on"></span><span class="on"></span>

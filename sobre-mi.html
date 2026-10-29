@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -37,6 +37,8 @@
     letter-spacing: .06em; text-align: center; line-height: 1.4;
     margin-bottom: var(--space-5);
   }
+
+  .about-body { display: grid; gap: var(--space-8); align-items: start; }
 
   /* Cuerpo de texto */
   .prose { max-width: 640px; }
@@ -81,7 +83,7 @@
       <a href="sobre-mi.html" aria-current="page">Sobre mí</a>
       <a href="contacto.html">Contacto</a>
     </nav>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
         <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
         <rect y="10" width="22" height="2" rx="1" fill="currentColor"/>
@@ -106,7 +108,7 @@
       <div>
         <span class="sp-eyebrow">Sobre mí</span>
         <h1 class="sp-h1">Alberto Domínguez<span class="sp-pixel" aria-hidden="true"></span></h1>
-        <p class="sp-lead" style="color: var(--color-text-muted)">Fundador de SellPix. Diseñador web con criterio comercial.</p>
+        <p class="sp-lead u-muted">Fundador de SellPix. Diseñador web con criterio comercial.</p>
       </div>
       <blockquote>«Llevo años vendiendo. Ahora diseño webs que hacen ese trabajo por ti.»</blockquote>
     </div>
@@ -115,10 +117,10 @@
   <!-- Sobre mí — cuerpo -->
   <section class="sp-section">
     <div class="sp-container">
-      <div style="display: grid; gap: var(--space-8); align-items: start;">
+      <div class="about-body">
 
         <div>
-          <div class="avatar" aria-label="Foto de Alberto [PENDIENTE]">Foto<br>[PENDIENTE]</div>
+          <div class="avatar" role="img" aria-label="Foto de Alberto [PENDIENTE]">Foto<br>[PENDIENTE]</div>
           <div class="prose">
             <p>Soy Alberto, fundador de SellPix. <strong>Vengo de la dirección comercial</strong>: he gestionado equipos de ventas y he visto de cerca qué hace que un cliente entre, entienda una oferta y compre.</p>
             <p>Ese conocimiento es el punto de partida de cada web que hago. No diseño por estética, diseño para que tu cliente tome una decisión.</p>
@@ -132,7 +134,7 @@
   </section>
 
   <!-- Método / valores -->
-  <section class="sp-section" style="background: var(--color-surface-alt)">
+  <section class="sp-section section-alt">
     <div class="sp-container">
       <div class="section-head">
         <span class="sp-eyebrow">Método</span>
@@ -192,14 +194,14 @@
   <section class="sp-section sp-cta-block">
     <div class="sp-container">
       <div>
-        <span class="sp-eyebrow" style="display:block; margin-bottom: var(--space-4); opacity:.7">¿Empezamos?</span>
+        <span class="sp-eyebrow">¿Empezamos?</span>
         <h2 class="sp-h2">Cuéntame qué vendes.</h2>
         <p class="sp-lead">Te respondo en menos de 24 h con una propuesta y un precio cerrado.</p>
-        <div style="margin-top: var(--space-5)">
+        <div class="u-mt-5">
           <a class="sp-btn sp-btn--primary" href="contacto.html">Pide presupuesto</a>
         </div>
       </div>
-      <div class="pixel-stair" aria-hidden="true" style="opacity:.12">
+      <div class="pixel-stair pixel-stair--faint" aria-hidden="true">
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span>
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span><span class="on"></span>
         <span class="ghost"></span><span class="ghost"></span><span class="ghost"></span><span class="on"></span><span class="on"></span><span class="on"></span>
