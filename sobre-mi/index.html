@@ -45,7 +45,8 @@
   /* Foto */
   .about-body { display: grid; gap: var(--space-7); align-items: start; }
   @media (min-width: 1024px) { .about-body { grid-template-columns: 360px 1fr; gap: var(--space-8); } }
-  .about-photo { position: relative; margin: 0; max-width: 360px; }
+  .about-photo { position: relative; margin: 0; max-width: 360px; order: 2; }
+  @media (min-width: 1024px) { .about-photo { order: 0; } }
   .about-photo img {
     display: block; width: 100%; height: auto; aspect-ratio: 4 / 5;
     border-radius: var(--radius-lg); background: var(--color-surface-alt);
@@ -139,7 +140,7 @@
         <figure class="about-photo">
           <picture>
             <source type="image/webp" srcset="../img/alberto-dominguez-480.webp 480w, ../img/alberto-dominguez-800.webp 800w" sizes="(min-width: 392px) 360px, calc(100vw - 32px)">
-            <img src="../img/alberto-dominguez-800.jpg" srcset="../img/alberto-dominguez-480.jpg 480w, ../img/alberto-dominguez-800.jpg 800w" sizes="(min-width: 392px) 360px, calc(100vw - 32px)" width="800" height="1000" alt="Alberto Domínguez, fundador de SellPix" fetchpriority="high">
+            <img src="../img/alberto-dominguez-800.jpg" srcset="../img/alberto-dominguez-480.jpg 480w, ../img/alberto-dominguez-800.jpg 800w" sizes="(min-width: 392px) 360px, calc(100vw - 32px)" width="800" height="1000" alt="Alberto Domínguez, fundador de SellPix">
           </picture>
         </figure>
         <div>
