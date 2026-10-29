@@ -2,14 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<script>
-  // GitHub Pages sirve esta página en cualquier ruta inexistente: fija la raíz del sitio para que las rutas relativas funcionen.
-  (function () {
-    var base = document.createElement('base');
-    base.href = location.hostname.endsWith('github.io') ? '/sellpix-web/' : '/';
-    document.head.appendChild(base);
-  })();
-</script>
+<!-- GitHub Pages sirve esta página en cualquier ruta inexistente: la raíz fija hace que las rutas relativas funcionen desde cualquier profundidad. -->
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Página no encontrada | SellPix</title>
 <meta name="description" content="La página que buscas no existe o ha cambiado de sitio. Vuelve a la portada de SellPix.">
