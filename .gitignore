@@ -6,5 +6,6 @@ node_modules/
 .env.*
 dist/
 *.log
-.claude/
+.claude/settings.local.json
+.claude/worktrees/
 auditoria/
