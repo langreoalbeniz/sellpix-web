@@ -1,3 +1,16 @@
-# GitHub Pages: archivos del repositorio que no se publican en sellpix.es
+# GitHub Pages: archivos del repositorio que no forman parte de la web y no se publican en sellpix.es.
+# Siguen en el repositorio. Las licencias OFL de brand/fonts/ y el CNAME sí se publican a propósito.
 exclude:
+  # Documentación
+  - "*.md"
+  - "**/*.md"
+  - README.md
   - CLAUDE.md
+  - brand/BRAND.md
+  # Fuentes de valores y configuración de herramientas
+  - brand/tokens.json
+  - brand/tailwind.preset.js
+  - .htmlvalidate.json
+  - .gitignore
+  - .claude
+  - auditoria

@@ -43,7 +43,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
 | `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
 | `img/` | Fotos de contenido (no de marca) en .webp y .jpg, a 480 y 800 px de ancho, servidas con `<picture>` y `srcset` |
-| `_config.yml` | Archivos del repositorio que GitHub Pages no publica (por ejemplo, `CLAUDE.md`) |
+| `_config.yml` | Archivos del repositorio que GitHub Pages no publica: toda la documentación `.md`, `tokens.json`, `tailwind.preset.js` y la configuración de herramientas. Si añades un archivo que no forma parte de la web, exclúyelo aquí |
 | `css/site.css` | Estilos compartidos (cabecera, pie, componentes, utilidades) |
 | `brand/BRAND.md` | Manual de marca completo |
 | `brand/tokens.json` · `brand/tokens.css` · `brand/tailwind.preset.js` | Valores de marca |
