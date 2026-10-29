@@ -55,7 +55,12 @@
   .project-meta h2 { margin: 0; }
   .project-meta p { margin: 0; color: var(--color-text-muted); flex: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-  .project-card--placeholder { border-style: dashed; opacity: .5; }
+  .project-card--placeholder {
+    border-style: dashed; border-color: var(--color-line-strong);
+    background: transparent;
+  }
+  .project-card--placeholder .project-bar i { opacity: .4; }
+  .project-card--placeholder h2 { color: var(--color-text-muted); }
   .soon-label {
     font-family: var(--font-pixel); font-size: 14px; color: var(--color-text-muted);
     text-transform: uppercase; letter-spacing: .08em;
