@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto — SellPix</title>
+<meta name="description" content="Cuéntame qué vendes y te respondo con una propuesta y un precio cerrado en menos de 24 horas.">
+<link rel="icon" href="brand/logos/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/logos/apple-touch-icon.png">
+<link rel="stylesheet" href="brand/tokens.css">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  /* ── Contacto: estilos específicos ───────────────────────────────── */
+
+  .contact-layout {
+    display: grid; gap: var(--space-8); align-items: start;
+    padding-block: var(--space-8);
+  }
+  @media (min-width: 1024px) {
+    .contact-layout {
+      grid-template-columns: 1.1fr 1fr;
+      padding-block: var(--space-9);
+    }
+  }
+
+  .contact-intro .sp-eyebrow { color: var(--color-text-muted); display: block; margin-bottom: var(--space-4); }
+  .contact-intro h1 { margin: 0 0 var(--space-5); }
+  .contact-intro .sp-lead { color: var(--color-text-muted); margin: 0 0 var(--space-6); }
+
+  /* Datos de contacto directo */
+  .contact-details { display: flex; flex-direction: column; gap: var(--space-4); }
+  .contact-detail {
+    display: flex; gap: var(--space-3); align-items: flex-start;
+    padding: var(--space-4);
+    background: var(--color-surface-alt); border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+  }
+  .detail-dot {
+    flex-shrink: 0; width: 10px; height: 10px; border-radius: 2px;
+    background: var(--color-lime); margin-top: 5px;
+  }
+  .contact-detail dt { font-weight: 600; font-size: 14px; margin-bottom: var(--space-1); }
+  .contact-detail dd { margin: 0; color: var(--color-text-muted); font-size: 15px; }
+  .contact-detail dd a { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-lime); }
+
+  /* Formulario */
+  .contact-form-card {
+    background: var(--color-surface-alt); border: 1px solid var(--color-line);
+    border-radius: var(--radius-xl); padding: var(--space-6);
+  }
+  .contact-form-card h2 { margin: 0 0 var(--space-5); }
+  .form-grid { display: grid; gap: var(--space-4); }
+  .form-grid label { display: block; font-size: 14px; font-weight: 500; margin-bottom: var(--space-1); }
+  .sp-input { width: 100%; min-height: 48px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-line-strong); background: var(--color-surface); color: var(--color-text); font: inherit; }
+  .sp-input:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+  textarea.sp-input { min-height: 140px; resize: vertical; }
+  .form-row { display: grid; gap: var(--space-4); }
+  @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
+  select.sp-input { cursor: pointer; }
+
+  /* Estado de envío */
+  .form-success {
+    display: none; text-align: center; padding: var(--space-6);
+    background: var(--color-surface); border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+  }
+  .form-success .success-dot {
+    display: inline-block; width: 48px; height: 48px; border-radius: var(--radius-md);
+    background: var(--color-lime); margin-bottom: var(--space-4);
+  }
+  .form-success h3 { margin: 0 0 var(--space-2); }
+  .form-success p { margin: 0; color: var(--color-text-muted); }
+
+  /* Qué esperar */
+  .expect-list {
+    list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3);
+  }
+  .expect-list li { display: flex; gap: var(--space-3); align-items: flex-start; }
+  .expect-list .dot {
+    flex-shrink: 0; width: 8px; height: 8px; border-radius: 2px;
+    background: var(--color-lime); margin-top: 6px;
+  }
+  .expect-list span { color: var(--color-text-muted); }
+  .expect-list strong { color: var(--color-text); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="sp-container">
+    <a class="site-logo" href="index.html" aria-label="SellPix, inicio">
+      <img class="on-light" src="brand/logos/svg/sellpix-lockup.svg" alt="SellPix">
+      <img class="on-dark" src="brand/logos/svg/sellpix-lockup-reversed.svg" alt="SellPix">
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html" aria-current="page">Contacto</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="10" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="sobre-mi.html">Sobre mí</a>
+    <a href="contacto.html" aria-current="page">Contacto</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="sp-container">
+    <div class="contact-layout">
+
+      <!-- Columna izquierda: intro + datos -->
+      <div>
+        <div class="contact-intro">
+          <span class="sp-eyebrow">Contacto</span>
+          <h1 class="sp-h1">¿Hablamos de tu web?<span class="sp-pixel" aria-hidden="true"></span></h1>
+          <p class="sp-lead">Cuéntame qué vendes, a quién y qué necesitas. Te respondo en menos de 24 horas con una propuesta y un precio cerrado.</p>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="detail-dot" aria-hidden="true"></span>
+            <dl>
+              <dt>Email</dt>
+              <dd><a href="mailto:[PENDIENTE]">[PENDIENTE: añadir email de contacto]</a></dd>
+            </dl>
+          </div>
+          <div class="contact-detail">
+            <span class="detail-dot" aria-hidden="true"></span>
+            <dl>
+              <dt>WhatsApp</dt>
+              <dd>[PENDIENTE: añadir número de WhatsApp]</dd>
+            </dl>
+          </div>
+          <div class="contact-detail">
+            <span class="detail-dot" aria-hidden="true"></span>
+            <dl>
+              <dt>LinkedIn</dt>
+              <dd>[PENDIENTE: añadir perfil de LinkedIn]</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--space-7)">
+          <p class="sp-eyebrow" style="color: var(--color-text-muted); display: block; margin-bottom: var(--space-4)">Qué pasa después</p>
+          <ul class="expect-list">
+            <li>
+              <span class="dot" aria-hidden="true"></span>
+              <span><strong>En menos de 24 h</strong> te respondo para aclarar lo que necesite.</span>
+            </li>
+            <li>
+              <span class="dot" aria-hidden="true"></span>
+              <span><strong>Propuesta y precio cerrado</strong> antes de empezar, sin letra pequeña.</span>
+            </li>
+            <li>
+              <span class="dot" aria-hidden="true"></span>
+              <span><strong>Si no encaja</strong>, te lo digo antes de que pierdas tiempo o dinero.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Columna derecha: formulario -->
+      <div class="contact-form-card">
+        <h2 class="sp-h3">Cuéntame tu proyecto</h2>
+
+        <form class="form-grid" id="contact-form" novalidate>
+          <div class="form-row">
+            <div>
+              <label for="nombre">Nombre *</label>
+              <input class="sp-input" id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input class="sp-input" id="email" name="email" type="email" autocomplete="email" placeholder="tu@negocio.com" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="negocio">¿A qué se dedica tu negocio?</label>
+            <input class="sp-input" id="negocio" name="negocio" type="text" placeholder="Ej: tienda de ropa infantil, clínica dental, restaurante…">
+          </div>
+
+          <div>
+            <label for="servicio">¿Qué tipo de web necesitas?</label>
+            <select class="sp-input" id="servicio" name="servicio">
+              <option value="">— Elige una opción —</option>
+              <option value="landing">Landing page (desde 290 €)</option>
+              <option value="corporativa">Web corporativa (desde 690 €)</option>
+              <option value="shopify">Tienda Shopify (desde 1.190 €)</option>
+              <option value="otro">No lo sé todavía</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="mensaje">Cuéntame más *</label>
+            <textarea class="sp-input" id="mensaje" name="mensaje" placeholder="Qué vendes, qué te falta ahora mismo, cuándo quieres tenerlo…" required></textarea>
+          </div>
+
+          <button class="sp-btn sp-btn--primary" type="submit" style="align-self: start">Enviar mensaje</button>
+
+          <p class="sp-small" style="color: var(--color-text-muted); margin: 0">
+            Los datos que envíes se usan exclusivamente para responderte. No los cedo a terceros ni te incluyo en ninguna lista.
+          </p>
+        </form>
+
+        <div class="form-success" id="form-success" role="alert" aria-live="polite">
+          <span class="success-dot" aria-hidden="true"></span>
+          <h3 class="sp-h4">Mensaje recibido</h3>
+          <p>Te respondo en menos de 24 horas. Mientras tanto, puedes ver más proyectos o leer sobre cómo trabajo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sp-container">
+    <a class="footer-logo" href="index.html" aria-label="SellPix, inicio">
+      <img class="on-light" src="brand/logos/svg/sellpix-lockup.svg" alt="SellPix">
+      <img class="on-dark" src="brand/logos/svg/sellpix-lockup-reversed.svg" alt="SellPix">
+    </a>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <span>© 2025 SellPix · Engineered to sell.</span>
+  </div>
+</footer>
+
+<script>
+  // Menú móvil
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Formulario de contacto (demo: muestra mensaje de éxito sin enviar)
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+</script>
+</body>
+</html>

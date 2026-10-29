@@ -1,0 +1,45 @@
+# SellPix — instrucciones de marca para Claude Code
+
+Este proyecto pertenece a **SellPix**, estudio de diseño web y branding de Alberto Domínguez Barreiro.
+Eslogan: **Engineered to sell.** · Línea en español: **Diseño web con criterio comercial.**
+Concepto: **el píxel encendido**. Cada píxel trabaja para vender, y el píxel lima es el que vende.
+
+El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes o programes:
+@brand/BRAND.md
+
+## Reglas obligatorias
+
+1. **Colores, tipografías, espaciados, radios y sombras salen SIEMPRE de `brand/tokens.css`** (`--color-*`, `--font-*`, `--text-*`, `--space-*`, `--radius-*`, `--shadow-*`). Nunca escribas un hex, un tamaño de fuente o un margen sueltos. Si falta un valor, añádelo primero a `brand/tokens.json` y `brand/tokens.css` y avisa.
+2. Carga `brand/tokens.css` en todas las páginas (ya importa Bricolage Grotesque, Inter y Pixelify Sans de Google Fonts). Con Tailwind, usa `brand/tailwind.preset.js` como preset.
+3. **`--color-ink` y `--color-paper` son colores de marca fijos, solo para rellenos** (logotipo, bloques, píxeles). Nunca como color de texto ni fondo de página: para eso están `--color-text`, `--color-text-inverse`, `--color-surface` y `--color-surface-inverse`, que cambian con el tema.
+4. **El lima (`--color-lime`) es el píxel encendido y solo se usa como relleno**: CTA principal, píxeles de marca, etiquetas destacadas. Nunca como color de texto ni de icono sobre fondo claro. Texto sobre lima: `--color-on-lime`. Como máximo **un** botón principal lima por pantalla.
+5. **Tipografía:** titulares y cifras en `--font-display` (Bricolage Grotesque); texto en `--font-sans` (Inter); antetítulos y etiquetas en `--font-pixel` (Pixelify Sans) en MAYÚSCULAS. **Pixelify Sans nunca con números** (su 5 parece una S). Usa las clases `.sp-display`, `.sp-h1`… `.sp-eyebrow`, `.sp-stat`.
+6. **Recursos de píxel:** escalera de píxeles con el más alto en lima, campo de píxeles (`.sp-pixel-field`) y píxel suelto tras una palabra clave (`.sp-pixel`). Uno por bloque como máximo. Nada de degradados, emojis ni fotos de banco.
+7. Bordes antes que sombras. Tarjetas: `.sp-card` (fondo `surface-alt`, borde `line`, radio 12 px).
+8. Rejilla de 4 px: todo margen y padding es un token `--space-*`. Contenedor `.sp-container` (máx. 1200 px) y secciones `.sp-section`.
+9. Accesibilidad: contraste AA, foco visible con `--color-focus-ring`, objetivos táctiles de 48 px, `prefers-reduced-motion`, `alt` en las imágenes y sin scroll horizontal en móvil.
+10. Tema oscuro: ya está resuelto en `tokens.css` (automático o con `data-theme="dark"`). El logotipo cambia a su versión `-reversed` en oscuro; sobre `surface-inverse` también hay que invertirlo.
+11. Logotipo: usa los archivos de `brand/logos/` tal cual. No lo redibujes, no recolores los píxeles y no muevas el píxel lima.
+12. Nombre siempre **SellPix** (una palabra, S y P mayúsculas). Textos de tú, frases cortas, sin superlativos ni cifras sin medir; los proyectos de demostración llevan la etiqueta «CONCEPTO».
+
+## Repositorio y publicación (GitHub + GitHub Pages)
+
+Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de esta parte, sin pedirle a Alberto que lo haga a mano:
+
+1. **Si el proyecto aún no es un repositorio**, inicialízalo (`git init`, rama `main`) y crea un `.gitignore` para web estática (`.DS_Store`, `node_modules/`, `.env*`, `dist/` si no se publica desde ahí).
+2. **Si no existe el repositorio en GitHub**, créalo en la cuenta de Alberto con el nombre `sellpix-web` y súbele todo el contenido en un primer commit («Identidad SellPix y punto de partida de la web»). Debe ser **público**: GitHub Pages gratuito solo funciona con repositorios públicos en el plan Free. Por eso, nunca subas datos privados, credenciales ni archivos `.env`.
+3. **Publica la web con GitHub Pages** desde la rama `main` (carpeta raíz, o `/docs` si la web acaba ahí). Comprueba que la URL pública carga bien, incluidos `brand/tokens.css`, las fuentes y los logos, y dale la URL a Alberto.
+4. **Mantenla publicada:** al terminar cada cambio importante, haz commit con un mensaje claro en español y súbelo, para que la web publicada esté al día.
+5. **Rutas relativas siempre** (`brand/…`, no `/brand/…`): GitHub Pages sirve el sitio desde `https://<usuario>.github.io/sellpix-web/`, y una ruta absoluta se rompería.
+6. **Dominio propio:** cuando Alberto tenga dominio, añade el archivo `CNAME` y configúralo en Pages. Hasta entonces, usa la URL de GitHub Pages.
+
+## Archivos
+
+| Archivo | Qué es |
+| --- | --- |
+| `index.html` | Propuesta de portada de la web de SellPix (punto de partida) |
+| `brand/BRAND.md` | Manual de marca completo |
+| `brand/tokens.json` · `brand/tokens.css` · `brand/tailwind.preset.js` | Valores de marca |
+| `brand/logos/` | Logotipos SVG y PNG, avatar, favicon e icono de Apple |
+
+Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
