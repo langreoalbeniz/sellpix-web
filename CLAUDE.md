@@ -37,12 +37,18 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 
 | Archivo | Qué es |
 | --- | --- |
-| `index.html` | Propuesta de portada de la web de SellPix (punto de partida) |
+| `index.html` | Portada (punto de partida de la web) |
+| `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
+| `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
+| `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
+| `css/site.css` | Estilos compartidos (cabecera, pie, componentes, utilidades) |
 | `brand/BRAND.md` | Manual de marca completo |
 | `brand/tokens.json` · `brand/tokens.css` · `brand/tailwind.preset.js` | Valores de marca |
 | `brand/logos/` | Logotipos SVG y PNG, avatar, favicon e icono de Apple |
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
+
+**Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
 
 ## Verificación antes de publicar
 
@@ -54,8 +60,12 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 3. **pa11y sin errores** (WCAG 2 AA) en cada página:
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
-   `npx -y html-validate@latest *.html`
+   `npx -y html-validate@latest index.html 404.html */index.html`
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
+
+5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
+
+La 404 lleva `noindex` a propósito: su SEO en Lighthouse sale bajo y no cuenta para el objetivo.
 
 Los informes se guardan en `auditoria/`, que está en `.gitignore` y no se sube. Las herramientas se ejecutan con `npx`, sin instalación global. Para auditar en local, sirve la web con `python -m http.server 8080` y usa `http://localhost:8080/`.
 
