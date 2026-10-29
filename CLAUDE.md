@@ -39,6 +39,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | --- | --- |
 | `index.html` | Portada (punto de partida de la web) |
 | `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
+| `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
 | `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
 | `css/site.css` | Estilos compartidos (cabecera, pie, componentes, utilidades) |
