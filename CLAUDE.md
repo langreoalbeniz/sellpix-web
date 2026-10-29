@@ -55,6 +55,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
    `npx -y html-validate@latest *.html`
+   La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 Los informes se guardan en `auditoria/`, que está en `.gitignore` y no se sube. Las herramientas se ejecutan con `npx`, sin instalación global. Para auditar en local, sirve la web con `python -m http.server 8080` y usa `http://localhost:8080/`.
 
