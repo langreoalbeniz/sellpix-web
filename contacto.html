@@ -43,33 +43,20 @@
   .contact-detail dd { margin: 0; color: var(--color-text-muted); font-size: 15px; }
   .contact-detail dd a { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-lime); }
 
-  /* Formulario */
-  .contact-form-card {
-    background: var(--color-surface-alt); border: 1px solid var(--color-line);
-    border-radius: var(--radius-xl); padding: var(--space-6);
-  }
-  .contact-form-card h2 { margin: 0 0 var(--space-5); }
-  .form-grid { display: grid; gap: var(--space-4); }
-  .form-grid label { display: block; font-size: 14px; font-weight: 500; margin-bottom: var(--space-1); }
-  .sp-input { width: 100%; min-height: 48px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-line-strong); background: var(--color-surface); color: var(--color-text); font: inherit; }
-  .sp-input:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
-  textarea.sp-input { min-height: 140px; resize: vertical; }
-  .form-row { display: grid; gap: var(--space-4); }
-  @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
-  select.sp-input { cursor: pointer; }
-
-  /* Estado de envío */
-  .form-success {
-    display: none; text-align: center; padding: var(--space-6);
-    background: var(--color-surface); border: 1px solid var(--color-line);
+  /* Contenedor Tally */
+  .sp-tally {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
     border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-5) var(--space-4);
+    overflow: hidden;
   }
-  .form-success .success-dot {
-    display: inline-block; width: 48px; height: 48px; border-radius: var(--radius-md);
-    background: var(--color-lime); margin-bottom: var(--space-4);
+  .sp-tally iframe { display: block; max-width: 100%; }
+  .tally-alt {
+    margin-top: var(--space-4);
+    font-size: 14px; color: var(--color-text-muted);
   }
-  .form-success h3 { margin: 0 0 var(--space-2); }
-  .form-success p { margin: 0; color: var(--color-text-muted); }
+  .tally-alt a { color: var(--color-text-muted); text-decoration: underline; text-decoration-color: var(--color-lime); }
 
   /* Qué esperar */
   .expect-list {
@@ -134,7 +121,7 @@
             <span class="detail-dot" aria-hidden="true"></span>
             <dl>
               <dt>Email</dt>
-              <dd><a href="mailto:[PENDIENTE]">[PENDIENTE: añadir email de contacto]</a></dd>
+              <dd><a href="mailto:hola@sellpix.es">hola@sellpix.es</a></dd>
             </dl>
           </div>
           <div class="contact-detail">
@@ -172,55 +159,14 @@
         </div>
       </div>
 
-      <!-- Columna derecha: formulario -->
-      <div class="contact-form-card">
-        <h2 class="sp-h3">Cuéntame tu proyecto</h2>
-
-        <form class="form-grid" id="contact-form" novalidate>
-          <div class="form-row">
-            <div>
-              <label for="nombre">Nombre *</label>
-              <input class="sp-input" id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
-            </div>
-            <div>
-              <label for="email">Email *</label>
-              <input class="sp-input" id="email" name="email" type="email" autocomplete="email" placeholder="tu@negocio.com" required>
-            </div>
-          </div>
-
-          <div>
-            <label for="negocio">¿A qué se dedica tu negocio?</label>
-            <input class="sp-input" id="negocio" name="negocio" type="text" placeholder="Ej: tienda de ropa infantil, clínica dental, restaurante…">
-          </div>
-
-          <div>
-            <label for="servicio">¿Qué tipo de web necesitas?</label>
-            <select class="sp-input" id="servicio" name="servicio">
-              <option value="">— Elige una opción —</option>
-              <option value="landing">Landing page (desde 290 €)</option>
-              <option value="corporativa">Web corporativa (desde 690 €)</option>
-              <option value="shopify">Tienda Shopify (desde 1.190 €)</option>
-              <option value="otro">No lo sé todavía</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="mensaje">Cuéntame más *</label>
-            <textarea class="sp-input" id="mensaje" name="mensaje" placeholder="Qué vendes, qué te falta ahora mismo, cuándo quieres tenerlo…" required></textarea>
-          </div>
-
-          <button class="sp-btn sp-btn--primary" type="submit" style="align-self: start">Enviar mensaje</button>
-
-          <p class="sp-small" style="color: var(--color-text-muted); margin: 0">
-            Los datos que envíes se usan exclusivamente para responderte. No los cedo a terceros ni te incluyo en ninguna lista.
-          </p>
-        </form>
-
-        <div class="form-success" id="form-success" role="alert" aria-live="polite">
-          <span class="success-dot" aria-hidden="true"></span>
-          <h3 class="sp-h4">Mensaje recibido</h3>
-          <p>Te respondo en menos de 24 horas. Mientras tanto, puedes ver más proyectos o leer sobre cómo trabajo.</p>
+      <!-- Columna derecha: formulario Tally -->
+      <div>
+        <div class="sp-tally">
+          <iframe data-tally-src="https://tally.so/embed/aOOWGy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy" width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0"
+            title="Cuéntame tu proyecto"></iframe>
         </div>
+        <p class="tally-alt">¿Prefieres email? <a href="mailto:hola@sellpix.es">hola@sellpix.es</a></p>
       </div>
 
     </div>
@@ -244,23 +190,13 @@
 </footer>
 
 <script>
-  // Menú móvil
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.getElementById('mobile-menu');
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
-
-  // Formulario de contacto (demo: muestra mensaje de éxito sin enviar)
-  const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    form.style.display = 'none';
-    success.style.display = 'block';
-  });
 </script>
+<script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
 </body>
 </html>
