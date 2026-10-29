@@ -9,4 +9,4 @@ Web de **SellPix** — *Engineered to sell.* · Diseño web con criterio comerci
 - `brand/`: identidad de marca. Manual (`BRAND.md`), tokens (`tokens.css`, `tokens.json`, `tailwind.preset.js`) y logotipos.
 - `CLAUDE.md`: reglas de marca y de publicación para Claude Code.
 
-Sitio estático publicado con GitHub Pages. Para verlo en local, sírvelo con `python -m http.server 8080` y abre `http://localhost:8080/` (abrir los archivos con doble clic no sigue los enlaces a carpetas).
+Sitio estático publicado con GitHub Pages en **https://sellpix.es/**. Para verlo en local, sírvelo con `python -m http.server 8080` y abre `http://localhost:8080/` (abrir los archivos con doble clic no sigue los enlaces a carpetas).

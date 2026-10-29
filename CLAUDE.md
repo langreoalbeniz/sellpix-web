@@ -31,7 +31,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 3. **Publica la web con GitHub Pages** desde la rama `main` (carpeta raíz, o `/docs` si la web acaba ahí). Comprueba que la URL pública carga bien, incluidos `brand/tokens.css`, las fuentes y los logos, y dale la URL a Alberto.
 4. **Mantenla publicada:** al terminar cada cambio importante, haz commit con un mensaje claro en español y súbelo, para que la web publicada esté al día.
 5. **Rutas relativas siempre** (`brand/…`, no `/brand/…`): GitHub Pages sirve el sitio desde `https://<usuario>.github.io/sellpix-web/`, y una ruta absoluta se rompería.
-6. **Dominio propio:** cuando Alberto tenga dominio, añade el archivo `CNAME` y configúralo en Pages. Hasta entonces, usa la URL de GitHub Pages.
+6. **Dominio propio:** la web se publica en **https://sellpix.es/** (archivo `CNAME`, HTTPS forzado en Pages, certificado de Let's Encrypt que GitHub renueva solo). `www.sellpix.es` y la URL de github.io redirigen al dominio. No borres el `CNAME`. Los DNS están en Hostinger: 4 registros A a GitHub Pages y `www` como CNAME de `langreoalbeniz.github.io`.
 
 ## Archivos
 
