@@ -62,7 +62,7 @@ Una web es una pantalla de píxeles. En SellPix, cada píxel trabaja para vender
 
 ## Tipografía
 
-Las tres familias están en Google Fonts.
+Las tres familias tienen licencia SIL Open Font License y se sirven desde la propia web, en `brand/fonts/`: un archivo woff2 variable por familia, con el subconjunto latino (incluye á, é, í, ó, ú, ñ, ü, ¿, ¡, € y ·), junto a su licencia OFL. **Nunca se cargan desde Google Fonts**, para que ningún visitante envíe datos a terceros solo por ver la web. `tokens.css` define además fuentes de reserva ajustadas (`… Fallback`) para que el texto no cambie de línea mientras carga la fuente de marca.
 
 | Familia | Uso | Pesos |
 | --- | --- | --- |

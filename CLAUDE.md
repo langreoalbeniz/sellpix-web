@@ -10,7 +10,7 @@ El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes
 ## Reglas obligatorias
 
 1. **Colores, tipografías, espaciados, radios y sombras salen SIEMPRE de `brand/tokens.css`** (`--color-*`, `--font-*`, `--text-*`, `--space-*`, `--radius-*`, `--shadow-*`). Nunca escribas un hex, un tamaño de fuente o un margen sueltos. Si falta un valor, añádelo primero a `brand/tokens.json` y `brand/tokens.css` y avisa.
-2. Carga `brand/tokens.css` en todas las páginas (ya importa Bricolage Grotesque, Inter y Pixelify Sans de Google Fonts). Con Tailwind, usa `brand/tailwind.preset.js` como preset.
+2. Carga `brand/tokens.css` en todas las páginas: define Bricolage Grotesque, Inter y Pixelify Sans con `@font-face` desde `brand/fonts/` y sus fuentes de reserva ajustadas. **Las fuentes nunca se vuelven a cargar desde Google Fonts** (ni `@import`, ni `<link>` a fonts.googleapis.com o fonts.gstatic.com). Cada página precarga en su `<head>` solo `bricolage-grotesque-latin.woff2` e `inter-latin.woff2`, con `crossorigin`. Con Tailwind, usa `brand/tailwind.preset.js` como preset.
 3. **`--color-ink` y `--color-paper` son colores de marca fijos, solo para rellenos** (logotipo, bloques, píxeles). Nunca como color de texto ni fondo de página: para eso están `--color-text`, `--color-text-inverse`, `--color-surface` y `--color-surface-inverse`, que cambian con el tema.
 4. **El lima (`--color-lime`) es el píxel encendido y solo se usa como relleno**: CTA principal, píxeles de marca, etiquetas destacadas. Nunca como color de texto ni de icono sobre fondo claro. Texto sobre lima: `--color-on-lime`. Como máximo **un** botón principal lima por pantalla.
 5. **Tipografía:** titulares y cifras en `--font-display` (Bricolage Grotesque); texto en `--font-sans` (Inter); antetítulos y etiquetas en `--font-pixel` (Pixelify Sans) en MAYÚSCULAS. **Pixelify Sans nunca con números** (su 5 parece una S). Usa las clases `.sp-display`, `.sp-h1`… `.sp-eyebrow`, `.sp-stat`.
@@ -46,6 +46,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `brand/BRAND.md` | Manual de marca completo |
 | `brand/tokens.json` · `brand/tokens.css` · `brand/tailwind.preset.js` | Valores de marca |
 | `brand/logos/` | Logotipos SVG y PNG, avatar, favicon e icono de Apple |
+| `brand/fonts/` | Tipografías woff2 (subconjunto latino) y sus licencias OFL. Única fuente de las tipografías: nunca Google Fonts |
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
 

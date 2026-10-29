@@ -35,13 +35,13 @@ module.exports = {
       },
       "fontFamily": {
         "display": [
-          "\"Bricolage Grotesque\", \"Helvetica Neue\", Arial, sans-serif"
+          "\"Bricolage Grotesque\", \"Bricolage Grotesque Fallback\", \"Helvetica Neue\", Arial, sans-serif"
         ],
         "sans": [
-          "\"Inter\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          "\"Inter\", \"Inter Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
         ],
         "pixel": [
-          "\"Pixelify Sans\", ui-monospace, \"SF Mono\", Menlo, monospace"
+          "\"Pixelify Sans\", \"Pixelify Sans Fallback\", ui-monospace, \"SF Mono\", Menlo, monospace"
         ]
       },
       "fontSize": {

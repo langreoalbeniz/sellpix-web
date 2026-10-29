@@ -1,5 +1,18 @@
 /* SellPix — tokens de marca. Fuente única: brand/tokens.json. No edites valores sueltos en el código. */
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@500;600&display=swap");
+/* Tipografías de marca, servidas desde brand/fonts/ (subconjunto latino, licencia OFL). Nunca desde Google Fonts. */
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-latin.woff2") format("woff2"); font-weight: 500 800; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin.woff2") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Pixelify Sans"; src: url("fonts/pixelify-sans-latin.woff2") format("woff2"); font-weight: 500 600; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Reservas con métricas ajustadas a cada fuente de marca: el texto no cambia de línea al cargarla. */
+@font-face { font-family: "Inter Fallback"; src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo"); font-weight: 400; size-adjust: 106.27%; ascent-override: 91.16%; descent-override: 22.70%; line-gap-override: 0.00%; }
+@font-face { font-family: "Inter Fallback"; src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo"); font-weight: 500; size-adjust: 107.82%; ascent-override: 89.85%; descent-override: 22.37%; line-gap-override: 0.00%; }
+@font-face { font-family: "Pixelify Sans Fallback"; src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo"); font-weight: 500; size-adjust: 87.43%; ascent-override: 105.23%; descent-override: 32.03%; line-gap-override: 0.00%; }
+@font-face { font-family: "Bricolage Grotesque Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"); font-weight: 800; size-adjust: 101.95%; ascent-override: 91.22%; descent-override: 26.48%; line-gap-override: 0.00%; }
+@font-face { font-family: "Inter Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"); font-weight: 600; size-adjust: 100.91%; ascent-override: 96.00%; descent-override: 23.90%; line-gap-override: 0.00%; }
+@font-face { font-family: "Bricolage Grotesque Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"); font-weight: 700; size-adjust: 99.07%; ascent-override: 93.87%; descent-override: 27.25%; line-gap-override: 0.00%; }
+@font-face { font-family: "Bricolage Grotesque Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"); font-weight: 600; size-adjust: 99.47%; ascent-override: 93.50%; descent-override: 27.14%; line-gap-override: 0.00%; }
+@font-face { font-family: "Pixelify Sans Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"); font-weight: 600; size-adjust: 89.04%; ascent-override: 103.32%; descent-override: 31.45%; line-gap-override: 0.00%; }
 
 :root {
   /* Color — tema claro (por defecto) */
@@ -33,9 +46,9 @@
   --color-gray-900: #161616;
 
   /* Tipografía */
-  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-pixel: "Pixelify Sans", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Bricolage Grotesque", "Bricolage Grotesque Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-pixel: "Pixelify Sans", "Pixelify Sans Fallback", ui-monospace, "SF Mono", Menlo, monospace;
   --text-display-size: 46px; --text-display-line: 48px; --text-display-weight: 800; --text-display-tracking: -0.035em;
   --text-h1-size: 38px; --text-h1-line: 42px; --text-h1-weight: 700; --text-h1-tracking: -0.03em;
   --text-h2-size: 30px; --text-h2-line: 36px; --text-h2-weight: 700; --text-h2-tracking: -0.025em;
