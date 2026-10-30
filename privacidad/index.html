@@ -199,6 +199,6 @@
   });
   document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "724c084d30e94710b4ae653efca91731"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics: se carga tras el evento load para no competir con el contenido --><script>window.addEventListener('load', function () { var s = document.createElement('script'); s.type = 'module'; s.src = 'https://static.cloudflareinsights.com/beacon.min.js'; s.setAttribute('data-cf-beacon', '{"token": "724c084d30e94710b4ae653efca91731"}'); document.body.appendChild(s); });</script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
