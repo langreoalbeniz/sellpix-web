@@ -1,5 +1,6 @@
-/* Recorrido de contratación: botón → cuestionario de Tally (ventana emergente) → pago en Stripe.
-   Sin JavaScript el enlace abre el cuestionario en tally.so, cuya página final enlaza al pago. */
+/* Recorrido de contratación: botón → cuestionario de Tally (ventana emergente) → confirmar/<servicio>/ → pago en Stripe.
+   Sin JavaScript el enlace abre el cuestionario en tally.so. El email del cuestionario se guarda en sessionStorage
+   (clave sellpix_email) para que la página de confirmación lo pase a Stripe; nunca viaja en la URL de sellpix.es. */
 (function () {
   var EMBED = 'https://tally.so/widgets/embed.js';
   var loading = null;
@@ -39,15 +40,14 @@
     return typeof value === 'string' ? value.trim() : '';
   }
 
-  function goToStripe(url, email) {
-    var target = url;
-    if (email) target += (url.indexOf('?') === -1 ? '?' : '&') + 'prefilled_email=' + encodeURIComponent(email);
-    window.location.assign(target);
+  function goToConfirm(url, email) {
+    try { if (email) window.sessionStorage.setItem('sellpix_email', email); } catch (e) { /* sin almacenamiento: el pago sigue sin email */ }
+    window.location.assign(url);
   }
 
   function open(link) {
     var formId = link.getAttribute('data-contratar-form');
-    var stripe = link.getAttribute('data-contratar-pago');
+    var confirmar = link.getAttribute('data-contratar-confirmar');
     link.setAttribute('aria-busy', 'true');
     loadEmbed().then(function () {
       link.removeAttribute('aria-busy');
@@ -57,7 +57,7 @@
         width: 640,
         autoClose: 0,
         onClose: function () { openFormId = null; link.focus(); },
-        onSubmit: function (payload) { goToStripe(stripe, emailFromPayload(payload)); }
+        onSubmit: function (payload) { goToConfirm(confirmar, emailFromPayload(payload)); }
       });
     }).catch(function () {
       link.removeAttribute('aria-busy');
@@ -65,7 +65,7 @@
     });
   }
 
-  var links = document.querySelectorAll('a[data-contratar-form][data-contratar-pago]');
+  var links = document.querySelectorAll('a[data-contratar-form][data-contratar-confirmar]');
   for (var i = 0; i < links.length; i++) {
     links[i].setAttribute('aria-haspopup', 'dialog');
     links[i].addEventListener('click', function (e) {

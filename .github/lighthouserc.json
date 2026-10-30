@@ -10,7 +10,7 @@
     "assert": {
       "assertMatrix": [
         {
-          "matchingUrlPattern": "/(404\\.html|gracias/)",
+          "matchingUrlPattern": "/(404\\.html|gracias/|confirmar/)",
           "assertions": {
             "categories:performance": ["error", { "minScore": 0.9 }],
             "categories:accessibility": ["error", { "minScore": 0.9 }],
@@ -18,7 +18,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^(?!.*(404\\.html|gracias/)).*$",
+          "matchingUrlPattern": "^(?!.*(404\\.html|gracias/|confirmar/)).*$",
           "assertions": {
             "categories:performance": ["error", { "minScore": 0.9 }],
             "categories:accessibility": ["error", { "minScore": 0.9 }],
