@@ -20,7 +20,7 @@ El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes
 9. Accesibilidad: contraste AA, foco visible con `--color-focus-ring`, objetivos táctiles de 48 px, `prefers-reduced-motion`, `alt` en las imágenes y sin scroll horizontal en móvil.
 10. Tema oscuro: ya está resuelto en `tokens.css` (automático o con `data-theme="dark"`). El logotipo cambia a su versión `-reversed` en oscuro; sobre `surface-inverse` también hay que invertirlo.
 11. Logotipo: usa los archivos de `brand/logos/` tal cual. No lo redibujes, no recolores los píxeles y no muevas el píxel lima.
-12. Nombre siempre **SellPix** (una palabra, S y P mayúsculas). Textos de tú, frases cortas, sin superlativos ni cifras sin medir. No se publican casos de clientes ni demostraciones; el método se explica en `proyectos/`.
+12. Nombre siempre **SellPix** (una palabra, S y P mayúsculas). **Voz de empresa:** la web habla como «SellPix» o en «nosotros», nunca en primera persona del singular ni con el nombre de Alberto (solo en las páginas legales, donde la ley exige al titular). Tampoco se sugiere un equipo que no existe: nada de «nuestro equipo de diseñadores», cargos, número de personas ni nombres. **Contacto:** primer contacto y propuesta por email, reuniones por videollamada (Teams, Google Meet o similar) y teléfono una vez contratado; nunca reuniones presenciales. Textos de tú, frases cortas, sin superlativos ni cifras sin medir. No se publican casos de clientes ni demostraciones; el método se explica en `proyectos/`.
 
 ## Repositorio y publicación (GitHub + GitHub Pages)
 
@@ -38,7 +38,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | Archivo | Qué es |
 | --- | --- |
 | `index.html` | Portada (punto de partida de la web) |
-| `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
+| `servicios/` · `proyectos/` · `estudio/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final). `sobre-mi/` solo redirige a `estudio/` (meta refresh, canonical y `noindex`) |
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `servicios/landing-page/` · `web-corporativa/` · `tienda-online-shopify/` · `mantenimiento-web/` | Páginas de producto. Son el único sitio con enlaces de pago: botón → cuestionario de Tally en ventana emergente → Stripe (ver «Recorrido de contratación») |
 | `proyectos/` | «Cómo creamos tu proyecto»: la web como comercial 24/7 y el recorrido en cinco etapas (qué aporta el cliente y qué aporta SellPix). No hay casos de clientes ni demos. Usa las fotos de `img/proyectos/` (Unsplash, blanco y negro, en .webp y .jpg a 800 y 1600 px, crédito en `img/proyectos/CREDITOS.txt` y en el pie de la página): es la única excepción a «sin fotos de banco» |
@@ -60,7 +60,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
 
-**Menú:** Inicio · Servicios · Proyectos · Guías · Sobre mí · Contacto, en ese orden, en `.site-nav`, `.mobile-menu` y `.footer-links` de todas las páginas (no hay plantilla compartida: al añadir una entrada hay que tocar todos los `index.html`).
+**Menú:** Inicio · Servicios · Proyectos · Guías · El estudio · Contacto, en ese orden, en `.site-nav`, `.mobile-menu` y `.footer-links` de todas las páginas (no hay plantilla compartida: al añadir una entrada hay que tocar todos los `index.html`).
 
 **Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
 

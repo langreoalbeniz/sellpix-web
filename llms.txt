@@ -1,8 +1,8 @@
 # SellPix
 
-> SellPix es el estudio de diseño web y branding de Alberto Domínguez Barreiro, en Oviedo (Asturias, España). Hace landing pages, webs corporativas y tiendas online en Shopify para pequeños negocios, con criterio comercial y precio cerrado. Eslogan: Engineered to sell. Idioma del sitio: español.
+> SellPix es un estudio de diseño web y branding con sede en Oviedo (Asturias, España). Hace landing pages, webs corporativas y tiendas online en Shopify para pequeños negocios, con criterio comercial y precio cerrado. Eslogan: Engineered to sell. Idioma del sitio: español.
 
-Datos de contacto: hola@sellpix.es. Trabaja en persona en Asturias y en remoto para toda España. Los precios incluyen IVA y están publicados; el resto de condiciones, en la página de condiciones.
+Datos de contacto: hola@sellpix.es. Primer contacto y propuesta por email; reuniones por videollamada; trabaja en remoto para toda España. Los precios incluyen IVA y están publicados; el resto de condiciones, en la página de condiciones.
 
 ## Servicios
 
@@ -27,7 +27,7 @@ Datos de contacto: hola@sellpix.es. Trabaja en persona en Asturias y en remoto p
 
 ## Sobre el estudio
 
-- [Sobre mí](https://sellpix.es/sobre-mi/): quién es Alberto Domínguez y cómo trabaja.
+- [El estudio](https://sellpix.es/estudio/): cómo trabaja SellPix: negocio primero, precio cerrado, IA con revisión humana y la web es del cliente.
 - [Diseño web en Asturias](https://sellpix.es/diseno-web-asturias/): Oviedo, Gijón, Avilés y resto de la región.
 - [Contacto](https://sellpix.es/contacto/): formulario; respuesta en menos de 24 horas.
 

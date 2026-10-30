@@ -335,3 +335,14 @@ footer .sp-container {
 .guide-card__more { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
 .footer-place { color: inherit; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
 .footer-place:hover { color: var(--color-text); }
+
+/* Herramientas (El estudio) */
+.tools-list {
+  display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4);
+}
+.tool-chip {
+  font-family: var(--font-pixel); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-line-strong); border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
