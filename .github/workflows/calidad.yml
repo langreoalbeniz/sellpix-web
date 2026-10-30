@@ -1,0 +1,88 @@
+name: Calidad
+
+# Red de seguridad de la verificación de CLAUDE.md: se ejecuta en cada push a main
+# (y a mano desde la pestaña Actions). Falla si algo baja de los umbrales.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: calidad-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  calidad:
+    name: html-validate · pa11y · Lighthouse · PENDIENTE
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Chrome ya viene en el runner; evita que puppeteer descargue otro.
+      PUPPETEER_SKIP_DOWNLOAD: "1"
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
+      CHROME_PATH: /usr/bin/google-chrome
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Ningún marcador «PENDIENTE» publicado
+        run: |
+          if git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude).github"; then
+            echo "::error::Hay marcadores PENDIENTE en archivos que se publican. Completa el dato o quita el elemento."
+            exit 1
+          fi
+          echo "Sin marcadores PENDIENTE."
+
+      - name: Listar páginas
+        id: paginas
+        run: |
+          # Todas las páginas HTML versionadas (carpeta/index.html y 404.html), como rutas y como URLs locales.
+          git ls-files -- '*.html' | sort > paginas.txt
+          sed -E 's#(^|/)index\.html$#\1#' paginas.txt | sed 's#^#http://localhost:8080/#' > urls.txt
+          echo "$(wc -l < paginas.txt) páginas:"; cat urls.txt
+
+      - name: html-validate sin errores
+        run: npx -y html-validate@latest $(cat paginas.txt)
+
+      - name: Servir la web en local
+        run: |
+          python3 -m http.server 8080 --bind 127.0.0.1 > servidor.log 2>&1 &
+          for i in $(seq 1 20); do curl -fs -o /dev/null http://localhost:8080/ && break; sleep 1; done
+          curl -fsI http://localhost:8080/ | head -1
+
+      - name: pa11y sin errores (WCAG 2 AA)
+        run: |
+          fallos=0
+          while read -r url; do
+            echo "::group::$url"
+            if ! npx -y pa11y@latest --standard WCAG2AA "$url"; then fallos=$((fallos+1)); fi
+            echo "::endgroup::"
+          done < urls.txt
+          if [ "$fallos" -gt 0 ]; then
+            echo "::error::pa11y encontró errores en $fallos página(s)."
+            exit 1
+          fi
+
+      - name: Lighthouse en móvil (90 o más)
+        run: |
+          args=""
+          while read -r url; do args="$args --collect.url=$url"; done < urls.txt
+          npx -y @lhci/cli@0.14.x collect --config=.github/lighthouserc.json $args
+          npx -y @lhci/cli@0.14.x assert --config=.github/lighthouserc.json
+
+      - name: Guardar informes de Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          if-no-files-found: ignore
+          retention-days: 14

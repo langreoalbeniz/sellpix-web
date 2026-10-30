@@ -91,6 +91,8 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
    `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md"`
    Si aparece algo, **no se publica**: completa el dato o quita el elemento. Este archivo no se publica en la web (`_config.yml` lo excluye), por eso puede nombrar la palabra.
 
+**Red de seguridad en GitHub Actions:** `.github/workflows/calidad.yml` repite en cada push a `main` los puntos 2, 3, 4 y 6 (Lighthouse móvil ≥ 90 con una pasada, pa11y, html-validate y PENDIENTE) sobre todas las páginas, servidas en local en el runner. Si falla, se corrige y se vuelve a subir; no sustituye a la verificación manual de arriba. Umbrales en `.github/lighthouserc.json`; las páginas con `noindex` no se evalúan en SEO.
+
 La 404 lleva `noindex` a propósito: su SEO en Lighthouse sale bajo y no cuenta para el objetivo.
 
 Los informes se guardan en `auditoria/`, que está en `.gitignore` y no se sube. Las herramientas se ejecutan con `npx`, sin instalación global. Para auditar en local, sirve la web con `python -m http.server 8080` y usa `http://localhost:8080/`.
