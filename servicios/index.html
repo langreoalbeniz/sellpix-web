@@ -208,6 +208,9 @@
   .services-extra-head h2 { margin: 0; }
   .pay-note { margin: var(--space-6) 0 0; max-width: 760px; color: var(--color-text-muted); font-size: var(--text-small-size); line-height: var(--text-small-line); }
   .pay-note a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+  .dossier-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5); }
+  .dossier-card > div { max-width: 640px; }
+  .dossier-card p { margin: 0; color: var(--color-text-muted); }
   .service-tag {
     position: absolute; top: -13px; left: var(--space-5);
     background: var(--color-lime); color: var(--color-on-lime);
@@ -433,6 +436,14 @@
       </div>
 
       <p class="pay-note">Cada servicio se contrata desde su página: un cuestionario de un minuto y el pago seguro con Stripe (tarjeta, Apple Pay y Google Pay). Al contratar aceptas las <a href="../condiciones/">condiciones de contratación</a>.</p>
+
+      <aside class="sp-card dossier-card u-mt-6" aria-labelledby="dossier-h">
+        <div>
+          <h2 id="dossier-h" class="sp-eyebrow eyebrow-block eyebrow-block--tight">Dossier</h2>
+          <p class="sp-body">Todo SellPix en un PDF: servicios, precios, cómo trabajamos y qué necesitamos de ti. Para leerlo con calma o compartirlo con tu socio.</p>
+        </div>
+        <a class="sp-btn sp-btn--ghost" href="../descargas/sellpix-dossier.pdf" download type="application/pdf">Descargar dossier (PDF, 1,1 MB)</a>
+      </aside>
     </div>
   </section>
 
