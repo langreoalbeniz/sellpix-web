@@ -40,6 +40,8 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `index.html` | Portada (punto de partida de la web) |
 | `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
+| `servicios/landing-page/` · `web-corporativa/` · `tienda-online-shopify/` · `mantenimiento-web/` | Páginas de producto. Son el único sitio con enlaces de pago: botón → cuestionario de Tally en ventana emergente → Stripe (ver «Recorrido de contratación») |
+| `js/contratar.js` | Script compartido del recorrido de contratación; se carga con `defer` solo en las páginas de producto |
 | `condiciones/` | Condiciones de contratación: servicios (copiados de Servicios), precios con IVA, pagos con Stripe, mantenimiento y desistimiento. Si cambian precios, plazos o enlaces de pago, actualízala a la vez que Servicios |
 | `gracias/` | Página de destino tras pagar en Stripe (`noindex`, fuera del sitemap); borra de la barra el parámetro `?pedido` |
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
@@ -55,6 +57,8 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
 
 **Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
+
+**Recorrido de contratación:** los enlaces de pago de Stripe solo existen en las páginas de producto, nunca en tarjetas ni en otras páginas. El botón es `<a href="https://tally.so/r/<id>" data-contratar-form="<id>" data-contratar-pago="<enlace de Stripe>">`: sin JavaScript abre el cuestionario en tally.so (cuya página final enlaza al pago); con JavaScript, `js/contratar.js` carga `embed.js` de Tally solo al pulsar, abre `Tally.openPopup` en modal y, al enviar, redirige al enlace de Stripe con `?prefilled_email=` (el email del cuestionario). Formularios: landing `pee8yP`, web corporativa `M11oN8`, Shopify `J115pX`, mantenimiento `gbbKdJ`. Si cambia un precio, un plazo o lo que incluye un paquete, actualiza a la vez la página de producto, `servicios/`, la portada, `condiciones/` y el formulario de Tally.
 
 **Analítica en todas las páginas:** toda página publicada, también las nuevas, lleva justo antes de `</body>` este fragmento de Cloudflare Web Analytics, en una sola línea y tal cual. No hay plantilla compartida, así que no se añade solo.
 
@@ -74,7 +78,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 3. **pa11y sin errores** (WCAG 2 AA) en cada página:
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
-   `npx -y html-validate@latest index.html 404.html */index.html`
+   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html`
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).

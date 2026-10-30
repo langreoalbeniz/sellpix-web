@@ -89,20 +89,20 @@
   <div class="sp-container">
     <article class="legal sp-body">
 <h2 class="sp-h3">Esta web no usa cookies</h2>
-<p>Las cookies son pequeños archivos que una web guarda en tu navegador. El 30 de octubre de 2026 cargué todas las páginas de la web y el formulario de contacto en un navegador sin datos previos, y comprobé que no se crea ninguna cookie, ni propia ni de terceros.</p>
+<p>Las cookies son pequeños archivos que una web guarda en tu navegador. El 30 de octubre de 2026 cargué todas las páginas de la web, el formulario de contacto y los cuestionarios de contratación en un navegador sin datos previos, y comprobé que no se crea ninguna cookie, ni propia ni de terceros.</p>
 <p>Tampoco hay publicidad ni redes sociales. Para contar las visitas uso Cloudflare Web Analytics, que no crea cookies ni guarda nada en tu navegador. Por eso no ves un aviso de cookies: no hace falta pedir consentimiento cuando no hay cookies que lo necesiten.</p>
 
-<h2 class="sp-h3">Almacenamiento técnico del formulario de contacto</h2>
-<p>El formulario de la página de <a href="../contacto/">contacto</a> lo ofrece Tally y se carga dentro de la web. Al cargarlo, Tally guarda estos datos en el almacenamiento local de tu navegador (<code>localStorage</code>), en su propio dominio, tally.so:</p>
+<h2 class="sp-h3">Almacenamiento técnico de los formularios de Tally</h2>
+<p>El formulario de la página de <a href="../contacto/">contacto</a> y los cuestionarios de contratación de las páginas de cada servicio los ofrece Tally. El de contacto se carga dentro de la web; los de contratación se abren en una ventana emergente solo cuando pulsas Contratar, Reservar o Suscribirme (hasta entonces la página no carga nada de Tally). En ambos casos Tally guarda estos datos en el almacenamiento local de tu navegador (<code>localStorage</code>), en su propio dominio, tally.so:</p>
 <table class="legal-table">
   <thead>
     <tr><th scope="col">Nombre</th><th scope="col">Proveedor</th><th scope="col">Finalidad</th><th scope="col">Duración</th></tr>
   </thead>
   <tbody>
     <tr>
-      <td data-label="Nombre"><code>FORM_SESSION_aOOWGy</code></td>
+      <td data-label="Nombre"><code>FORM_SESSION_</code> + identificador del formulario (por ejemplo <code>FORM_SESSION_aOOWGy</code>)</td>
       <td data-label="Proveedor">Tally (tally.so)</td>
-      <td data-label="Finalidad">Identificador técnico de tu sesión con el formulario.</td>
+      <td data-label="Finalidad">Identificador técnico de tu sesión con ese formulario. Se crea al abrirlo.</td>
       <td data-label="Duración">Hasta que borres los datos del sitio en tu navegador.</td>
     </tr>
     <tr>
@@ -112,9 +112,9 @@
       <td data-label="Duración">Hasta que borres los datos del sitio en tu navegador.</td>
     </tr>
     <tr>
-      <td data-label="Nombre"><code>FORM_DATA_aOOWGy</code></td>
+      <td data-label="Nombre"><code>FORM_DATA_</code> + identificador del formulario</td>
       <td data-label="Proveedor">Tally (tally.so)</td>
-      <td data-label="Finalidad">Guarda lo que vas escribiendo para que no lo pierdas si recargas la página.</td>
+      <td data-label="Finalidad">Guarda lo que vas escribiendo para que no lo pierdas si recargas la página. Se crea al empezar a rellenarlo.</td>
       <td data-label="Duración">Hasta que borres los datos del sitio en tu navegador.</td>
     </tr>
   </tbody>
