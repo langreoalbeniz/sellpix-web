@@ -27,3 +27,7 @@ El flujo [`.github/workflows/calidad.yml`](.github/workflows/calidad.yml) se eje
 Las páginas con `noindex` (`404.html`, `gracias/` y las demos de `proyectos/`) no se evalúan en SEO, porque su puntuación baja a propósito. Los informes HTML de Lighthouse quedan como artefacto `lighthouse` del flujo durante 14 días. En local, Lighthouse da 96 en buenas prácticas porque el beacon de Cloudflare no responde a `localhost`; en sellpix.es da 100.
 
 El flujo es una red de seguridad: la verificación manual de `CLAUDE.md` (capturas en 375 y 1440 px en claro y oscuro, Lighthouse ×3 sobre el dominio) sigue haciéndose antes de cada commit.
+
+## Repositorios relacionados
+
+- [`sellpix-starter`](https://github.com/langreoalbeniz/sellpix-starter) (privado, plantilla): punto de partida para la web de un cliente, con tokens vacíos, páginas legales con huecos `[DATO_CLIENTE]`, CLAUDE.md genérico y el mismo flujo de calidad. Se usa con «Use this template».
