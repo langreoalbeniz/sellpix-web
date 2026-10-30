@@ -1,0 +1,83 @@
+name: IndexNow
+
+# Avisa a IndexNow (Bing y los buscadores compatibles) de las URLs públicas que han cambiado, justo después de que
+# GitHub Pages termine de desplegar con éxito. La clave es pública por diseño (no es una credencial) y está publicada en
+# https://sellpix.es/c34d89f7eb43445eb011037759de413f.txt. Un error de IndexNow nunca hace fallar el despliegue.
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  avisar:
+    name: Enviar las URLs cambiadas a IndexNow
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HOST: sellpix.es
+      KEY: c34d89f7eb43445eb011037759de413f
+      HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Descargar el repositorio (commit desplegado, con historial)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+
+      - name: Calcular las URLs que han cambiado
+        id: urls
+        run: |
+          set +o pipefail
+          # Base de comparación: el despliegue anterior con éxito que sea antecesor del commit desplegado ahora.
+          BASE=""
+          for sha in $(gh run list -R "$GITHUB_REPOSITORY" --workflow pages-build-deployment --status success -L 10 --json headSha -q '.[].headSha'); do
+            if [ "$sha" != "$HEAD_SHA" ] && git cat-file -e "$sha^{commit}" 2>/dev/null && git merge-base --is-ancestor "$sha" "$HEAD_SHA"; then BASE="$sha"; break; fi
+          done
+          if [ -z "$BASE" ]; then BASE=$(git rev-parse "$HEAD_SHA~1" 2>/dev/null || true); fi
+
+          # Las URLs indexables son exactamente las del sitemap (las páginas noindex no están en él).
+          grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's#</\?loc>##g' | sort -u > sitemap-urls.txt
+
+          if [ -z "$BASE" ]; then
+            echo "Sin despliegue anterior con el que comparar: se envía todo el sitemap."
+            cp sitemap-urls.txt urls.txt
+          else
+            git diff --name-only "$BASE" "$HEAD_SHA" > cambios.txt
+            echo "Comparando $BASE → $HEAD_SHA: $(wc -l < cambios.txt) archivos cambiados"
+            if grep -qE '^(sitemap\.xml$|css/|brand/)' cambios.txt; then
+              echo "Cambio global (sitemap.xml, css/ o brand/): se envía todo el sitemap."
+              cp sitemap-urls.txt urls.txt
+            else
+              grep -E '(^|/)index\.html$' cambios.txt | sed -E 's#(^|/)index\.html$#\1#' | sed "s#^#https://$HOST/#" | sort -u > candidatas.txt
+              # Solo URLs presentes en el sitemap y, por si acaso, nunca confirmar/, gracias/, sobre-mi/ ni la 404.
+              grep -Fx -f sitemap-urls.txt candidatas.txt | grep -vE '/(confirmar|gracias|sobre-mi)/|404' > urls.txt || true
+            fi
+          fi
+          n=$(grep -c . urls.txt || true)
+          echo "URLs a enviar: $n"; cat urls.txt
+          echo "n=$n" >> "$GITHUB_OUTPUT"
+
+      - name: Enviar a IndexNow
+        if: steps.urls.outputs.n != '0'
+        run: |
+          jq -Rn --arg host "$HOST" --arg key "$KEY" \
+            '{host: $host, key: $key, keyLocation: ("https://" + $host + "/" + $key + ".txt"), urlList: [inputs | select(length > 0)]}' urls.txt > cuerpo.json
+          cat cuerpo.json
+          codigo=$(curl -sS -o respuesta.txt -w "%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" --data-binary @cuerpo.json || echo "000")
+          echo "IndexNow respondió: $codigo"
+          cat respuesta.txt 2>/dev/null || true
+          case "$codigo" in
+            200|202) echo "Aviso aceptado (200 recibido, 202 aceptado pendiente de validar la clave)." ;;
+            *) echo "::warning::IndexNow respondió $codigo. El despliegue no se ve afectado." ;;
+          esac
+
+      - name: Nada que enviar
+        if: steps.urls.outputs.n == '0'
+        run: echo "Ninguna URL pública ha cambiado en este despliegue."
