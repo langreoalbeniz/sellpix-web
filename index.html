@@ -116,13 +116,15 @@
   }
 
   /* Mantenimiento: franja tras los paquetes */
-  .maint-strip { margin-top: var(--space-6); display: grid; gap: var(--space-4); }
+  .maint-strip { margin-top: var(--space-6); display: grid; gap: var(--space-3); }
   .maint-head h3 { margin: 0; }
-  .maint-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .maint-list li { color: var(--color-text-muted); }
-  .maint-list .faq-figure { display: block; font-size: var(--text-h3-size); line-height: var(--text-h3-line); margin-bottom: var(--space-1); }
-  .maint-list .plan-link { display: inline-block; margin-top: var(--space-2); }
+  .maint-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+  .maint-list li { display: grid; grid-template-columns: 7.5rem 1fr; column-gap: var(--space-3); align-items: baseline; color: var(--color-text-muted); border-top: 1px solid var(--color-line); padding-top: var(--space-2); }
+  .maint-list .faq-figure { font-size: var(--text-h4-size); line-height: var(--text-h4-line); }
+  .maint-list .plan-link { padding-block: 0; }
+  .maint-list li span:last-child { grid-column: 2; font-size: var(--text-small-size); line-height: var(--text-small-line); }
   .maint-strip .plan-note { margin: 0; }
+  @media (min-width: 900px) { .maint-list { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); } .maint-list li { grid-template-columns: 1fr; border-top: 0; padding-top: 0; row-gap: var(--space-1); } .maint-list li span:last-child { grid-column: 1; } }
 
   /* Proceso en una línea */
   .proceso-linea .sp-container { padding-block: var(--space-7); border-bottom: 1px solid var(--color-line); }
@@ -146,6 +148,15 @@
   .sales-item p { margin: 0; color: var(--color-text-muted); }
   .sales-pixel { display: block; width: 12px; height: 12px; border-radius: 2px; background: var(--color-lime); }
   .guide-grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  /* Móvil: menos altura. Tarjetas del bloque comercial sin marco, escaleras decorativas más pequeñas */
+  @media (max-width: 639px) {
+    .sales-item { background: transparent; border: 0; border-top: 1px solid var(--color-line); border-radius: 0; padding: var(--space-4) 0 0; gap: var(--space-2); }
+    .sales-grid { gap: var(--space-4); }
+    .hero .pixel-stair, .sp-cta-block .pixel-stair { width: 180px; gap: 6px; }
+    .hero .pixel-stair span, .sp-cta-block .pixel-stair span { border-radius: 4px; }
+    .hero .sp-container { gap: var(--space-6); padding-block: var(--space-7) var(--space-8); }
+  }
 
   /* Sobre mí - teaser */
   .about-teaser .sp-container { display: grid; gap: var(--space-7); align-items: center; }
@@ -273,9 +284,9 @@
           <h3 class="sp-h4" id="mant-h">Y después de publicar, tres planes para que siga al día.</h3>
         </div>
         <ul class="maint-list">
-          <li><span class="faq-figure">29 €/mes</span> para webs hechas por SellPix: pequeños cambios, revisión técnica mensual y copias. <a class="plan-link" href="servicios/mantenimiento-web/">Ver mantenimiento</a></li>
-          <li><span class="faq-figure">49 €/mes</span> para webs WordPress que no hicimos nosotros, con revisión inicial gratuita. <a class="plan-link" href="servicios/mantenimiento-wordpress/">Ver mantenimiento WordPress</a></li>
-          <li><span class="faq-figure">99 €/mes</span> para tiendas WooCommerce de hasta 500 productos. <a class="plan-link" href="servicios/mantenimiento-wordpress/">Ver mantenimiento WooCommerce</a></li>
+          <li><span class="faq-figure">29 €/mes</span><a class="plan-link" href="servicios/mantenimiento-web/">Mantenimiento<span class="u-sr-only"> de 29 € al mes</span></a><span>webs hechas por SellPix</span></li>
+          <li><span class="faq-figure">49 €/mes</span><a class="plan-link" href="servicios/mantenimiento-wordpress/">Mantenimiento WordPress</a><span>webs que no hicimos nosotros</span></li>
+          <li><span class="faq-figure">99 €/mes</span><a class="plan-link" href="servicios/mantenimiento-wordpress/">Mantenimiento WooCommerce</a><span>hasta 500 productos</span></li>
         </ul>
         <p class="plan-note">Los tres con IVA incluido y sin permanencia.</p>
       </aside>
@@ -354,19 +365,16 @@
           <span class="sp-eyebrow">Guía</span>
           <h3 class="sp-h3"><a href="guias/cuanto-cuesta-una-pagina-web-pequeno-negocio/">Cuánto cuesta una página web para un pequeño negocio</a></h3>
           <p>Qué hace variar el precio, qué va aparte y qué incluye cada paquete de SellPix.</p>
-          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
         </article>
         <article class="sp-card guide-card">
           <span class="sp-eyebrow">Guía</span>
           <h3 class="sp-h3"><a href="guias/mantenimiento-web-que-incluye/">Cuánto cuesta el mantenimiento de una página web</a></h3>
           <p>De qué depende el precio, qué incluye y cuándo compensa, con el precio de SellPix como ejemplo.</p>
-          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
         </article>
         <article class="sp-card guide-card">
           <span class="sp-eyebrow">Guía</span>
           <h3 class="sp-h3"><a href="guias/que-es-una-landing-page/">Qué es una landing page y ejemplos por tipo de negocio</a></h3>
           <p>Qué es, en qué se diferencia de una web, qué debe llevar y cuatro esquemas por sector.</p>
-          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
         </article>
       </div>
       <div class="u-mt-6">
