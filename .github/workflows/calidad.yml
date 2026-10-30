@@ -41,6 +41,10 @@ jobs:
           fi
           echo "Sin marcadores PENDIENTE."
 
+      - name: CSS crítico al día
+        # El bloque <style id="css-critico"> de cada página se genera desde brand/tokens.css y css/site.css.
+        run: node scripts/critical-css.js --check
+
       - name: Listar páginas
         id: paginas
         run: |
