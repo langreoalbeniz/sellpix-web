@@ -14,7 +14,7 @@
 
 ## Qué he entendido de tu proyecto
 
-[Dos o tres frases con lo hablado en la reunión: qué vende el negocio, a quién, qué tiene que conseguir la web y cuál es la acción principal. Sirve para confirmar que hablamos de lo mismo antes de hablar de precio.]
+[Dos o tres frases con lo hablado por email o en la videollamada: qué vende el negocio, a quién, qué tiene que conseguir la web y cuál es la acción principal. Sirve para confirmar que hablamos de lo mismo antes de hablar de precio.]
 
 ## Qué incluye
 
@@ -33,7 +33,7 @@
 
 ## Qué no incluye
 
-- Dominio y alojamiento (te ayudo a contratarlos a tu nombre; los pagas tú al proveedor).
+- Dominio y alojamiento (te ayudamos a contratarlos a tu nombre; los pagas tú al proveedor).
 - Fotografía profesional y redacción de textos largos (blog, fichas de producto extensas).
 - [Páginas o funciones por encima de las listadas arriba.]
 - [Suscripción de Shopify y comisiones de pago, si es tienda.]
@@ -48,29 +48,28 @@
 | IVA (21 %) | [IVA] € |
 | **Total** | **[TOTAL_CON_IVA] €** |
 
-Precio cerrado: es el que pagas si el alcance no cambia. Si durante el proyecto quieres añadir algo, te lo presupuesto aparte antes de hacerlo.
+Precio cerrado: es el que pagas si el alcance no cambia. Si durante el proyecto quieres añadir algo, te lo presupuestamos aparte antes de hacerlo.
 
 ## Plazo
 
-**[PLAZO] días hábiles** desde que tengo todos los materiales (textos, fotos, datos y accesos). Si el alcance cambia o los materiales llegan por partes, el plazo se ajusta y te lo digo por escrito.
+**[PLAZO] días hábiles** desde que tenemos todos los materiales (textos, fotos, datos y accesos). Si el alcance cambia o los materiales llegan por partes, el plazo se ajusta y te lo decimos por escrito.
 
 ## Forma de pago
 
 [Opción A — paquete cerrado] El importe completo al contratar, con tarjeta a través de Stripe desde la página del servicio, o por transferencia.
 
-[Opción B — proyecto a medida] [PORCENTAJE] % al aceptar el presupuesto y el resto antes de publicar. Por transferencia o con tarjeta (te envío el enlace de pago).
+[Opción B — proyecto a medida] [PORCENTAJE] % al aceptar el presupuesto y el resto antes de publicar. Por transferencia o con tarjeta (te enviamos el enlace de pago).
 
 Cuenta para transferencias: [IBAN]. Concepto: «Presupuesto [NÚMERO]».
 
 ## Cómo seguimos
 
-1. Me confirmas por email que aceptas el presupuesto (vale con responder «acepto»).
-2. Hacemos el primer pago y te envío la bienvenida con la lista de materiales.
-3. Fijamos la reunión inicial.
+1. Nos confirmas por email que aceptas el presupuesto (vale con responder «acepto»).
+2. Haces el primer pago y te enviamos la bienvenida con la lista de materiales.
+3. Fijamos la reunión inicial por videollamada.
 
-Al aceptar este presupuesto aceptas las [condiciones de contratación](https://sellpix.es/condiciones/) de SellPix. Si algo no te encaja, dímelo y lo ajustamos antes de empezar.
+Al aceptar este presupuesto aceptas las [condiciones de contratación](https://sellpix.es/condiciones/) de SellPix. Si algo no te encaja, dínoslo y lo ajustamos antes de empezar.
 
-Gracias por contar conmigo.
+Gracias por contar con SellPix.
 
-Alberto Domínguez
-Fundador · SellPix
+SellPix · [hola@sellpix.es](mailto:hola@sellpix.es)

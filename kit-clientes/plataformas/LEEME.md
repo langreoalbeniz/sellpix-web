@@ -4,7 +4,7 @@ Textos listos para pegar en Contra, Malt, Workana y Fiverr, en español e inglé
 
 ## Reglas comunes
 
-- **Mismo mensaje en todas:** diseño web con criterio comercial para pequeños negocios; precio cerrado; webs, landing pages y tiendas Shopify; desde Oviedo para toda España y en remoto. Eslogan siempre en inglés: *Engineered to sell.*
+- **Mismo mensaje en todas:** diseño web con criterio comercial para pequeños negocios; precio cerrado; webs, landing pages y tiendas Shopify; desde Oviedo para toda España, en remoto (email, videollamada y teléfono una vez contratado; nunca reuniones presenciales). Eslogan siempre en inglés: *Engineered to sell.*
 - **Nombre:** SellPix (una palabra, S y P mayúsculas). En plataformas que piden persona, «Alberto Domínguez · SellPix».
 - **Nada inventado:** ni años de experiencia, ni número de clientes, ni valoraciones. Los proyectos que se enseñan son las demos de sellpix.es, marcadas como concepto.
 - **Datos de contacto:** Malt y Workana prohíben poner email, teléfono o redes en el perfil; en esas dos no se menciona hola@sellpix.es. La web sellpix.es se enlaza solo donde la plataforma tiene campo para ello.

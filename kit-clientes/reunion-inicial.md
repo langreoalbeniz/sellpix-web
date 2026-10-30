@@ -1,6 +1,6 @@
 # Guion de la reunión inicial
 
-> Guion para la primera reunión con un cliente (unos 45 minutos). No hace falta seguirlo al pie de la letra: sirve para no olvidar nada. Toma notas directamente debajo de cada pregunta y guarda el archivo en la carpeta del cliente. No se publica en la web.
+> Guion para la primera reunión con un cliente, por videollamada (unos 45 minutos). No hace falta seguirlo al pie de la letra: sirve para no olvidar nada. Toma notas directamente debajo de cada pregunta y guarda el archivo en la carpeta del cliente. No se publica en la web.
 
 **Cliente:** [NOMBRE_CLIENTE] · **Negocio:** [NOMBRE_NEGOCIO] · **Proyecto:** [TIPO_DE_PROYECTO] · **Fecha:** [FECHA]
 
@@ -75,15 +75,16 @@ Notas:
 
 - Repasar en voz alta: qué vamos a hacer, qué incluye, plazo y precio.
 - Acordar fecha límite para los materiales. Recordar que el plazo empieza al recibirlos.
+- Confirmar el canal: email para todo lo que haya que guardar, videollamada para las revisiones y teléfono para dudas rápidas.
 - Próximo paso concreto y quién lo hace.
 
 Siguiente paso: [QUIÉN] hace [QUÉ] antes del [FECHA].
 
 ---
 
-## Después de la reunión (para mí)
+## Después de la reunión (para SellPix)
 
-- [ ] Enviar al cliente el resumen de la reunión y la lista de materiales el mismo día.
+- [ ] Enviar al cliente por email el resumen de la reunión y la lista de materiales el mismo día.
 - [ ] Crear la carpeta compartida con una subcarpeta por página.
 - [ ] Apuntar las cinco preguntas frecuentes y las objeciones: son la base de los textos.
 - [ ] Decidir la acción principal de cada pantalla.

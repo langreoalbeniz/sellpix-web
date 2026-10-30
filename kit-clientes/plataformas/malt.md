@@ -20,7 +20,7 @@ Qué hago:
 
 Cómo trabajo: precio cerrado antes de empezar, dos rondas de revisión, entrega en días (5, 10 o 15 hábiles según el proyecto) y una explicación final para que puedas editar textos y fotos sin depender de nadie. Uso inteligencia artificial para ir más rápido en lo técnico y reviso cada detalle a mano.
 
-Trabajo desde Oviedo, en persona en Asturias y en remoto para el resto de España y Europa.
+Trabajo desde Oviedo, en remoto para toda España y Europa: propuesta por email, reuniones por videollamada.
 
 **EN (about 850 characters):**
 I design websites that help small businesses sell more. I come from sales management, where I ran teams and sales centres and saw first-hand what makes a customer buy or leave. That experience is the starting point of every website I build.
@@ -33,7 +33,7 @@ What I do:
 
 How I work: fixed price agreed before starting, two revision rounds, delivery in days (5, 10 or 15 business days depending on the project) and a final walkthrough so you can edit copy and images yourself. I use AI to move faster on the technical side and review every detail by hand.
 
-Based in Oviedo, Spain; on site across Asturias and remote for the rest of Spain and Europe.
+Based in Oviedo, Spain, working remotely across Spain and Europe: proposals by email, meetings by video call.
 
 ## Categoría y puesto
 
@@ -58,7 +58,7 @@ Diseño web · Landing page · Shopify · HTML · CSS · Diseño responsive · C
 
 ## Ubicación y modalidad
 
-Oviedo. Remoto y presencial. Ciudades (hasta 5): Oviedo, Gijón, Avilés, Siero, Llanera. Radio: 50 km.
+Oviedo. Solo remoto (sin ciudades de desplazamiento).
 
 ## Tarifa diaria
 

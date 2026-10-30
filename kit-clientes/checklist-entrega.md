@@ -63,14 +63,14 @@
 
 ## Entrega al cliente
 
-- [ ] Llamada o vídeo corto explicando cómo cambiar textos, fotos y horarios.
+- [ ] Videollamada corta (o vídeo grabado) explicando cómo cambiar textos, fotos y horarios.
 - [ ] Documento con los accesos (dominio, alojamiento, editor, Google) enviado por un canal seguro, nunca en un email en claro si incluye contraseñas.
 - [ ] Factura emitida.
 - [ ] Explicado qué entra en el mantenimiento y qué no, y cómo contratarlo si lo quiere.
-- [ ] Pedido permiso para enseñar el proyecto en Proyectos de sellpix.es (y en qué términos).
+- [ ] Pedido permiso para citar el proyecto como referencia a futuros clientes (y en qué términos). En la web no se publican casos.
 - [ ] Recordatorio en la agenda para preguntar a los 30 días cómo va y qué contactos han llegado.
 
-## Para mí, después
+## Para SellPix, después
 
 - [ ] Copia del proyecto final archivada.
 - [ ] Notas de lo que se podría mejorar en el proceso o en el kit.
