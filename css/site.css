@@ -327,6 +327,22 @@ footer .sp-container {
 .scheme figcaption strong { color: var(--color-text); }
 .scheme .lbl { font-family: var(--font-pixel); font-size: var(--text-caption-size); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--color-text-muted); }
 .scheme .cta-lbl { font-family: var(--font-sans); font-weight: 600; font-size: var(--text-caption-size); fill: var(--color-on-lime); }
+.includes-table { max-width: 760px; }
+.includes-table th[scope="row"] { font-weight: 400; text-align: left; }
+.includes-note { max-width: 760px; margin: calc(-1 * var(--space-3)) 0 0; }
+.services-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.service-card { display: flex; flex-direction: column; gap: var(--space-4); background: var(--color-surface-alt); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: var(--space-6); }
+.service-card h2, .service-card h3 { margin: 0; }
+.service-card .price { margin: 0; font-family: var(--font-display); font-size: var(--text-stat-size); line-height: var(--text-stat-line); font-weight: var(--text-stat-weight); letter-spacing: var(--text-stat-tracking); }
+.service-card .price small { font-family: var(--font-sans); font-size: var(--text-small-size); font-weight: 400; color: var(--color-text-muted); margin-right: var(--space-2); }
+.service-card .price .price-tax { margin: 0 0 0 var(--space-2); }
+.service-card .price .price-unit { margin: 0; font-family: var(--font-display); font-size: var(--text-h3-size); font-weight: 700; color: var(--color-text-muted); }
+.service-card p { margin: 0; color: var(--color-text-muted); }
+.service-card ul { margin: 0; padding-left: var(--space-5); color: var(--color-text-muted); }
+.service-card li { margin-bottom: var(--space-2); }
+.service-card .card-actions { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+.service-card .card-note { font-size: var(--text-small-size); line-height: var(--text-small-line); }
+.service-divider { border: none; border-top: 1px solid var(--color-line); margin: 0; }
 .guide-more { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-line); }
 .guide-more h2 { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
 .guide-more ul { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
