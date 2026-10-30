@@ -130,6 +130,11 @@
     overflow: hidden;
   }
   .sp-tally iframe { display: block; width: 100%; border: 0; margin: 0; }
+  .tally-slot { min-height: 620px; display: grid; place-items: center; }
+  .tally-fallback { margin: 0; max-width: 32ch; text-align: center; color: var(--color-on-paper); }
+  .tally-fallback a { color: var(--color-on-paper); text-decoration: underline; text-decoration-color: var(--color-lime); }
+  #formulario { scroll-margin-top: var(--space-9); }
+  .contact-jump { margin: 0 0 var(--space-6); }
   .tally-alt {
     margin-top: var(--space-4);
     font-size: 14px; color: var(--color-text-muted);
@@ -200,6 +205,7 @@
           <span class="sp-eyebrow">Contacto</span>
           <h1 class="sp-h1">¿Hablamos de tu web?<span class="sp-pixel" aria-hidden="true"></span></h1>
           <p class="sp-lead">Cuéntanos qué vendes, a quién y qué necesitas. Te respondemos por email en menos de 24 horas con una propuesta y un precio cerrado.</p>
+          <p class="contact-jump"><a class="sp-btn sp-btn--secondary" href="#formulario">Escríbenos</a></p>
         </div>
 
         <div class="contact-details">
@@ -237,10 +243,10 @@
 
       <!-- Columna derecha: formulario Tally -->
       <div>
-        <div class="sp-tally">
-          <iframe data-tally-src="https://tally.so/embed/aOOWGy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy" height="620"
-            title="Cuéntanos tu proyecto"></iframe>
+        <div class="sp-tally" id="formulario">
+          <div class="tally-slot" data-tally="https://tally.so/embed/aOOWGy?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1">
+            <p class="tally-fallback">El formulario se carga al llegar aquí. Si no aparece, <a href="https://tally.so/r/aOOWGy">ábrelo en Tally</a>.</p>
+          </div>
         </div>
         <p class="tally-alt">¿Prefieres email? <a href="mailto:hola@sellpix.es">hola@sellpix.es</a></p>
       </div>
@@ -306,7 +312,35 @@
   });
   document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
-<script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
+<script>
+  /* Tally solo cuando el formulario se acerca a la pantalla. Sin JavaScript queda el enlace a tally.so. */
+  (function () {
+    var slot = document.querySelector('.tally-slot');
+    if (!slot) return;
+    var url = slot.getAttribute('data-tally');
+    var done = false;
+    function load() {
+      if (done) return;
+      done = true;
+      var frame = document.createElement('iframe');
+      frame.setAttribute('data-tally-src', url);
+      frame.setAttribute('height', '620');
+      frame.setAttribute('title', 'Cuéntanos tu proyecto');
+      slot.replaceChildren(frame);
+      var s = document.createElement('script');
+      s.src = 'https://tally.so/widgets/embed.js';
+      s.async = true;
+      s.onload = function () { if (window.Tally && window.Tally.loadEmbeds) { window.Tally.loadEmbeds(); } else { frame.src = url; } };
+      s.onerror = function () { frame.src = url; };
+      document.body.appendChild(s);
+    }
+    if (!('IntersectionObserver' in window)) { load(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { io.disconnect(); load(); return; } }
+    }, { rootMargin: '100px 0px' });
+    io.observe(slot);
+  })();
+</script>
 <!-- Cloudflare Web Analytics: se carga tras el evento load para no competir con el contenido --><script>window.addEventListener('load', function () { var s = document.createElement('script'); s.type = 'module'; s.src = 'https://static.cloudflareinsights.com/beacon.min.js'; s.setAttribute('data-cf-beacon', '{"token": "724c084d30e94710b4ae653efca91731"}'); document.body.appendChild(s); });</script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -9,6 +9,7 @@ module.exports = {
         "lime": "var(--color-lime)",
         "lime-hover": "var(--color-lime-hover)",
         "on-lime": "var(--color-on-lime)",
+        "on-paper": "var(--color-on-paper)",
         "surface": "var(--color-surface)",
         "surface-alt": "var(--color-surface-alt)",
         "surface-raised": "var(--color-surface-raised)",
