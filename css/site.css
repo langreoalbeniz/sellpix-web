@@ -326,3 +326,10 @@ footer .sp-container {
 .guide-card { position: relative; }
 .guide-card p { margin: 0; color: var(--color-text-muted); }
 .guide-card p:last-child { margin-top: auto; }
+.guide-card h3 { margin: 0; }
+.guide-card h3 a { color: var(--color-text); text-decoration: none; }
+.guide-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+.guide-card h3 a::after { content: ""; position: absolute; inset: 0; }
+.guide-card__more { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+.footer-place { color: inherit; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+.footer-place:hover { color: var(--color-text); }
