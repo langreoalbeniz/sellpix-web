@@ -25,7 +25,7 @@ body { margin: 0; background: var(--fs-bg); color: var(--fs-ink); font-family: v
 h1, h2, h3 { font-family: var(--fs-display); font-weight: 700; line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
 h1 { font-size: clamp(36px, 6vw, 64px); }
 h2 { font-size: clamp(28px, 4vw, 40px); }
-h3 { font-size: 22px; font-weight: 600; }
+h3, .fs-h3 { font-size: 22px; font-weight: 600; }
 p { margin: 0; }
 a { color: var(--fs-primary); }
 .fs-header { position: sticky; top: 44px; z-index: 40; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--fs-line); }
@@ -72,7 +72,7 @@ a { color: var(--fs-primary); }
 .fs-team { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .fs-person { text-align: left; }
 .fs-avatar { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; background: var(--fs-soft); color: var(--fs-primary); font-family: var(--fs-display); font-weight: 700; font-size: 32px; margin-bottom: 16px; border: 2px solid var(--fs-primary); }
-.fs-person h3 { margin-bottom: 4px; }
+.fs-person .fs-h3 { margin-bottom: 4px; }
 .fs-person .fs-role { color: var(--fs-primary); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
 .fs-person p { color: var(--fs-muted); }
 .fs-form { display: grid; gap: 18px; max-width: 640px; }
