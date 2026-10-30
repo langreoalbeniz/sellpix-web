@@ -32,7 +32,12 @@
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
-@media (min-width: 900px) { .site-nav { display: flex; } }
+@media (min-width: 900px) { .site-nav { display: flex; margin-left: auto; } }
+
+/* Botón «Precios» de la cabecera: secundario, nunca lima, visible en móvil y escritorio */
+.header-actions { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+@media (min-width: 900px) { .header-actions { margin-left: 0; } }
+.header-cta { min-height: 44px; padding: 0 var(--space-4); font-size: var(--text-small-size); }
 
 /* Botón menú móvil */
 .nav-toggle {
