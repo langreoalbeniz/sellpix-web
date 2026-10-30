@@ -1,9 +1,12 @@
 {
-  "extends": ["html-validate:recommended"],
+  "extends": [
+    "html-validate:recommended"
+  ],
   "rules": {
     "no-inline-style": "off",
     "doctype-style": "off",
     "no-deprecated-attr": "off",
-    "attr-quotes": "off"
+    "attr-quotes": "off",
+    "prefer-tbody": "off"
   }
 }
