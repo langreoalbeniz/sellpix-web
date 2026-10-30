@@ -56,16 +56,14 @@ Precio cerrado: es el que pagas si el alcance no cambia. Si durante el proyecto 
 
 ## Forma de pago
 
-[Opción A — paquete cerrado] El importe completo al contratar, con tarjeta a través de Stripe desde la página del servicio, o por transferencia.
-
-[Opción B — proyecto a medida] [PORCENTAJE] % al aceptar el presupuesto y el resto antes de publicar. Por transferencia o con tarjeta (te enviamos el enlace de pago).
+Pago completo al aceptar el presupuesto, con tarjeta a través de Stripe (te enviamos el enlace de pago) o por transferencia. Si durante el proyecto hace falta algo que no está en este presupuesto, se presupuesta por escrito y se paga antes de hacerlo.
 
 Cuenta para transferencias: [IBAN]. Concepto: «Presupuesto [NÚMERO]».
 
 ## Cómo seguimos
 
 1. Nos confirmas por email que aceptas el presupuesto (vale con responder «acepto»).
-2. Haces el primer pago y te enviamos la bienvenida con la lista de materiales.
+2. Haces el pago y te enviamos la bienvenida con la lista de materiales.
 3. Fijamos la reunión inicial por videollamada.
 
 Al aceptar este presupuesto aceptas las [condiciones de contratación](https://sellpix.es/condiciones/) de SellPix. Si algo no te encaja, dínoslo y lo ajustamos antes de empezar.

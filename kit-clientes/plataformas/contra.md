@@ -20,8 +20,8 @@ Diseño webs que ayudan a los pequeños negocios a vender. Vengo de la direcció
 | Servicio EN | Servicio ES | Precio | Enlace |
 | --- | --- | --- | --- |
 | Landing page that converts | Landing page que convierte | 150 € (IVA incl.) | https://sellpix.es/servicios/landing-page/ |
-| Business website (up to 5 pages) | Web corporativa (hasta 5 páginas) | desde 449 € (IVA incl.; reserva del 50 %) | https://sellpix.es/servicios/web-corporativa/ |
-| Shopify store, ready to sell | Tienda Shopify lista para vender | desde 849 € (IVA incl.; reserva del 50 %) | https://sellpix.es/servicios/tienda-online-shopify/ |
+| Business website (up to 5 pages) | Web corporativa (hasta 5 páginas) | desde 449 € (IVA incl.) | https://sellpix.es/servicios/web-corporativa/ |
+| Shopify store, ready to sell | Tienda Shopify lista para vender | desde 849 € (IVA incl.) | https://sellpix.es/servicios/tienda-online-shopify/ |
 | Monthly website care | Mantenimiento web mensual | 29 €/mes | https://sellpix.es/servicios/mantenimiento-web/ |
 
 Descripción corta de cada servicio (EN), para el campo de la tarjeta:
