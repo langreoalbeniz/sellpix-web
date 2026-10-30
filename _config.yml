@@ -15,3 +15,5 @@ exclude:
   - .claude
   - .github
   - auditoria
+  # Material interno de trabajo con clientes (plantillas en Markdown)
+  - kit-clientes
