@@ -132,23 +132,13 @@
   .steps h3 { margin: var(--space-2) 0; }
   .steps p { margin: 0; color: var(--color-text-muted); }
 
-  /* Proyectos - teaser */
-  .work { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .shot {
-    border: 1px solid var(--color-line); border-radius: var(--radius-xl);
-    overflow: hidden; background: var(--color-surface);
-  }
-  .shot .bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--color-line); }
-  .shot .bar i { width: 8px; height: 8px; border-radius: 2px; background: var(--color-line-strong); }
-  .shot .canvas { aspect-ratio: 16/10; display: grid; place-items: center; }
-  .shot { position: relative; }
-  .shot-link { color: inherit; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
-  .shot-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius-lg); }
-  .shot-link:focus-visible { outline: none; }
-  .shot-link:focus-visible::after { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
-  .shot .meta { padding: var(--space-4) var(--space-5) var(--space-5); }
-  .shot .meta h3 { margin: 0 0 var(--space-1); }
-  .shot .meta p { margin: 0; color: var(--color-text-muted); }
+  /* Tu web, tu mejor comercial */
+  .sales-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .sales-item { display: flex; flex-direction: column; gap: var(--space-3); background: var(--color-surface); }
+  .sales-item h3 { margin: 0; }
+  .sales-item p { margin: 0; color: var(--color-text-muted); }
+  .sales-pixel { display: block; width: 12px; height: 12px; border-radius: 2px; background: var(--color-lime); }
+  .guide-grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 
   /* Sobre mí - teaser */
   .about-teaser .sp-container { display: grid; gap: var(--space-7); align-items: center; }
@@ -206,7 +196,7 @@
         <p class="sp-lead">Diseño web con criterio comercial. Webs, tiendas Shopify y landing pages para pequeños negocios, pensadas para que tu cliente entienda lo que ofreces y te compre.</p>
         <div class="actions">
           <a class="sp-btn sp-btn--primary" href="contacto/">Pide presupuesto</a>
-          <a class="sp-btn sp-btn--ghost" href="proyectos/">Ver proyectos</a>
+          <a class="sp-btn sp-btn--ghost" href="proyectos/">Cómo lo hacemos</a>
         </div>
       </div>
       <div class="pixel-stair" aria-hidden="true">
@@ -221,7 +211,7 @@
   </section>
 
   <!-- Proof -->
-  <section class="proof" aria-label="Cómo trabajo">
+  <section class="proof" aria-label="Cómo trabajamos">
     <div class="sp-container">
       <div><span class="sp-stat">5 días</span><p>para tener tu landing publicada.</p></div>
       <div><span class="sp-stat">2</span><p>rondas de revisión incluidas en cada proyecto.</p></div>
@@ -281,55 +271,95 @@
         <h2 class="sp-h2">Primero tu negocio. Después la web.</h2>
       </div>
       <ol class="steps">
-        <li><span class="n">01</span><h3 class="sp-h4">Analizo qué vendes</h3><p>Qué ofreces, a quién y por qué te eligen. Sin eso no se diseña nada.</p></li>
-        <li><span class="n">02</span><h3 class="sp-h4">Diseño para vender</h3><p>Estructura, mensajes y llamadas a la acción pensadas para convertir visitas en clientes.</p></li>
-        <li><span class="n">03</span><h3 class="sp-h4">Desarrollo rápido</h3><p>Web rápida, adaptada a móvil y lista para editar tú mismo.</p></li>
+        <li><span class="n">01</span><h3 class="sp-h4">Analizamos qué vendes</h3><p>Qué ofreces, a quién y por qué te eligen. Sin eso no se diseña nada.</p></li>
+        <li><span class="n">02</span><h3 class="sp-h4">Diseñamos para vender</h3><p>Estructura, mensajes y llamadas a la acción pensadas para convertir visitas en clientes.</p></li>
+        <li><span class="n">03</span><h3 class="sp-h4">Desarrollo rápido</h3><p>Web rápida, adaptada a móvil y lista para que la edites tú.</p></li>
         <li><span class="n">04</span><h3 class="sp-h4">Lanzamiento</h3><p>Publicación, revisión final y una guía para que sepas usarla desde el primer día.</p></li>
       </ol>
     </div>
   </section>
 
-  <!-- Proyectos teaser -->
-  <section class="sp-section section-alt" id="proyectos">
+  <!-- Tu web, tu mejor comercial -->
+  <section class="sp-section section-alt" id="comercial">
     <div class="sp-container">
       <div class="section-head">
-        <span class="sp-eyebrow">Proyectos</span>
-        <h2 class="sp-h2">Trabajo reciente</h2>
+        <span class="sp-eyebrow">Para qué sirve</span>
+        <h2 class="sp-h2">Tu web, tu mejor comercial.</h2>
+        <p>Una web bien hecha hace el trabajo de un comercial que no descansa: recibe, explica, filtra y cierra. Para eso diseñamos cada una.</p>
       </div>
-      <div class="work">
-        <article class="shot">
-          <div class="bar"><i></i><i></i><i></i></div>
-          <div class="canvas fill-paper"><span class="sp-h3">Media Luna</span></div>
-          <div class="meta"><span class="badge">En curso</span><h3 class="sp-h4">Media Luna</h3><p>Rediseño de tienda Shopify de artículos personalizados.</p></div>
+      <div class="sales-grid">
+        <article class="sp-card sales-item">
+          <span class="sales-pixel" aria-hidden="true"></span>
+          <h3 class="sp-h4">Atiende 24/7</h3>
+          <p>Está abierta cuando tu negocio está cerrado. Responde a quien busca a las once de la noche o un domingo, y lo recibe con el mensaje que tú decides.</p>
         </article>
-        <article class="shot">
-          <div class="bar"><i></i><i></i><i></i></div>
-          <div class="canvas fill-ink"><span class="sp-h3">Cafetería</span></div>
-          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4"><a class="shot-link" href="proyectos/cafeteria/">Cafetería de especialidad<span class="u-sr-only"> (ver demo)</span></a></h3><p>Landing con carta, horarios y reservas por WhatsApp.</p></div>
+        <article class="sp-card sales-item">
+          <span class="sales-pixel" aria-hidden="true"></span>
+          <h3 class="sp-h4">Resuelve dudas antes de que pregunten</h3>
+          <p>Qué incluye, cuánto cuesta, cuánto tarda, dónde estás. Las preguntas que te hacen cada semana, contestadas antes de que nadie tenga que escribir.</p>
         </article>
-        <article class="shot">
-          <div class="bar"><i></i><i></i><i></i></div>
-          <div class="canvas fill-lime"><span class="sp-h3">Fisioterapia</span></div>
-          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4"><a class="shot-link" href="proyectos/fisioterapia/">Clínica de fisioterapia<span class="u-sr-only"> (ver demo)</span></a></h3><p>Web corporativa con servicios, tarifas y cita online.</p></div>
+        <article class="sp-card sales-item">
+          <span class="sales-pixel" aria-hidden="true"></span>
+          <h3 class="sp-h4">Filtra y prepara al cliente</h3>
+          <p>Quien te contacta ya sabe qué ofreces y a qué precio. Llegan menos consultas que no encajan y las que llegan vienen con la decisión casi tomada.</p>
+        </article>
+        <article class="sp-card sales-item">
+          <span class="sales-pixel" aria-hidden="true"></span>
+          <h3 class="sp-h4">Cierra la venta o la cita</h3>
+          <p>Cada pantalla lleva a una acción clara: llamar, reservar, pedir presupuesto o comprar. Sin rodeos y desde el móvil.</p>
         </article>
       </div>
       <div class="u-mt-6">
-        <a class="sp-btn sp-btn--ghost" href="proyectos/">Ver todos los proyectos</a>
+        <a class="sp-btn sp-btn--ghost" href="proyectos/">Cómo creamos tu proyecto</a>
       </div>
     </div>
   </section>
 
-  <!-- Sobre mí teaser -->
-  <section class="sp-section about-teaser" id="sobre-mi">
+  <!-- El estudio -->
+  <section class="sp-section about-teaser" id="estudio">
     <div class="sp-container">
-      <blockquote>«Llevo años vendiendo. Ahora diseño webs que hacen ese trabajo por ti.»</blockquote>
+      <blockquote>«Una web bonita que no vende es un folleto caro. Las nuestras se diseñan para que tu cliente dé el paso.»</blockquote>
       <div>
-        <span class="sp-eyebrow eyebrow-block">Sobre mí</span>
-        <p class="sp-body">Soy Alberto, fundador de SellPix. Vengo de la dirección comercial: sé lo que hace que un cliente entre, entienda tu oferta y compre. Esa experiencia es el método de cada web que hago.</p>
-        <p class="sp-body">Trabajo con herramientas de IA para ir más rápido y reviso a mano cada detalle.</p>
+        <span class="sp-eyebrow eyebrow-block">El estudio</span>
+        <p class="sp-body">SellPix nace de la venta, no del diseño. Antes de abrir el editor, entendemos qué vendes, a quién y por qué te eligen; después diseñamos para que el cliente lo entienda y compre.</p>
+        <p class="sp-body">Precio cerrado antes de empezar, inteligencia artificial para ir rápido en lo técnico y revisión humana de cada detalle. La web, el dominio y las cuentas son tuyos.</p>
         <div class="u-mt-5">
-          <a class="sp-btn sp-btn--ghost" href="sobre-mi/">Saber más</a>
+          <a class="sp-btn sp-btn--ghost" href="estudio/">Conoce el estudio</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guías -->
+  <section class="sp-section section-alt" id="guias">
+    <div class="sp-container">
+      <div class="section-head">
+        <span class="sp-eyebrow">Guías</span>
+        <h2 class="sp-h2">Para decidir bien antes de encargar tu web.</h2>
+        <p>Lo que explicamos a cada cliente antes de empezar, por escrito y gratis.</p>
+      </div>
+      <div class="guide-grid guide-grid--3">
+        <article class="sp-card guide-card">
+          <span class="sp-eyebrow">Guía</span>
+          <h3 class="sp-h3"><a href="guias/abrir-tienda-online-shopify/">Abrir una tienda online en Shopify: qué necesitas y qué cuesta</a></h3>
+          <p>Qué es Shopify, qué cuesta una tienda online, qué debes preparar y cuándo compensa frente a otras opciones.</p>
+          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
+        </article>
+        <article class="sp-card guide-card">
+          <span class="sp-eyebrow">Guía</span>
+          <h3 class="sp-h3"><a href="guias/preparar-textos-y-fotos-para-tu-web/">Cómo preparar los textos y las fotos antes de encargar tu web</a></h3>
+          <p>Lo que debes tener listo antes de encargar una web: datos del negocio, textos por página, fotos útiles y accesos.</p>
+          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
+        </article>
+        <article class="sp-card guide-card">
+          <span class="sp-eyebrow">Guía</span>
+          <h3 class="sp-h3"><a href="guias/landing-page-o-web-corporativa/">Landing page o web corporativa: cuál necesita tu negocio</a></h3>
+          <p>Diferencias entre landing page y web corporativa, ejemplos para cada caso y las preguntas que ayudan a decidir.</p>
+          <p class="sp-small u-muted"><time datetime="2026-10-30">30 de octubre de 2026</time></p>
+        </article>
+      </div>
+      <div class="u-mt-6">
+        <a class="sp-btn sp-btn--ghost" href="guias/">Ver todas las guías</a>
       </div>
     </div>
   </section>
@@ -340,7 +370,7 @@
       <div>
         <span class="sp-eyebrow sp-cta-block__eyebrow">Contacto</span>
         <h2 class="sp-h2">¿Hablamos de tu web?</h2>
-        <p class="sp-lead">Cuéntame qué vendes y te respondo con una propuesta y un precio cerrado.</p>
+        <p class="sp-lead">Cuéntanos qué vendes y te respondemos por email con una propuesta y un precio cerrado.</p>
         <div class="u-mt-5">
           <a class="sp-btn sp-btn--primary" href="contacto/">Pide presupuesto</a>
         </div>
