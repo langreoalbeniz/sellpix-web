@@ -242,6 +242,12 @@ footer .sp-container {
 .product-price .price-tax { margin-left: var(--space-2); }
 .product-buy .sp-btn { width: 100%; }
 @media (min-width: 560px) { .product-buy .sp-btn { width: auto; } }
+/* Garantías junto al precio: lista breve con el píxel de marca en el color del texto (nunca lima) */
+.buy-guarantees { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
+.buy-guarantees li { position: relative; padding-left: var(--space-5); font-size: var(--text-small-size); line-height: var(--text-small-line); }
+.buy-guarantees li::before { content: ""; position: absolute; left: 0; top: calc((var(--text-small-line) - 8px) / 2); width: 8px; height: 8px; border-radius: var(--radius-sm); background: var(--color-text); }
+.buy-guarantees a { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-line-strong); text-underline-offset: 2px; }
+.buy-guarantees a:hover { text-decoration-color: currentColor; }
 .product-buy .buy-note { margin: 0; color: var(--color-text-muted); font-size: var(--text-small-size); line-height: var(--text-small-line); }
 .product-buy .buy-note a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
 
