@@ -4,7 +4,7 @@ Plataforma en español (España y Latinoamérica), tarifa por hora obligatoria p
 
 ## Nombre
 
-Alberto Domínguez (nombre real, como pide la plataforma). Foto: la de sobre-mi/ (fondo neutro, mirando a cámara).
+Alberto Domínguez (nombre real, como pide la plataforma). Foto: retrato con fondo neutro, mirando a cámara (la web ya no publica foto personal; usar la misma que se hizo para la antigua página Sobre mí).
 
 ## Categoría
 
@@ -60,15 +60,15 @@ Español: nativo. Inglés: `[NIVEL]` (indicar con honestidad; algunos proyectos 
 
 ## Proyectos destacados
 
-Indicar siempre que son conceptos con marca ficticia, hechos para mostrar el método:
+- **sellpix.es, la web del estudio.** Sistema de diseño propio, tema claro y oscuro, páginas de producto con contratación online y verificación automática (HTML, accesibilidad WCAG 2 AA y Lighthouse) en cada publicación. https://sellpix.es/
+- **Cómo creamos tu proyecto.** El método en cinco etapas, con lo que aporta el cliente y lo que aporta SellPix. https://sellpix.es/proyectos/
+- **Guías para pequeños negocios.** Artículos sobre qué debe tener una web para vender, landing o web corporativa, materiales y Shopify. https://sellpix.es/guias/
 
-- **Brumas, cafetería de especialidad (concepto).** Landing con carta, horarios, galería y reserva por WhatsApp. https://sellpix.es/proyectos/cafeteria/
-- **Meridiano Fisioterapia, clínica (concepto).** Web corporativa: inicio, servicios, tarifas, equipo y cita. https://sellpix.es/proyectos/fisioterapia/
-- **sellpix.es, web del estudio.** Sistema de diseño, tema claro y oscuro, contratación online.
+No se publican casos de clientes ni demostraciones: si un cliente autoriza citar su web, se añade aquí con su permiso.
 
 ## Valor por hora
 
-`[TARIFA_HORA]` USD o EUR según la moneda que use Workana. **Propuesta para revisar:** obligatorio para enviar propuestas. SellPix vende por proyecto; hace falta una tarifa orientativa coherente con 150 €, desde 449 € y desde 849 € y los plazos de 5, 10 y 15 días. Alberto decide la cifra; en las propuestas se puede presupuestar a precio cerrado.
+**25 €/hora** (o su equivalente en la moneda que use Workana). En las propuestas se presupuesta a precio cerrado a partir de los paquetes de la web: 150 €, desde 449 € y desde 849 €.
 
 ## Plantilla de propuesta (para cada proyecto al que te presentes)
 

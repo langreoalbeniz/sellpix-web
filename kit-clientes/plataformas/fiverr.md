@@ -27,51 +27,32 @@ Spanish: native · English: `[NIVEL]` (indicar el real).
 
 Web Design · Landing Page Design · Shopify · HTML · CSS · Responsive Design · Copywriting · SEO · Web Accessibility · Branding
 
-## Gigs (uno por servicio)
+## Gig único con tres paquetes
 
-Cada gig tiene título (empieza por «I will»), descripción, tres paquetes y preguntas frecuentes. Los precios de la web son con IVA español; en Fiverr se fijan en USD o EUR sin IVA y la plataforma cobra comisión. **Propuesta para revisar:** Alberto decide los importes de cada paquete; abajo van huecos.
+Un solo gig con los tres servicios como paquetes Básico, Estándar y Premium. Precios decididos (sin IVA, en EUR; Fiverr cobra su comisión aparte): **Básico 190 €** (landing page), **Estándar 565 €** (web corporativa) y **Premium 1.065 €** (tienda Shopify).
 
-### Gig 1 · Landing page
-
-**Title (EN):** I will design a landing page that turns visitors into customers for your small business
-**Título (ES):** Diseño una landing page que convierte visitas en clientes para tu negocio
+**Title (EN):** I will design a website that sells for your small business: landing page, business site or Shopify store
+**Título (ES):** Diseño la web que vende para tu pequeño negocio: landing, web corporativa o tienda Shopify
 
 **Description (EN):**
-One page, one goal. I design landing pages for small businesses that need calls, bookings or quote requests, not just a pretty page.
+Websites built to sell, not just to look good. I come from sales management, so every page starts with your customer and ends with one clear action: call, book, request a quote or buy.
 
-What you get:
-• Analysis of your business and your ideal customer
-• Custom design, no templates
-• One page with every section it needs, written to sell
-• Contact form or WhatsApp button
-• Mobile-first and fast (I target Lighthouse 90+ on mobile)
-• Two revision rounds
+Choose the package that fits your business:
+• Basic: a one-page landing page with one goal, contact form or WhatsApp button, mobile-first and fast.
+• Standard: a business website of up to 5 pages with sales-oriented copy, basic SEO and contact form.
+• Premium: a Shopify store, new or redesigned, with up to 20 products, payments and shipping configured.
 
-I come from sales management, so the structure, the message and the call to action are built around how your customer decides. Send me your logo, texts and photos, and tell me what the page has to achieve. Delivery counts from the moment I have your materials.
+All packages include analysis of your business and your ideal customer, custom design (no templates), two revision rounds and a final walkthrough so you can edit the site yourself. I use AI to move faster on the technical side and review everything by hand. Delivery counts from the moment I have your materials. Domain, hosting and the Shopify subscription are paid by you, in your name.
 
-**Paquetes:** Basic `[PRECIO]` (landing de hasta 5 secciones, 2 revisiones, `[X]` días) · Standard `[PRECIO]` (hasta 8 secciones + textos redactados) · Premium `[PRECIO]` (Standard + imagen OG y configuración de Perfil de Empresa de Google).
+| Paquete | Qué es | Incluye | Plazo | Precio |
+| --- | --- | --- | --- | --- |
+| **Basic** | Landing page | 1 página, hasta 5 secciones, formulario o WhatsApp, móvil y rápida, 2 revisiones | 5 días hábiles | 190 € |
+| **Standard** | Business website | Hasta 5 páginas, textos orientados a venta, SEO básico, formulario, 2 revisiones | 10 días hábiles | 565 € |
+| **Premium** | Shopify store | Tienda nueva o rediseño, hasta 20 productos, pagos y envíos, SEO básico, 2 revisiones | 15 días hábiles | 1.065 € |
 
-### Gig 2 · Web corporativa
+Extras opcionales (si Fiverr los permite): página adicional, productos adicionales, páginas legales adaptadas, redacción de textos desde cero. Importes por decidir.
 
-**Title (EN):** I will design a 5 page business website that explains what you sell and gets contacts
-**Título (ES):** Diseño una web corporativa de 5 páginas que explica lo que vendes y consigue contactos
-
-**Description (EN):**
-A business website for small companies with more than one service to explain: home, services, about, projects or prices, and contact. Custom design, sales-oriented copy from your materials, basic SEO (titles, descriptions, speed), contact form, mobile-first. Two revision rounds and a final walkthrough so you can edit texts and photos yourself. Extra pages quoted before starting.
-
-**Paquetes:** Basic `[PRECIO]` (hasta 3 páginas) · Standard `[PRECIO]` (hasta 5 páginas) · Premium `[PRECIO]` (hasta 8 páginas + páginas legales adaptadas).
-
-### Gig 3 · Tienda Shopify
-
-**Title (EN):** I will design and set up your Shopify store ready to sell
-**Título (ES):** Diseño y configuro tu tienda Shopify lista para vender
-
-**Description (EN):**
-New Shopify store or redesign of an existing one: custom design on Shopify, up to 20 products loaded, payments (Stripe, PayPal and local methods) and shipping zones configured, basic SEO and speed. Two revision rounds. You need a Shopify subscription (paid to Shopify), your products with photos and prices, and your legal details. Delivery counts from the moment I have your materials.
-
-**Paquetes:** Basic `[PRECIO]` (hasta 10 productos) · Standard `[PRECIO]` (hasta 20 productos) · Premium `[PRECIO]` (hasta 40 productos + páginas legales y política de devoluciones).
-
-### Gig FAQ (EN, común a los tres)
+### Gig FAQ (EN)
 
 - **Do you write the texts?** I shape your materials into copy that sells. If you have nothing written, choose the package that includes copywriting or send me your answers to my questionnaire.
 - **What do you need from me?** Logo, texts or notes, photos in original size, your legal details and access to your domain (or I help you buy one in your name).
@@ -81,13 +62,13 @@ New Shopify store or redesign of an existing one: custom design on Shopify, up t
 
 ## Portfolio
 
-- Brumas, specialty coffee shop (concept): https://sellpix.es/proyectos/cafeteria/
-- Meridiano Fisioterapia, physiotherapy clinic (concept): https://sellpix.es/proyectos/fisioterapia/
-- SellPix studio website: https://sellpix.es/
+- **sellpix.es, the studio website.** Own design system, light and dark theme, product pages with online checkout and automated checks (HTML, WCAG 2 AA, Lighthouse) on every publish. https://sellpix.es/
+- **How we build your project.** The five-stage method, with what the client brings and what SellPix brings. https://sellpix.es/proyectos/
+- **Guides for small businesses.** Articles on what a website needs to sell, landing vs. business site, materials and Shopify. https://sellpix.es/guias/
 
-Marcar los dos primeros como *concept project, fictional brand*.
+No client cases or demo projects are published; a client's site is listed here only with their permission.
 
 ## Propuesta para revisar
 
-- Precios por paquete y plazos en Fiverr (moneda, sin IVA, comisión de la plataforma).
+- Importes de los extras opcionales y si los precios en Fiverr se publican en EUR o USD.
 - Si se enlaza la web en el perfil: comprobar en el editor qué campos admiten URL, porque Fiverr limita el contacto fuera de la plataforma.

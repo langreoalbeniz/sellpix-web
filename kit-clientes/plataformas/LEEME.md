@@ -6,9 +6,9 @@ Textos listos para pegar en Contra, Malt, Workana y Fiverr, en español e inglé
 
 - **Mismo mensaje en todas:** diseño web con criterio comercial para pequeños negocios; precio cerrado; webs, landing pages y tiendas Shopify; desde Oviedo para toda España, en remoto (email, videollamada y teléfono una vez contratado; nunca reuniones presenciales). Eslogan siempre en inglés: *Engineered to sell.*
 - **Nombre:** SellPix (una palabra, S y P mayúsculas). En plataformas que piden persona, «Alberto Domínguez · SellPix».
-- **Nada inventado:** ni años de experiencia, ni número de clientes, ni valoraciones. Los proyectos que se enseñan son las demos de sellpix.es, marcadas como concepto.
+- **Nada inventado:** ni años de experiencia, ni número de clientes, ni valoraciones. No hay casos ni demos: el portfolio enlaza la propia web de SellPix, la página «Cómo creamos tu proyecto» y las guías.
 - **Datos de contacto:** Malt y Workana prohíben poner email, teléfono o redes en el perfil; en esas dos no se menciona hola@sellpix.es. La web sellpix.es se enlaza solo donde la plataforma tiene campo para ello.
-- **Precios:** los de la web (sellpix.es/servicios). En las plataformas que cobran comisión, se puede subir el precio para absorberla, pero eso lo decide Alberto. Donde hace falta tarifa por día u hora (Malt, Workana), queda un hueco `[TARIFA]` para rellenar.
+- **Precios:** los de la web (sellpix.es/servicios). En las plataformas que cobran comisión, se puede subir el precio para absorberla, pero eso lo decide Alberto. Tarifas decididas: Malt 180 €/día; Workana y Contra 25 €/hora; Fiverr un gig con tres paquetes (Básico 190 €, Estándar 565 €, Premium 1.065 €).
 - **Idioma:** español primero; inglés para el campo equivalente si la plataforma permite varios idiomas o si el público es internacional (Contra, Fiverr).
 
 ## Límites de caracteres comprobados
@@ -34,4 +34,4 @@ Los textos cortos de estos archivos están pensados para caber en cualquier caso
 - `contra.md`: Contra (sin comisión, público internacional; inglés primero).
 - `malt.md`: Malt (empresas españolas y europeas; tarifa diaria).
 - `workana.md`: Workana (español; tarifa por hora; moderación de perfil).
-- `fiverr.md`: Fiverr (perfil + gigs con paquetes; inglés primero).
+- `fiverr.md`: Fiverr (perfil + un gig con tres paquetes; inglés primero).

@@ -52,9 +52,11 @@ Diseño web · Landing page · Shopify · HTML · CSS · Diseño responsive · C
 
 ## Portfolio (hasta 20 piezas; una por proyecto)
 
-- **Brumas, cafetería de especialidad (concepto).** Landing con carta, horarios, galería y reserva por WhatsApp. Marca ficticia creada para mostrar el método. https://sellpix.es/proyectos/cafeteria/
-- **Meridiano Fisioterapia, clínica (concepto).** Web corporativa con inicio, servicios, tarifas, equipo y formulario de cita. Marca ficticia. https://sellpix.es/proyectos/fisioterapia/
-- **sellpix.es, web del estudio.** Sistema de diseño con tokens, tema claro y oscuro, páginas de producto con contratación online. https://sellpix.es/
+- **sellpix.es, la web del estudio.** Sistema de diseño propio, tema claro y oscuro, páginas de producto con contratación online y verificación automática (HTML, accesibilidad WCAG 2 AA y Lighthouse) en cada publicación. https://sellpix.es/
+- **Cómo creamos tu proyecto.** El método en cinco etapas, con lo que aporta el cliente y lo que aporta SellPix. https://sellpix.es/proyectos/
+- **Guías para pequeños negocios.** Artículos sobre qué debe tener una web para vender, landing o web corporativa, materiales y Shopify. https://sellpix.es/guias/
+
+No se publican casos de clientes ni demostraciones: si un cliente autoriza citar su web, se añade aquí con su permiso.
 
 ## Ubicación y modalidad
 
@@ -62,7 +64,7 @@ Oviedo. Solo remoto (sin ciudades de desplazamiento).
 
 ## Tarifa diaria
 
-`[TARIFA_DIA]` € (mínimo 100 € para aparecer en búsquedas). **Propuesta para revisar:** los servicios de SellPix se venden a precio cerrado por proyecto, no por día. Para Malt hace falta una tarifa diaria orientativa coherente con esos precios; se puede explicar en la descripción que el presupuesto final es por proyecto. Alberto decide la cifra.
+**180 €/día** (orientativa; Malt exige un mínimo de 100 € para aparecer en búsquedas). En la descripción se indica que los proyectos se presupuestan a precio cerrado a partir de los paquetes de la web.
 
 ## Propuesta para revisar
 

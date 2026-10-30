@@ -39,19 +39,17 @@ Web Design · Landing Pages · Shopify · HTML · CSS · Conversion-focused copy
 
 ## Proyectos para el portfolio
 
-Marcar siempre como concepto (*concept / demo*):
+- **sellpix.es, the studio website.** Own design system, light and dark theme, product pages with online checkout and automated checks (HTML, WCAG 2 AA, Lighthouse) on every publish. https://sellpix.es/
+- **How we build your project.** The five-stage method, with what the client brings and what SellPix brings. https://sellpix.es/proyectos/
+- **Guides for small businesses.** Articles on what a website needs to sell, landing vs. business site, materials and Shopify. https://sellpix.es/guias/
 
-- **Brumas, specialty coffee shop (concept).** Landing page: menu, hours, gallery, WhatsApp booking. https://sellpix.es/proyectos/cafeteria/
-- **Meridiano Fisioterapia, physiotherapy clinic (concept).** Business website: home, services, prices, team, appointment form. https://sellpix.es/proyectos/fisioterapia/
-- **SellPix.es, own studio website.** Design system with tokens, light and dark theme, Lighthouse 100 on mobile across all pages. https://sellpix.es/
-
-Texto EN para cada pieza: «Concept project designed to show how I work. Fictional brand; no real client.»
+No client cases or demo projects are published; a client's site is listed here only with their permission.
 
 ## Enlaces
 
 - Website: https://sellpix.es
 - Email (si hay campo): hola@sellpix.es
 
-## Propuesta para revisar
+## Tarifa por hora
 
-- Contra funciona por proyectos y por contratos por horas; si Alberto quiere ofrecer horas sueltas (consultoría, revisiones), hace falta decidir una tarifa por hora. No está definida: hueco `[TARIFA_HORA]`.
+**25 €/hora** para trabajo por horas (consultoría, revisiones, cambios fuera de paquete). Los proyectos cerrados se cotizan con los precios de la web.
