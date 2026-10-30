@@ -141,6 +141,11 @@
   .shot .bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--color-line); }
   .shot .bar i { width: 8px; height: 8px; border-radius: 2px; background: var(--color-line-strong); }
   .shot .canvas { aspect-ratio: 16/10; display: grid; place-items: center; }
+  .shot { position: relative; }
+  .shot-link { color: inherit; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+  .shot-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius-lg); }
+  .shot-link:focus-visible { outline: none; }
+  .shot-link:focus-visible::after { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
   .shot .meta { padding: var(--space-4) var(--space-5) var(--space-5); }
   .shot .meta h3 { margin: 0 0 var(--space-1); }
   .shot .meta p { margin: 0; color: var(--color-text-muted); }
@@ -295,12 +300,12 @@
         <article class="shot">
           <div class="bar"><i></i><i></i><i></i></div>
           <div class="canvas fill-ink"><span class="sp-h3">Cafetería</span></div>
-          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4">Cafetería de especialidad</h3><p>Landing con carta, horarios y reservas por WhatsApp.</p></div>
+          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4"><a class="shot-link" href="proyectos/cafeteria/">Cafetería de especialidad<span class="u-sr-only"> (ver demo)</span></a></h3><p>Landing con carta, horarios y reservas por WhatsApp.</p></div>
         </article>
         <article class="shot">
           <div class="bar"><i></i><i></i><i></i></div>
           <div class="canvas fill-lime"><span class="sp-h3">Fisioterapia</span></div>
-          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4">Clínica de fisioterapia</h3><p>Web corporativa con servicios, tarifas y cita online.</p></div>
+          <div class="meta"><span class="badge">Concepto</span><h3 class="sp-h4"><a class="shot-link" href="proyectos/fisioterapia/">Clínica de fisioterapia<span class="u-sr-only"> (ver demo)</span></a></h3><p>Web corporativa con servicios, tarifas y cita online.</p></div>
         </article>
       </div>
       <div class="u-mt-6">

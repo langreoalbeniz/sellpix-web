@@ -41,6 +41,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `servicios/landing-page/` · `web-corporativa/` · `tienda-online-shopify/` · `mantenimiento-web/` | Páginas de producto. Son el único sitio con enlaces de pago: botón → cuestionario de Tally en ventana emergente → Stripe (ver «Recorrido de contratación») |
+| `proyectos/cafeteria/` · `proyectos/fisioterapia/` | Demos de diseño con marcas ficticias (Brumas, Meridiano Fisioterapia). Cada una tiene su propia identidad en `estilo.css` y su tipografía en `fonts/`, carga `brand/tokens.css` solo para la barra fija de SellPix («Concepto · Demostración de diseño de SellPix», con enlace de vuelta a Proyectos), lleva `noindex` y queda fuera del sitemap. Los contactos (WhatsApp, formulario de cita) no son operativos y lo dicen |
 | `js/contratar.js` | Script compartido del recorrido de contratación; se carga con `defer` solo en las páginas de producto |
 | `condiciones/` | Condiciones de contratación: servicios (copiados de Servicios), precios con IVA, pagos con Stripe, mantenimiento y desistimiento. Si cambian precios, plazos o enlaces de pago, actualízala a la vez que Servicios |
 | `gracias/` | Página de destino tras pagar en Stripe (`noindex`, fuera del sitemap); borra de la barra el parámetro `?pedido` |
@@ -78,7 +79,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 3. **pa11y sin errores** (WCAG 2 AA) en cada página:
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
-   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html`
+   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html proyectos/*/index.html proyectos/*/*/index.html`
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
