@@ -122,6 +122,8 @@ footer .sp-container {
   text-transform: uppercase;
 }
 
+.tag + .price, .tag + .product-price { margin-top: var(--space-2); }
+
 /* Bloque CTA inferior de página (fondo inverso) */
 .sp-cta-block { background: var(--color-surface-inverse); color: var(--color-text-inverse); }
 .sp-cta-block .sp-container { display: grid; gap: var(--space-6); align-items: end; }

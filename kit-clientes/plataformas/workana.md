@@ -68,7 +68,7 @@ Indicar siempre que son conceptos con marca ficticia, hechos para mostrar el mé
 
 ## Valor por hora
 
-`[TARIFA_HORA]` USD o EUR según la moneda que use Workana. **Propuesta para revisar:** obligatorio para enviar propuestas. SellPix vende por proyecto; hace falta una tarifa orientativa coherente con 290 €, desde 690 € y desde 1.190 € y los plazos de 5, 10 y 15 días. Alberto decide la cifra; en las propuestas se puede presupuestar a precio cerrado.
+`[TARIFA_HORA]` USD o EUR según la moneda que use Workana. **Propuesta para revisar:** obligatorio para enviar propuestas. SellPix vende por proyecto; hace falta una tarifa orientativa coherente con 150 €, desde 449 € y desde 849 € y los plazos de 5, 10 y 15 días. Alberto decide la cifra; en las propuestas se puede presupuestar a precio cerrado.
 
 ## Plantilla de propuesta (para cada proyecto al que te presentes)
 
