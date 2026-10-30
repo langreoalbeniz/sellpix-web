@@ -20,20 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://sellpix.es/contacto/#breadcrumb",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": "https://sellpix.es/"
+      "@type": "BreadcrumbList",
+      "@id": "https://sellpix.es/contacto/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://sellpix.es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contacto",
+          "item": "https://sellpix.es/contacto/"
+        }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contacto",
-      "item": "https://sellpix.es/contacto/"
+      "@type": "FAQPage",
+      "@id": "https://sellpix.es/contacto/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda mi web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son plazos orientativos y cuentan desde que recibimos los materiales (textos, fotos, datos y accesos): 5 días hábiles la landing page, 10 días hábiles la web corporativa y 15 días hábiles la tienda online en Shopify. El reparto día a día está en la página de cada servicio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué necesitáis de mí para empezar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tu logotipo en el mejor formato que tengas, los textos (lo que ofreces, a quién y qué te diferencia; no hace falta que estén pulidos), fotos tuyas, de tu local o de tus productos, y los accesos a tu dominio y alojamiento si ya los tienes. Cuanto antes lo tengamos, antes empieza a contar el plazo. Si te falta algo, nos lo dices en el cuestionario y lo resolvemos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo y cuándo se paga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con tarjeta a través de Stripe (también Apple Pay y Google Pay) o por transferencia bancaria. Todos los paquetes se pagan completos al contratar. Los datos de tu tarjeta los trata Stripe y nunca llegan a SellPix. Al contratar aceptas las condiciones de contratación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajáis solo en Oviedo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SellPix tiene su sede en Oviedo y trabaja para negocios de toda Asturias y de toda España con el mismo proceso: primer contacto y propuesta por email, reuniones por videollamada (Teams, Google Meet o similar) y teléfono una vez contratado el proyecto."
+          }
+        }
+      ]
     }
   ]
 }
@@ -104,6 +146,9 @@
   }
   .expect-list span { color: var(--color-text-muted); }
   .expect-list strong { color: var(--color-text); }
+
+  /* Preguntas frecuentes */
+  .faq-figure { font-family: var(--font-display); font-weight: 800; color: var(--color-text); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -198,6 +243,34 @@
 
     </div>
   </div>
+
+  <section class="sp-section section-alt" aria-labelledby="faq-contacto">
+    <div class="sp-container">
+      <div class="section-head">
+        <span class="sp-eyebrow">Antes de escribir</span>
+        <h2 class="sp-h2" id="faq-contacto">Preguntas frecuentes</h2>
+        <p>Lo que ya está publicado en Servicios y en las condiciones de contratación, en cuatro respuestas.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Cuánto tarda mi web?</summary>
+          <p>Son plazos orientativos y cuentan desde que recibimos los materiales (textos, fotos, datos y accesos): <span class="faq-figure">5 días hábiles</span> la landing page, <span class="faq-figure">10 días hábiles</span> la web corporativa y <span class="faq-figure">15 días hábiles</span> la tienda online en Shopify. El reparto día a día está en la página de cada <a href="../servicios/">servicio</a>.</p>
+        </details>
+        <details>
+          <summary>¿Qué necesitáis de mí para empezar?</summary>
+          <p>Tu logotipo en el mejor formato que tengas, los textos (lo que ofreces, a quién y qué te diferencia; no hace falta que estén pulidos), fotos tuyas, de tu local o de tus productos, y los accesos a tu dominio y alojamiento si ya los tienes. Cuanto antes lo tengamos, antes empieza a contar el plazo. Si te falta algo, nos lo dices en el cuestionario y lo resolvemos.</p>
+        </details>
+        <details>
+          <summary>¿Cómo y cuándo se paga?</summary>
+          <p>Con tarjeta a través de Stripe (también Apple Pay y Google Pay) o por transferencia bancaria. Todos los paquetes se pagan completos al contratar. Los datos de tu tarjeta los trata Stripe y nunca llegan a SellPix. Al contratar aceptas las <a href="../condiciones/">condiciones de contratación</a>.</p>
+        </details>
+        <details>
+          <summary>¿Trabajáis solo en Oviedo?</summary>
+          <p>No. SellPix tiene su sede en Oviedo y trabaja para negocios de toda Asturias y de toda España con el mismo proceso: primer contacto y propuesta por email, reuniones por videollamada (Teams, Google Meet o similar) y teléfono una vez contratado el proyecto.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
