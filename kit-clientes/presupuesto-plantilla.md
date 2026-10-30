@@ -25,7 +25,7 @@
 - [Número de páginas o secciones, nombradas una a una]
 - [Textos orientados a venta a partir de tus materiales]
 - [Formulario de contacto / botón de WhatsApp / reserva]
-- [SEO básico: títulos, descripciones, velocidad, Perfil de Empresa de Google]
+- [SEO básico: títulos, descripciones, velocidad]
 - [Adaptada a móvil y rápida]
 - [Páginas legales adaptadas a tu negocio]
 - [2 rondas de revisión incluidas]
