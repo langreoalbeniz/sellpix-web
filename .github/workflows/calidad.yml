@@ -44,8 +44,8 @@ jobs:
       - name: Listar páginas
         id: paginas
         run: |
-          # Todas las páginas HTML versionadas que se publican (carpeta/index.html y 404.html), como rutas y como URLs locales. kit-clientes/ no se publica.
-          git ls-files -- '*.html' ':!kit-clientes' | sort > paginas.txt
+          # Todas las páginas HTML versionadas que se publican (carpeta/index.html y 404.html), como rutas y como URLs locales.
+          git ls-files -- '*.html' | sort > paginas.txt
           sed -E 's#(^|/)index\.html$#\1#' paginas.txt | sed 's#^#http://localhost:8080/#' > urls.txt
           echo "$(wc -l < paginas.txt) páginas:"; cat urls.txt
 
