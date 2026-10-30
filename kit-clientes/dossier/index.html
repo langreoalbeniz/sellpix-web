@@ -42,7 +42,8 @@
   .card h3 { margin-bottom: var(--space-2); }
   .card p { margin: 0; }
   .price { font-family: var(--font-display); font-weight: 800; font-size: 22pt; letter-spacing: -0.03em; line-height: 1; margin: var(--space-2) 0 var(--space-1); }
-  .price small { font-family: var(--font-sans); font-weight: 400; font-size: 9pt; letter-spacing: 0; color: var(--color-text-muted); margin-left: var(--space-1); }
+  .price small { display: block; font-family: var(--font-sans); font-weight: 400; font-size: 9pt; letter-spacing: 0; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
+  .price small.from { display: inline; margin: 0 var(--space-1) 0 0; }
   .tag { display: inline-block; font-family: var(--font-pixel); font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--color-line-strong); border-radius: var(--radius-sm); padding: 2px var(--space-2); color: var(--color-text-muted); }
   .tag--lime { background: var(--color-lime); color: var(--color-on-lime); border-color: var(--color-lime); }
   .shot { border: 1px solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface); }
@@ -134,7 +135,7 @@
     </div>
     <div class="card">
       <span class="tag tag--lime">Web corporativa</span>
-      <p class="price"><small style="margin:0 4px 0 0;">desde</small>690 €<small>IVA incluido</small></p>
+      <p class="price"><small class="from">desde</small>690 €<small>IVA incluido</small></p>
       <p class="small muted">Entrega en 10 días hábiles</p>
       <ul class="check small" style="margin-top: var(--space-3);">
         <li>Análisis del negocio y del cliente ideal</li>
@@ -149,7 +150,7 @@
     </div>
     <div class="card">
       <span class="tag">Tienda Shopify</span>
-      <p class="price"><small style="margin:0 4px 0 0;">desde</small>1.190 €<small>IVA incluido</small></p>
+      <p class="price"><small class="from">desde</small>1.190 €<small>IVA incluido</small></p>
       <p class="small muted">Entrega en 15 días hábiles</p>
       <ul class="check small" style="margin-top: var(--space-3);">
         <li>Análisis del negocio y del cliente ideal</li>
