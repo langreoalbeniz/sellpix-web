@@ -3,6 +3,7 @@
   "rules": {
     "no-inline-style": "off",
     "doctype-style": "off",
-    "no-deprecated-attr": "off"
+    "no-deprecated-attr": "off",
+    "attr-quotes": "off"
   }
 }

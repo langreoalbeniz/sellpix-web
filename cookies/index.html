@@ -89,8 +89,8 @@
   <div class="sp-container">
     <article class="legal sp-body">
 <h2 class="sp-h3">Esta web no usa cookies</h2>
-<p>Las cookies son pequeños archivos que una web guarda en tu navegador. El 29 de octubre de 2026 cargué todas las páginas de la web y el formulario de contacto en un navegador sin datos previos, y comprobé que no se crea ninguna cookie, ni propia ni de terceros.</p>
-<p>Tampoco hay herramientas de analítica, publicidad ni redes sociales. Por eso no ves un aviso de cookies: no hace falta pedir consentimiento cuando no hay cookies que lo necesiten.</p>
+<p>Las cookies son pequeños archivos que una web guarda en tu navegador. El 30 de octubre de 2026 cargué todas las páginas de la web y el formulario de contacto en un navegador sin datos previos, y comprobé que no se crea ninguna cookie, ni propia ni de terceros.</p>
+<p>Tampoco hay publicidad ni redes sociales. Para contar las visitas uso Cloudflare Web Analytics, que no crea cookies ni guarda nada en tu navegador. Por eso no ves un aviso de cookies: no hace falta pedir consentimiento cuando no hay cookies que lo necesiten.</p>
 
 <h2 class="sp-h3">Almacenamiento técnico del formulario de contacto</h2>
 <p>El formulario de la página de <a href="../contacto/">contacto</a> lo ofrece Tally y se carga dentro de la web. Al cargarlo, Tally guarda estos datos en el almacenamiento local de tu navegador (<code>localStorage</code>), en su propio dominio, tally.so:</p>
@@ -122,7 +122,7 @@
 <p>Son datos técnicos, necesarios para que funcione el formulario que tú decides usar. Por eso están exentos de consentimiento según el artículo 22.2 de la LSSI-CE. No sirven para analítica ni publicidad.</p>
 
 <h2 class="sp-h3">Conexiones a terceros sin cookies</h2>
-<p>Al visitar la web, tu navegador se conecta a GitHub, que la aloja, y, en la página de contacto, a Tally, a Sentry (el servicio que Tally usa para detectar errores) y a Google Fonts (el formulario de Tally pide allí una hoja de estilos). Las tipografías de la propia web se sirven desde la misma web, sin pasar por Google. Ninguno de ellos crea cookies en esta web, pero sí reciben tu dirección IP para poder responder. Lo explico en la <a href="../privacidad/">política de privacidad</a>.</p>
+<p>Al visitar la web, tu navegador se conecta a GitHub, que la aloja; a Cloudflare, para la analítica (static.cloudflareinsights.com sirve el script y cloudflareinsights.com recibe las mediciones agregadas); y, en la página de contacto, a Tally, a Sentry (el servicio que Tally usa para detectar errores) y a Google Fonts (el formulario de Tally pide allí una hoja de estilos). Las tipografías de la propia web se sirven desde la misma web, sin pasar por Google. Ninguno de ellos crea cookies en esta web, pero sí reciben tu dirección IP para poder responder. Lo explico en la <a href="../privacidad/">política de privacidad</a>.</p>
 <p><strong>Pagos con Stripe.</strong> Esta web no carga ningún archivo ni script de Stripe. Lo comprobé el 30 de octubre de 2026 en todas las páginas: no hay conexiones a Stripe ni cookies suyas mientras navegas por sellpix.es. Los botones de contratar, reservar y suscribirte son enlaces normales que te llevan a las páginas de pago de Stripe (buy.stripe.com y book.stripe.com). Allí se aplica la <a href="https://stripe.com/es/legal/cookies-policy" rel="noopener">política de cookies de Stripe</a>.</p>
 
 <h2 class="sp-h3">Cómo borrarlo o bloquearlo</h2>
@@ -162,5 +162,6 @@
   });
   document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "724c084d30e94710b4ae653efca91731"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

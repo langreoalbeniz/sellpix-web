@@ -56,6 +56,8 @@ Antes de dar por terminada una página, compárala con `index.html` y con estas 
 
 **Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
 
+**Analítica en todas las páginas:** toda página publicada, también las nuevas, lleva justo antes de `</body>` el fragmento de Cloudflare Web Analytics, copiado tal cual de cualquier página existente (`<!-- Cloudflare Web Analytics -->…<!-- End Cloudflare Web Analytics -->`). No hay plantilla compartida, así que no se añade solo. Si se cambia de herramienta de analítica, actualiza antes la privacidad y las cookies.
+
 ## Verificación antes de publicar
 
 Todo cambio importante pasa esta verificación **antes del commit**. Si algo no cumple, se corrige primero.

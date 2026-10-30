@@ -106,19 +106,19 @@
   <li><strong>Formulario de contacto:</strong> nombre, email, tipo de proyecto, presupuesto aproximado y el mensaje que escribas.</li>
   <li><strong>Si me escribes por email:</strong> tu dirección y lo que me cuentes.</li>
   <li><strong>Si contratas o te suscribes en la web:</strong> tu nombre, email, teléfono y dirección de facturación; el nombre de tu empresa y tu NIF, si los indicas; lo que escribas sobre tu negocio o tu web; y los datos del pago (importe, fecha y servicio). Los datos de tu tarjeta los trata Stripe y nunca llegan a SellPix.</li>
-  <li><strong>Datos técnicos de la visita:</strong> al cargar la web, tu navegador envía tu dirección IP y datos técnicos (navegador, página visitada) a los proveedores que la sirven. Más abajo te explico cuáles.</li>
+  <li><strong>Datos técnicos de la visita:</strong> al cargar la web, tu navegador envía tu dirección IP y datos técnicos (navegador, página visitada) a los proveedores que la sirven y a la herramienta de analítica. Más abajo te explico cuáles.</li>
 </ul>
-<p>La web no tiene cuentas de usuario, no usa cookies ni herramientas de analítica o publicidad. Puedes ver el detalle en la <a href="../cookies/">política de cookies</a>.</p>
+<p>La web no tiene cuentas de usuario y no usa cookies ni publicidad. Para saber cuántas visitas recibe uso Cloudflare Web Analytics, que mide de forma agregada, sin cookies ni identificadores persistentes y sin seguir a personas concretas. Puedes ver el detalle en la <a href="../cookies/">política de cookies</a>.</p>
 
 <h2 class="sp-h3">Para qué los uso</h2>
-<p>Uso los datos del formulario o del email para responder a tu solicitud y preparar un presupuesto. Si contratas, los uso además para prestarte el servicio, cobrarlo y emitir la factura. No los uso para publicidad, no hago perfiles ni tomo decisiones automatizadas, y no los cedo a terceros, salvo a los proveedores que necesito para dar el servicio o si una ley me obliga.</p>
+<p>Uso los datos del formulario o del email para responder a tu solicitud y preparar un presupuesto. Si contratas, los uso además para prestarte el servicio, cobrarlo y emitir la factura. Los datos de navegación los veo solo agregados, para saber qué páginas se visitan y mejorar la web. No los uso para publicidad, no hago perfiles ni tomo decisiones automatizadas, y no los cedo a terceros, salvo a los proveedores que necesito para dar el servicio o si una ley me obliga.</p>
 
 <h2 class="sp-h3">Base jurídica</h2>
 <ul>
   <li><strong>Tu consentimiento</strong> al enviar el formulario o escribirme (art. 6.1.a RGPD). Puedes retirarlo cuando quieras, sin que afecte a lo tratado antes.</li>
   <li><strong>La aplicación de medidas precontractuales</strong> que me pides, como preparar un presupuesto, y <strong>la ejecución del contrato</strong> cuando contratas (art. 6.1.b RGPD).</li>
   <li><strong>El cumplimiento de obligaciones legales</strong>, como las fiscales y de facturación (art. 6.1.c RGPD).</li>
-  <li>Para los datos técnicos de la visita, el <strong>interés legítimo</strong> en que la web funcione y sea segura (art. 6.1.f RGPD).</li>
+  <li>Para los datos técnicos de la visita y la analítica agregada, el <strong>interés legítimo</strong> en que la web funcione, sea segura y saber cuántas visitas recibe (art. 6.1.f RGPD).</li>
 </ul>
 
 <h2 class="sp-h3">Encargados del tratamiento y otros proveedores</h2>
@@ -147,6 +147,11 @@
       <td data-label="Proveedor"><strong>Stripe Payments Europe, Limited</strong><br>One Wilton Park, Wilton Place, Dublin 2, D02 FX04 (Irlanda)</td>
       <td data-label="Para qué">Pagos online: contratación, reservas y suscripción de mantenimiento. Trata los datos de facturación y de pago. Los datos de tu tarjeta los trata Stripe y nunca llegan a SellPix. Actúa como encargado del tratamiento para cobrar por cuenta de SellPix y, según Stripe, como responsable independiente para prevenir el fraude y cumplir la normativa financiera.</td>
       <td data-label="Dónde y con qué garantías">Empresa de la Unión Europea (Irlanda). El pago se hace en las páginas de Stripe, no en esta web. <a href="https://stripe.com/es/privacy" rel="noopener">Política de privacidad de Stripe</a>.</td>
+    </tr>
+    <tr>
+      <td data-label="Proveedor"><strong>Cloudflare, Inc.</strong><br>101 Townsend St., San Francisco, CA 94107 (Estados Unidos)</td>
+      <td data-label="Para qué">Analítica web (Cloudflare Web Analytics). Mide las visitas de forma agregada: página vista, página de origen, país, tipo de dispositivo, navegador, sistema operativo y tiempos de carga. Según Cloudflare, no usa cookies ni almacenamiento en tu navegador, no identifica a las personas mediante su IP o su navegador y no las sigue entre sitios web. Como en cualquier conexión, recibe tu dirección IP.</td>
+      <td data-label="Dónde y con qué garantías">Estados Unidos. La transferencia está amparada por el Marco de Privacidad de Datos UE-EE. UU. (EU-U.S. Data Privacy Framework), al que Cloudflare está adherido; si dejara de aplicarse, Cloudflare recurre a las cláusulas contractuales tipo. <a href="https://www.cloudflare.com/es-es/privacypolicy/" rel="noopener">Política de privacidad de Cloudflare</a> y <a href="https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/" rel="noopener">qué datos recoge Web Analytics</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -194,5 +199,6 @@
   });
   document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "724c084d30e94710b4ae653efca91731"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
