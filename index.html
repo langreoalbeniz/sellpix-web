@@ -115,6 +115,20 @@
     padding: 2px 10px; border-radius: var(--radius-sm); text-transform: uppercase;
   }
 
+  /* Mantenimiento: franja tras los paquetes */
+  .maint-strip { margin-top: var(--space-6); display: grid; gap: var(--space-4); }
+  .maint-head h3 { margin: 0; }
+  .maint-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .maint-list li { color: var(--color-text-muted); }
+  .maint-list .faq-figure { display: block; font-size: var(--text-h3-size); line-height: var(--text-h3-line); margin-bottom: var(--space-1); }
+  .maint-list .plan-link { display: inline-block; margin-top: var(--space-2); }
+  .maint-strip .plan-note { margin: 0; }
+
+  /* Proceso en una línea */
+  .proceso-linea .sp-container { padding-block: var(--space-7); border-bottom: 1px solid var(--color-line); }
+  .proceso-linea p { margin: 0; color: var(--color-text-muted); max-width: 760px; }
+  .proceso-linea a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+
   /* Proceso */
   .steps {
     list-style: none; margin: 0; padding: 0; display: grid;
@@ -187,12 +201,12 @@
   <section class="hero">
     <div class="sp-container">
       <div>
-        <h1 class="sp-eyebrow">Diseño web y tiendas online en Shopify que venden</h1>
-        <p class="sp-display">Engineered to <span class="u-nowrap">sell.<span class="sp-pixel" aria-hidden="true"></span></span></p>
+        <p class="sp-eyebrow">Engineered to sell.</p>
+        <h1 class="sp-display">Webs que venden, <span class="u-nowrap">a precio cerrado.<span class="sp-pixel" aria-hidden="true"></span></span></h1>
         <p class="sp-lead">Diseño web con criterio comercial. Webs, tiendas Shopify y landing pages para pequeños negocios, pensadas para que tu cliente entienda lo que ofreces y te compre.</p>
         <div class="actions">
-          <a class="sp-btn sp-btn--primary" href="contacto/">Pide presupuesto</a>
-          <a class="sp-btn sp-btn--ghost" href="proyectos/">Cómo lo hacemos</a>
+          <a class="sp-btn sp-btn--primary" href="servicios/">Ver precios</a>
+          <a class="sp-btn sp-btn--ghost" href="contacto/">Pide presupuesto</a>
         </div>
       </div>
       <div class="pixel-stair" aria-hidden="true">
@@ -253,23 +267,26 @@
           </div>
         </article>
       </div>
+      <aside class="maint-strip sp-card" aria-labelledby="mant-h">
+        <div class="maint-head">
+          <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Mantenimiento</span>
+          <h3 class="sp-h4" id="mant-h">Y después de publicar, tres planes para que siga al día.</h3>
+        </div>
+        <ul class="maint-list">
+          <li><span class="faq-figure">29 €/mes</span> para webs hechas por SellPix: pequeños cambios, revisión técnica mensual y copias. <a class="plan-link" href="servicios/mantenimiento-web/">Ver mantenimiento</a></li>
+          <li><span class="faq-figure">49 €/mes</span> para webs WordPress que no hicimos nosotros, con revisión inicial gratuita. <a class="plan-link" href="servicios/mantenimiento-wordpress/">Ver mantenimiento WordPress</a></li>
+          <li><span class="faq-figure">99 €/mes</span> para tiendas WooCommerce de hasta 500 productos. <a class="plan-link" href="servicios/mantenimiento-wordpress/">Ver mantenimiento WooCommerce</a></li>
+        </ul>
+        <p class="plan-note">Los tres con IVA incluido y sin permanencia.</p>
+      </aside>
       <p class="pay-note">Cada servicio se contrata desde su página: un cuestionario de un minuto y el pago seguro con Stripe. Al contratar aceptas las <a href="condiciones/">condiciones de contratación</a>.</p>
     </div>
   </section>
 
-  <!-- Proceso -->
-  <section class="sp-section" id="proceso">
+  <!-- Proceso: una línea, el detalle está en Cómo trabajamos -->
+  <section class="proceso-linea" id="proceso">
     <div class="sp-container">
-      <div class="section-head">
-        <span class="sp-eyebrow">Proceso</span>
-        <h2 class="sp-h2">Primero tu negocio. Después la web.</h2>
-      </div>
-      <ol class="steps">
-        <li><span class="n">01</span><h3 class="sp-h4">Analizamos qué vendes</h3><p>Qué ofreces, a quién y por qué te eligen. Sin eso no se diseña nada.</p></li>
-        <li><span class="n">02</span><h3 class="sp-h4">Diseñamos para vender</h3><p>Estructura, mensajes y llamadas a la acción pensadas para convertir visitas en clientes.</p></li>
-        <li><span class="n">03</span><h3 class="sp-h4">Desarrollo rápido</h3><p>Web rápida, adaptada a móvil y lista para que la edites tú.</p></li>
-        <li><span class="n">04</span><h3 class="sp-h4">Lanzamiento</h3><p>Publicación, revisión final y una guía para que sepas usarla desde el primer día.</p></li>
-      </ol>
+      <p class="sp-lead">Primero tu negocio, después la web. Analizamos qué vendes, diseñamos para vender y publicamos en días: así es <a href="proyectos/">cómo trabajamos, en cinco etapas</a>.</p>
     </div>
   </section>
 
@@ -304,7 +321,7 @@
         </article>
       </div>
       <div class="u-mt-6">
-        <a class="sp-btn sp-btn--ghost" href="proyectos/">Cómo creamos tu proyecto</a>
+        <a class="sp-btn sp-btn--ghost" href="proyectos/">Cómo trabajamos</a>
       </div>
     </div>
   </section>
@@ -364,9 +381,10 @@
       <div>
         <span class="sp-eyebrow sp-cta-block__eyebrow">Contacto</span>
         <h2 class="sp-h2">¿Hablamos de tu web?</h2>
-        <p class="sp-lead">Cuéntanos qué vendes y te respondemos por email con una propuesta y un precio cerrado.</p>
-        <div class="u-mt-5">
-          <a class="sp-btn sp-btn--primary" href="contacto/">Pide presupuesto</a>
+        <p class="sp-lead">Los paquetes y los planes de mantenimiento tienen el precio publicado. Y si prefieres hablarlo antes, cuéntanos qué vendes y te respondemos por email.</p>
+        <div class="cta-actions">
+          <a class="sp-btn sp-btn--primary" href="servicios/">Ver precios</a>
+          <a class="cta-secondary" href="contacto/">Pide presupuesto</a>
         </div>
       </div>
       <div class="pixel-stair pixel-stair--soft" aria-hidden="true">
