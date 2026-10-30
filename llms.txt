@@ -1,0 +1,44 @@
+# SellPix
+
+> SellPix es el estudio de diseño web y branding de Alberto Domínguez Barreiro, en Oviedo (Asturias, España). Hace landing pages, webs corporativas y tiendas online en Shopify para pequeños negocios, con criterio comercial y precio cerrado. Eslogan: Engineered to sell. Idioma del sitio: español.
+
+Datos de contacto: hola@sellpix.es. Trabaja en persona en Asturias y en remoto para toda España. Los proyectos marcados como «concepto» son demostraciones con marcas ficticias, no clientes reales. Los precios incluyen IVA y están publicados; el resto de condiciones, en la página de condiciones.
+
+## Servicios
+
+- [Servicios y precios](https://sellpix.es/servicios/): resumen de los cuatro servicios con lo que incluye cada uno.
+- [Landing page](https://sellpix.es/servicios/landing-page/): una página a medida por 290 €, entregada en 5 días hábiles desde la recepción de los materiales.
+- [Web corporativa](https://sellpix.es/servicios/web-corporativa/): hasta 5 páginas, desde 690 €, en 10 días hábiles. Se reserva con el 50 %.
+- [Tienda online en Shopify](https://sellpix.es/servicios/tienda-online-shopify/): tienda nueva o rediseño, hasta 20 productos, desde 1.190 €, en 15 días hábiles. Se reserva con el 50 %.
+- [Mantenimiento web](https://sellpix.es/servicios/mantenimiento-web/): 29 € al mes, sin permanencia.
+- [Condiciones de contratación](https://sellpix.es/condiciones/): qué incluye cada servicio, pagos, plazos, revisiones y desistimiento.
+
+## Guías
+
+- [Guías](https://sellpix.es/guias/): artículos prácticos para decidir y preparar la web de un pequeño negocio.
+- [Qué debe tener la web de un pequeño negocio para vender](https://sellpix.es/guias/que-debe-tener-la-web-de-un-pequeno-negocio/)
+- [Landing page o web corporativa: cuál necesita tu negocio](https://sellpix.es/guias/landing-page-o-web-corporativa/)
+- [Cómo preparar los textos y las fotos antes de encargar tu web](https://sellpix.es/guias/preparar-textos-y-fotos-para-tu-web/)
+- [Abrir una tienda online en Shopify: qué necesitas y qué cuesta](https://sellpix.es/guias/abrir-tienda-online-shopify/)
+
+## Proyectos
+
+- [Proyectos](https://sellpix.es/proyectos/): trabajos y conceptos de demostración.
+- [Demo: Brumas, cafetería de especialidad](https://sellpix.es/proyectos/cafeteria/): landing page con marca ficticia.
+- [Demo: Meridiano Fisioterapia](https://sellpix.es/proyectos/fisioterapia/): web corporativa con marca ficticia.
+
+## Sobre el estudio
+
+- [Sobre mí](https://sellpix.es/sobre-mi/): quién es Alberto Domínguez y cómo trabaja.
+- [Diseño web en Asturias](https://sellpix.es/diseno-web-asturias/): Oviedo, Gijón, Avilés y resto de la región.
+- [Contacto](https://sellpix.es/contacto/): formulario; respuesta en menos de 24 horas.
+
+## Legal
+
+- [Aviso legal](https://sellpix.es/aviso-legal/)
+- [Política de privacidad](https://sellpix.es/privacidad/)
+- [Política de cookies](https://sellpix.es/cookies/)
+
+## Optional
+
+- [Manual de marca y tokens](https://github.com/langreoalbeniz/sellpix-web): código fuente público del sitio en GitHub.

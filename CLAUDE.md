@@ -48,9 +48,9 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `condiciones/` | Condiciones de contratación: servicios (copiados de Servicios), precios con IVA, pagos con Stripe, mantenimiento y desistimiento. Si cambian precios, plazos o enlaces de pago, actualízala a la vez que Servicios |
 | `gracias/` | Página de destino tras pagar en Stripe (`noindex`, fuera del sitemap); borra de la barra el parámetro `?pedido` |
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
-| `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
+| `robots.txt` · `sitemap.xml` · `llms.txt` | Rastreo e índice de URLs para buscadores; `llms.txt` resume el sitio para asistentes de IA (servicios con precios, guías, proyectos, legal). `robots.txt` no bloquea ningún rastreador, tampoco los de IA; si se añade una página, se añade a `sitemap.xml` y, si es relevante, a `llms.txt` |
 | `img/` | Fotos de contenido (no de marca) en .webp y .jpg, a 480 y 800 px de ancho, servidas con `<picture>` y `srcset` |
-| `kit-clientes/` | Material interno, no se publica (excluido en `_config.yml`): `bienvenida.md` (email tras contratar), `reunion-inicial.md` (guion de la primera reunión), `checklist-entrega.md` (repaso antes de publicar y entregar) y `presupuesto-plantilla.md` (presupuestos a medida). En `plataformas/`, los textos de perfil para Contra, Malt, Workana y Fiverr en español e inglés; los límites de caracteres que se citan son solo los comprobados en la ayuda oficial de cada plataforma. En `dossier/`, el dossier comercial en HTML (páginas A4 con los tokens de marca) con sus capturas y el PDF generado; si cambian precios o servicios, se regenera. Los datos variables van entre corchetes; los precios de los paquetes no se repiten aquí, se enlazan a Servicios y Condiciones |
+| `kit-clientes/` | Material interno, no se publica (excluido en `_config.yml`): `bienvenida.md` (email tras contratar), `reunion-inicial.md` (guion de la primera reunión), `checklist-entrega.md` (repaso antes de publicar y entregar) y `presupuesto-plantilla.md` (presupuestos a medida). En `plataformas/`, los textos de perfil para Contra, Malt, Workana y Fiverr en español e inglés; los límites de caracteres que se citan son solo los comprobados en la ayuda oficial de cada plataforma. En `dossier/`, el dossier comercial en HTML (páginas A4 con los tokens de marca) con sus capturas y el PDF generado; si cambian precios o servicios, se regenera. `firma-email.html` es la firma de correo (tablas y estilos en línea, símbolo cargado desde sellpix.es) con las instrucciones para el webmail de Hostinger. Los datos variables van entre corchetes; los precios de los paquetes no se repiten aquí, se enlazan a Servicios y Condiciones |
 | `_config.yml` | Archivos del repositorio que GitHub Pages no publica: toda la documentación `.md`, `tokens.json`, `tailwind.preset.js` y la configuración de herramientas. Si añades un archivo que no forma parte de la web, exclúyelo aquí |
 | `css/site.css` | Estilos compartidos (cabecera, pie, componentes, utilidades) |
 | `brand/BRAND.md` | Manual de marca completo |
@@ -89,8 +89,8 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
 6. **Ningún marcador «PENDIENTE» publicado.** Antes de cada push, busca la palabra en todos los archivos que se publican (HTML, CSS, JS, JSON, textos, también en comentarios y atributos `alt`):
-   `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md"`
-   Si aparece algo, **no se publica**: completa el dato o quita el elemento. Este archivo no se publica en la web (`_config.yml` lo excluye), por eso puede nombrar la palabra.
+   `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude)*.md" ":(exclude).github"`
+   Si aparece algo, **no se publica**: completa el dato o quita el elemento. Ni este archivo, ni los demás `.md`, ni `.github` se publican (`_config.yml` los excluye), por eso pueden nombrar la palabra.
 
 **Red de seguridad en GitHub Actions:** `.github/workflows/calidad.yml` repite en cada push a `main` los puntos 2, 3, 4 y 6 (Lighthouse móvil ≥ 90 con una pasada, pa11y, html-validate y PENDIENTE) sobre todas las páginas, servidas en local en el runner. Si falla, se corrige y se vuelve a subir; no sustituye a la verificación manual de arriba. Umbrales en `.github/lighthouserc.json`; las páginas con `noindex` no se evalúan en SEO.
 
