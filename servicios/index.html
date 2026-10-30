@@ -211,6 +211,8 @@
   .dossier-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5); }
   .dossier-card > div { max-width: 640px; }
   .dossier-card p { margin: 0; color: var(--color-text-muted); }
+  .extras-table { max-width: 760px; margin-top: var(--space-3); }
+  .extras-table .faq-figure { font-size: var(--text-h4-size); }
   .service-tag {
     position: absolute; top: -13px; left: var(--space-5);
     background: var(--color-lime); color: var(--color-on-lime);
@@ -434,6 +436,19 @@
       </div>
 
       <p class="pay-note">Cada servicio se contrata desde su página: un cuestionario de un minuto y el pago seguro con Stripe (tarjeta, Apple Pay y Google Pay). Al contratar aceptas las <a href="../condiciones/">condiciones de contratación</a>.</p>
+
+      <div class="extras u-mt-6">
+        <h2 class="sp-eyebrow eyebrow-block eyebrow-block--tight" id="extras">Extras</h2>
+        <table class="legal-table extras-table">
+          <thead><tr><th scope="col">Extra</th><th scope="col">Para qué paquetes</th><th scope="col">Precio</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Extra">Página adicional</td><td data-label="Para qué paquetes">Web corporativa y tienda Shopify</td><td data-label="Precio"><span class="faq-figure">60 €</span> por página, IVA incluido</td></tr>
+            <tr><td data-label="Extra">Revisión extra</td><td data-label="Para qué paquetes">Todos los paquetes</td><td data-label="Precio"><span class="faq-figure">50 €</span> por ronda, IVA incluido</td></tr>
+            <tr><td data-label="Extra">Entrega urgente</td><td data-label="Para qué paquetes">Todos los paquetes</td><td data-label="Precio">Bajo consulta</td></tr>
+          </tbody>
+        </table>
+        <p class="pay-note" style="margin-top: 0;">Los extras se presupuestan por escrito y se pagan antes de hacerlos.</p>
+      </div>
 
       <aside class="sp-card dossier-card u-mt-6" aria-labelledby="dossier-h">
         <div>
