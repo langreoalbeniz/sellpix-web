@@ -20,7 +20,7 @@ El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes
 9. Accesibilidad: contraste AA, foco visible con `--color-focus-ring`, objetivos táctiles de 48 px, `prefers-reduced-motion`, `alt` en las imágenes y sin scroll horizontal en móvil.
 10. Tema oscuro: ya está resuelto en `tokens.css` (automático o con `data-theme="dark"`). El logotipo cambia a su versión `-reversed` en oscuro; sobre `surface-inverse` también hay que invertirlo.
 11. Logotipo: usa los archivos de `brand/logos/` tal cual. No lo redibujes, no recolores los píxeles y no muevas el píxel lima.
-12. Nombre siempre **SellPix** (una palabra, S y P mayúsculas). Textos de tú, frases cortas, sin superlativos ni cifras sin medir; los proyectos de demostración llevan la etiqueta «CONCEPTO».
+12. Nombre siempre **SellPix** (una palabra, S y P mayúsculas). Textos de tú, frases cortas, sin superlativos ni cifras sin medir. No se publican casos de clientes ni demostraciones; el método se explica en `proyectos/`.
 
 ## Repositorio y publicación (GitHub + GitHub Pages)
 
@@ -41,7 +41,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `servicios/landing-page/` · `web-corporativa/` · `tienda-online-shopify/` · `mantenimiento-web/` | Páginas de producto. Son el único sitio con enlaces de pago: botón → cuestionario de Tally en ventana emergente → Stripe (ver «Recorrido de contratación») |
-| `proyectos/cafeteria/` · `proyectos/fisioterapia/` | Demos de diseño con marcas ficticias (Brumas, Meridiano Fisioterapia). Cada una tiene su propia identidad en `estilo.css` y su tipografía en `fonts/`, carga `brand/tokens.css` solo para la barra fija de SellPix («Concepto · Demostración de diseño de SellPix», con enlace de vuelta a Proyectos), lleva `noindex` y queda fuera del sitemap. Los contactos (WhatsApp, formulario de cita) no son operativos y lo dicen |
+| `proyectos/` | «Cómo creamos tu proyecto»: la web como comercial 24/7 y el recorrido en cinco etapas (qué aporta el cliente y qué aporta SellPix). No hay casos de clientes ni demos. Usa las fotos de `img/proyectos/` (Unsplash, blanco y negro, en .webp y .jpg a 800 y 1600 px, crédito en `img/proyectos/CREDITOS.txt` y en el pie de la página): es la única excepción a «sin fotos de banco» |
 | `guias/` | Índice de guías y una carpeta por artículo (`guias/<slug>/`), generadas con el mismo encabezado y pie que el resto. Cada guía lleva `Article` + `BreadcrumbList`, autor enlazado a `sobre-mi/`, fecha, índice con anclas, imagen OG propia en `img/og-guia-<slug>.jpg` (1200×630) y entra en el sitemap. Sin cifras ni estadísticas sin fuente oficial enlazada |
 | `diseno-web-asturias/` | Página local (Oviedo, Gijón, Avilés y resto de Asturias): enlazada desde «Oviedo, Asturias» del pie de todas las páginas y desde `sobre-mi/`. Lleva `ProfessionalService` con `areaServed`, `FAQPage` y `BreadcrumbList`. Misma regla que el resto: sin cifras ni clientes inventados |
 | `js/contratar.js` | Script compartido del recorrido de contratación; se carga con `defer` solo en las páginas de producto |
@@ -60,7 +60,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
 
-**Menú:** Inicio · Servicios · Proyectos · Guías · Sobre mí · Contacto, en ese orden, en `.site-nav`, `.mobile-menu` y `.footer-links` de todas las páginas (no hay plantilla compartida: al añadir una entrada hay que tocar todos los `index.html`, salvo las demos).
+**Menú:** Inicio · Servicios · Proyectos · Guías · Sobre mí · Contacto, en ese orden, en `.site-nav`, `.mobile-menu` y `.footer-links` de todas las páginas (no hay plantilla compartida: al añadir una entrada hay que tocar todos los `index.html`).
 
 **Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
 
@@ -84,7 +84,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 3. **pa11y sin errores** (WCAG 2 AA) en cada página:
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
-   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html proyectos/*/index.html proyectos/*/*/index.html guias/*/index.html`
+   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html guias/*/index.html`
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
@@ -92,7 +92,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
    `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude)*.md" ":(exclude).github"`
    Si aparece algo, **no se publica**: completa el dato o quita el elemento. Ni este archivo, ni los demás `.md`, ni `.github` se publican (`_config.yml` los excluye), por eso pueden nombrar la palabra.
 
-**Red de seguridad en GitHub Actions:** `.github/workflows/calidad.yml` repite en cada push a `main` los puntos 2, 3, 4 y 6 (Lighthouse móvil ≥ 90 con una pasada, pa11y, html-validate y PENDIENTE) sobre todas las páginas, servidas en local en el runner. Si falla, se corrige y se vuelve a subir; no sustituye a la verificación manual de arriba. Umbrales en `.github/lighthouserc.json`; las páginas con `noindex` no se evalúan en SEO.
+**Red de seguridad en GitHub Actions:** `.github/workflows/calidad.yml` repite en cada push a `main` los puntos 2, 3, 4 y 6 (Lighthouse móvil ≥ 90 con una pasada, pa11y, html-validate y PENDIENTE) sobre todas las páginas, servidas en local en el runner. Si falla, se corrige y se vuelve a subir; no sustituye a la verificación manual de arriba. Umbrales en `.github/lighthouserc.json`; las páginas con `noindex` (404 y gracias) no se evalúan en SEO.
 
 La 404 lleva `noindex` a propósito: su SEO en Lighthouse sale bajo y no cuenta para el objetivo.
 

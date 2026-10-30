@@ -115,7 +115,7 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 - **Tratamiento y estilo:** de tú, frases cortas, sin superlativos ni tecnicismos.
 - **Enfoque:** se habla del negocio del cliente y de sus ventas, no de la tecnología.
-- **Promesas:** nada de cifras ni resultados sin medir. Los proyectos de demostración llevan la etiqueta «CONCEPTO».
+- **Promesas:** nada de cifras ni resultados sin medir. No se publican casos de clientes ni demostraciones; el método se explica en «Cómo creamos tu proyecto».
 - **Idioma:** español por defecto; el eslogan se mantiene siempre en inglés.
 - **Uso de IA:** se dice abiertamente.
 
@@ -131,3 +131,7 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 - **Propuesta de portada web:** `index.html`, con tema claro y oscuro y adaptada a móvil.
 
 Datos de contacto para las aplicaciones: hola@sellpix.es · sellpix.es.
+
+## Fotografía en «Cómo creamos tu proyecto»
+
+La página `proyectos/` es la única excepción a «sin fotos de banco». Usa fotografías de Unsplash **en blanco y negro, abstractas y sin poses**: escritorios, manos trabajando, bocetos, una conversación de trabajo vista de lejos. Nada de modelos mirando a cámara ni escenas de oficina genéricas. Se sirven desde `img/proyectos/` en .webp y .jpg, a 800 y 1600 px, y su crédito figura en `img/proyectos/CREDITOS.txt` y en el pie de la página. En el resto de la web siguen sin usarse fotos de banco.
