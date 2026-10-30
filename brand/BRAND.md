@@ -56,7 +56,7 @@ Una web es una pantalla de píxeles. En SellPix, cada píxel trabaja para vender
 
 **Reglas de contraste (WCAG AA, comprobadas):**
 - **`ink` y `paper`:** son fijos en los dos temas, así que no sirven como texto ni como fondo de página. Para eso están `text`, `text-inverse`, `surface` y `surface-inverse`.
-- **`lime`:** nunca como texto ni icono sobre blanco (1,28:1). Sobre `lime`, el texto siempre es `on-lime` (#0A0A0A, 15,45:1).
+- **`lime`:** nunca como texto ni icono sobre blanco (1,28:1). Sobre `lime`, el texto siempre es `on-lime` (#0A0A0A, 15,45:1). Sobre un relleno `paper` fijo en los dos temas (la caja del formulario de contacto), el texto es `on-paper` (#0A0A0A, 17,65:1).
 - **`text`:** supera 17:1 sobre `surface`. **`text-muted`** supera 6:1 en los dos temas.
 - **`line-strong`:** llega a 3,47:1 en claro y 4,43:1 en oscuro, suficiente para controles.
 
