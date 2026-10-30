@@ -19,7 +19,7 @@ El flujo [`.github/workflows/calidad.yml`](.github/workflows/calidad.yml) se eje
 
 | Comprobación | Umbral | Cómo |
 | --- | --- | --- |
-| Marcador «PENDIENTE» | ninguno en archivos publicados | `git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude).github"` |
+| Marcador «PENDIENTE» | ninguno en archivos publicados | `git grep -nI "PENDIENTE"` en todo lo que se publica (los `.md` y `.github` quedan fuera de GitHub Pages, así que no cuentan) |
 | html-validate | 0 errores en todas las páginas | `npx html-validate` con `.htmlvalidate.json` |
 | pa11y (WCAG 2 AA) | 0 errores en todas las páginas | sirve la web con `python3 -m http.server` y recorre cada URL |
 | Lighthouse móvil | 90 o más en rendimiento, accesibilidad, buenas prácticas y SEO | `@lhci/cli` con [`.github/lighthouserc.json`](.github/lighthouserc.json); una pasada por página |

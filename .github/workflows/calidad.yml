@@ -35,7 +35,7 @@ jobs:
 
       - name: Ningún marcador «PENDIENTE» publicado
         run: |
-          if git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude).github"; then
+          if git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude)*.md" ":(exclude).github"; then
             echo "::error::Hay marcadores PENDIENTE en archivos que se publican. Completa el dato o quita el elemento."
             exit 1
           fi
