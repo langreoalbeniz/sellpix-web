@@ -3,7 +3,7 @@
  *
  * Uso: node scripts/sitemap.js
  *
- * - Páginas: todos los index.html versionados en git que no lleven <meta name="robots" content="noindex…">
+* - Páginas: todos los index.html del repositorio (también los nuevos aún sin confirmar) que no lleven <meta name="robots" content="noindex…">
  *   (así quedan fuera sobre-mi/, confirmar/ y gracias/; 404.html no es un index.html).
  * - lastmod: fecha del último commit que tocó el archivo; si el archivo tiene cambios sin confirmar, la fecha de hoy
  *   (porque el commit que viene será de hoy).
@@ -28,7 +28,7 @@ function rango(url) {
   return [grupo, hijo, url];
 }
 
-const paginas = git('ls-files -- "*.html"')
+const paginas = git('ls-files --cached --others --exclude-standard -- "*.html"')
   .split(/\r?\n/)
   .filter((f) => f.endsWith('index.html'))
   .filter((f) => !/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(fs.readFileSync(path.join(ROOT, f), 'utf8')))
