@@ -40,6 +40,8 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `index.html` | Portada (punto de partida de la web) |
 | `servicios/` · `proyectos/` · `sobre-mi/` · `contacto/` | Una carpeta por página, con su `index.html` (URLs limpias con barra final) |
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
+| `condiciones/` | Condiciones de contratación: servicios (copiados de Servicios), precios con IVA, pagos con Stripe, mantenimiento y desistimiento. Si cambian precios, plazos o enlaces de pago, actualízala a la vez que Servicios |
+| `gracias/` | Página de destino tras pagar en Stripe (`noindex`, fuera del sitemap); borra de la barra el parámetro `?pedido` |
 | `404.html` | Página de error; fija su raíz con `<base>` porque GitHub Pages la sirve en cualquier ruta |
 | `robots.txt` · `sitemap.xml` | Rastreo e índice de URLs para buscadores |
 | `img/` | Fotos de contenido (no de marca) en .webp y .jpg, a 480 y 800 px de ancho, servidas con `<picture>` y `srcset` |

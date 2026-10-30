@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pago recibido | SellPix</title>
+<meta name="description" content="Pago recibido. Te escribo en menos de 24 horas laborables para empezar.">
+<meta name="robots" content="noindex">
+<script>
+  if (location.search) history.replaceState(null, '', location.pathname);
+</script>
+<link rel="icon" href="../brand/logos/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../brand/logos/apple-touch-icon.png">
+<link rel="preload" href="../brand/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../brand/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../brand/tokens.css">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  .not-found { padding-block: var(--space-9); }
+  @media (min-width: 1024px) { .not-found { padding-block: var(--space-10); } }
+  .not-found h1 { margin: 0 0 var(--space-4); }
+  .not-found .sp-lead { color: var(--color-text-muted); max-width: 600px; margin: 0 0 var(--space-3); }
+  .not-found .sp-lead a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="sp-container">
+    <a class="site-logo" href="../" aria-label="SellPix, inicio">
+      <img class="on-light" src="../brand/logos/svg/sellpix-lockup.svg" width="426" height="85" alt="SellPix">
+      <img class="on-dark" src="../brand/logos/svg/sellpix-lockup-reversed.svg" width="426" height="85" alt="SellPix">
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="../">Inicio</a>
+      <a href="../servicios/">Servicios</a>
+      <a href="../proyectos/">Proyectos</a>
+      <a href="../sobre-mi/">Sobre mí</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect y="4" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="10" width="22" height="2" rx="1" fill="currentColor"/>
+        <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+    <a href="../">Inicio</a>
+    <a href="../servicios/">Servicios</a>
+    <a href="../proyectos/">Proyectos</a>
+    <a href="../sobre-mi/">Sobre mí</a>
+    <a href="../contacto/">Contacto</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="not-found sp-pixel-field">
+    <div class="sp-container">
+      <span class="sp-eyebrow eyebrow-block">Gracias</span>
+      <h1 class="sp-h1">Pago recibido.<span class="sp-pixel" aria-hidden="true"></span></h1>
+      <p class="sp-lead">Te escribo en menos de 24 horas laborables desde <a href="mailto:hola@sellpix.es">hola@sellpix.es</a> para empezar.</p>
+      <p class="sp-lead">Mientras tanto, puedes responder a ese correo con lo que tengas: logotipo, textos, fotos y accesos.</p>
+      <div class="u-mt-6">
+        <a class="sp-btn sp-btn--primary" href="../">Volver a la portada</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="sp-container">
+    <a class="footer-logo" href="../" aria-label="SellPix, inicio">
+      <img class="on-light" src="../brand/logos/svg/sellpix-lockup.svg" width="426" height="85" alt="SellPix">
+      <img class="on-dark" src="../brand/logos/svg/sellpix-lockup-reversed.svg" width="426" height="85" alt="SellPix">
+    </a>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="../servicios/">Servicios</a>
+      <a href="../proyectos/">Proyectos</a>
+      <a href="../sobre-mi/">Sobre mí</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+    <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
+    <nav class="footer-legal" aria-label="Legal">
+      <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a><span aria-hidden="true">·</span><a href="../condiciones/">Condiciones</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>

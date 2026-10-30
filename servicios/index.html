@@ -44,7 +44,7 @@
     border-radius: var(--radius-lg); padding: var(--space-6);
   }
   .service-card.featured { border: 2px solid var(--color-text); position: relative; }
-  .service-card h2 { margin: 0; }
+  .service-card h2, .service-card h3 { margin: 0; }
   .service-card .price {
     font-family: var(--font-display); font-size: 40px; line-height: 44px;
     font-weight: 800; letter-spacing: -0.025em;
@@ -56,7 +56,16 @@
   .service-card p { margin: 0; color: var(--color-text-muted); }
   .service-card ul { margin: 0; padding-left: 20px; color: var(--color-text-muted); }
   .service-card li { margin-bottom: var(--space-2); }
-  .service-card .sp-btn { margin-top: auto; align-self: flex-start; }
+  .service-card .price .price-tax { margin: 0 0 0 var(--space-2); }
+  .service-card .price .price-unit { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--color-text-muted); }
+  .card-actions { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  .card-actions .card-note { font-size: var(--text-small-size); line-height: var(--text-small-line); }
+  .card-link { color: var(--color-text); font-weight: 500; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; padding-block: var(--space-2); }
+  .card-link:hover { text-decoration-thickness: 2px; }
+  .services-extra-head { margin: var(--space-8) 0 var(--space-5); }
+  .services-extra-head h2 { margin: 0; }
+  .pay-note { margin: var(--space-6) 0 0; max-width: 760px; color: var(--color-text-muted); font-size: var(--text-small-size); line-height: var(--text-small-line); }
+  .pay-note a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
   .service-tag {
     position: absolute; top: -13px; left: var(--space-5);
     background: var(--color-lime); color: var(--color-on-lime);
@@ -161,7 +170,7 @@
             <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Landing Page</span>
             <h2 class="sp-h2">Landing</h2>
           </div>
-          <p class="price"><small>desde</small>290 €</p>
+          <p class="price">290 €<small class="price-tax">IVA incluido</small></p>
           <p>Una sola página diseñada para que quien llega entienda en segundos qué ofreces y dé el paso.</p>
           <hr class="service-divider">
           <ul>
@@ -173,7 +182,10 @@
             <li>2 rondas de revisión incluidas</li>
             <li>Entrega en 5 días hábiles</li>
           </ul>
-          <a class="sp-btn sp-btn--ghost" href="../contacto/">Pide presupuesto</a>
+          <div class="card-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://buy.stripe.com/9B6dR17lSgSmgEBeAv2Ry00">Contratar<span class="u-sr-only"> la landing por 290 €</span></a>
+            <a class="card-link" href="../contacto/">Pide presupuesto<span class="u-sr-only"> de landing</span></a>
+          </div>
         </article>
 
         <!-- Web corporativa (destacada) -->
@@ -183,7 +195,7 @@
             <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Web corporativa</span>
             <h2 class="sp-h2">Web corporativa</h2>
           </div>
-          <p class="price"><small>desde</small>690 €</p>
+          <p class="price"><small>desde</small>690 €<small class="price-tax">IVA incluido</small></p>
           <p>La web completa de tu negocio: portada, servicios, sobre ti, contacto y lo que necesites para que un cliente te elija.</p>
           <hr class="service-divider">
           <ul>
@@ -197,7 +209,11 @@
             <li>2 rondas de revisión incluidas</li>
             <li>Entrega en 10 días hábiles</li>
           </ul>
-          <a class="sp-btn sp-btn--primary" href="../contacto/">Pide presupuesto</a>
+          <div class="card-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://book.stripe.com/28E28jeOkgSm2NL4ZV2Ry01">Reservar<span class="u-sr-only"> la web corporativa con 345 €</span></a>
+            <p class="card-note">Reserva con el 50 % (345 €). El resto, a la entrega, una vez cerrado el alcance.</p>
+            <a class="card-link" href="../contacto/">Pide presupuesto<span class="u-sr-only"> de web corporativa</span></a>
+          </div>
         </article>
 
         <!-- Shopify -->
@@ -206,7 +222,7 @@
             <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Tienda online</span>
             <h2 class="sp-h2">Shopify</h2>
           </div>
-          <p class="price"><small>desde</small>1.190 €</p>
+          <p class="price"><small>desde</small>1.190 €<small class="price-tax">IVA incluido</small></p>
           <p>Tu tienda en Shopify lista para vender: diseño, productos, pagos y envíos configurados desde el primer día.</p>
           <hr class="service-divider">
           <ul>
@@ -220,10 +236,56 @@
             <li>2 rondas de revisión incluidas</li>
             <li>Entrega en 15 días hábiles</li>
           </ul>
-          <a class="sp-btn sp-btn--ghost" href="../contacto/">Pide presupuesto</a>
+          <div class="card-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://book.stripe.com/eVq7sDay48lQagd4ZV2Ry02">Reservar<span class="u-sr-only"> la tienda Shopify con 595 €</span></a>
+            <p class="card-note">Reserva con el 50 % (595 €). El resto, a la entrega, una vez cerrado el alcance.</p>
+            <a class="card-link" href="../contacto/">Pide presupuesto<span class="u-sr-only"> de tienda Shopify</span></a>
+          </div>
         </article>
 
       </div>
+
+      <div class="services-extra-head">
+        <span class="sp-eyebrow eyebrow-block">Además</span>
+        <h2 class="sp-h2">Después de la web.</h2>
+      </div>
+      <div class="services-grid">
+
+        <!-- Mantenimiento -->
+        <article class="service-card">
+          <div>
+            <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Después de publicar</span>
+            <h3 class="sp-h3">Mantenimiento</h3>
+          </div>
+          <p class="price">29 €<small class="price-unit">/mes</small><small class="price-tax">IVA incluido</small></p>
+          <p>Para que tu web siga al día después de la entrega.</p>
+          <hr class="service-divider">
+          <ul>
+            <li>Pequeños cambios de contenido</li>
+            <li>Revisión técnica mensual</li>
+            <li>Copias de seguridad</li>
+          </ul>
+          <div class="card-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://buy.stripe.com/14AaEP49G31w1JH2RN2Ry03">Suscribirme<span class="u-sr-only"> al mantenimiento por 29 € al mes</span></a>
+            <p class="card-note">Sin permanencia.</p>
+          </div>
+        </article>
+
+        <!-- Branding -->
+        <article class="service-card">
+          <div>
+            <span class="sp-eyebrow eyebrow-block eyebrow-block--tight">Identidad de marca</span>
+            <h3 class="sp-h3">Branding</h3>
+          </div>
+          <p>Logotipo e identidad visual para tu negocio, con el mismo criterio comercial. Te preparo una propuesta según lo que necesites.</p>
+          <div class="card-actions">
+            <a class="sp-btn sp-btn--ghost" href="../contacto/">Pide presupuesto<span class="u-sr-only"> de branding</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="pay-note">Pago seguro con Stripe. Tarjeta, Apple Pay y Google Pay. Al contratar aceptas las <a href="../condiciones/">condiciones de contratación</a>.</p>
     </div>
   </section>
 
@@ -298,7 +360,7 @@
         </details>
         <details>
           <summary>¿Haces el mantenimiento?</summary>
-          <p>Sí. Los primeros 30 días corrijo sin coste cualquier error de mi parte. Después, el mantenimiento cuesta <span class="faq-figure">29 €/mes</span> e incluye pequeños cambios de contenido, una revisión técnica mensual y copias de seguridad.</p>
+          <p>Sí. Los primeros 30 días corrijo sin coste cualquier error de mi parte. Después, el mantenimiento cuesta <span class="faq-figure">29 €/mes</span> (IVA incluido) e incluye pequeños cambios de contenido, una revisión técnica mensual y copias de seguridad. Sin permanencia.</p>
         </details>
         <details>
           <summary>¿Trabajas con clientes de cualquier sector?</summary>
@@ -306,7 +368,7 @@
         </details>
         <details>
           <summary>¿Cuándo y cómo se paga?</summary>
-          <p>Transferencia bancaria o tarjeta. 50 % al empezar y 50 % al entregar.</p>
+          <p>Con tarjeta, en la web mediante Stripe, o por transferencia bancaria. La landing se paga completa al contratar. La web corporativa y la tienda Shopify se reservan con el 50 % del precio base; el resto se abona a la entrega, una vez cerrado el alcance. Todo con IVA incluido. Lo tienes al detalle en las <a href="../condiciones/">condiciones de contratación</a>.</p>
         </details>
         <details>
           <summary>¿Qué necesitas de mí para empezar?</summary>
@@ -354,7 +416,7 @@
     </nav>
     <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
-      <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a>
+      <a href="../aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="../privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="../cookies/">Cookies</a><span aria-hidden="true">·</span><a href="../condiciones/">Condiciones</a>
     </nav>
   </div>
 </footer>

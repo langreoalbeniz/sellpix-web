@@ -108,7 +108,12 @@
   }
   .plan ul { margin: 0; padding-left: 18px; color: var(--color-text-muted); }
   .plan li { margin-bottom: var(--space-1); }
-  .plan .sp-btn { margin-top: auto; }
+  .plan .price .price-tax { margin: 0 0 0 var(--space-2); }
+  .plan-actions { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); padding-top: var(--space-2); }
+  .plan-note { color: var(--color-text-muted); font-size: var(--text-small-size); line-height: var(--text-small-line); }
+  .plan-link { color: var(--color-text); font-weight: 500; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; padding-block: var(--space-2); }
+  .pay-note { margin: var(--space-6) 0 0; color: var(--color-text-muted); font-size: var(--text-small-size); line-height: var(--text-small-line); }
+  .pay-note a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
   .plan.featured { border: 2px solid var(--color-text); position: relative; }
   .plan-tag {
     position: absolute; top: -12px; left: var(--space-5);
@@ -228,24 +233,36 @@
       <div class="cards">
         <article class="sp-card plan">
           <h3 class="sp-h3">Landing</h3>
-          <p class="price"><small>desde</small>290 €</p>
+          <p class="price">290 €<small class="price-tax">IVA incluido</small></p>
           <ul><li>1 página pensada para convertir</li><li>Formulario o WhatsApp</li><li>Adaptada a móvil</li></ul>
-          <a class="sp-btn sp-btn--ghost" href="servicios/">Ver detalle</a>
+          <div class="plan-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://buy.stripe.com/9B6dR17lSgSmgEBeAv2Ry00">Contratar<span class="u-sr-only"> la landing por 290 €</span></a>
+            <a class="plan-link" href="servicios/">Ver detalle<span class="u-sr-only"> de la landing</span></a>
+          </div>
         </article>
         <article class="sp-card plan featured">
           <span class="plan-tag">La más pedida</span>
           <h3 class="sp-h3">Web corporativa</h3>
-          <p class="price"><small>desde</small>690 €</p>
+          <p class="price"><small>desde</small>690 €<small class="price-tax">IVA incluido</small></p>
           <ul><li>Hasta 5 páginas</li><li>SEO básico</li><li>Textos orientados a venta</li></ul>
-          <a class="sp-btn sp-btn--primary" href="servicios/">Ver detalle</a>
+          <div class="plan-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://book.stripe.com/28E28jeOkgSm2NL4ZV2Ry01">Reservar<span class="u-sr-only"> la web corporativa con 345 €</span></a>
+            <p class="plan-note">Reserva con el 50 % (345 €). El resto, a la entrega, una vez cerrado el alcance.</p>
+            <a class="plan-link" href="servicios/">Ver detalle<span class="u-sr-only"> de la web corporativa</span></a>
+          </div>
         </article>
         <article class="sp-card plan">
           <h3 class="sp-h3">Shopify</h3>
-          <p class="price"><small>desde</small>1.190 €</p>
+          <p class="price"><small>desde</small>1.190 €<small class="price-tax">IVA incluido</small></p>
           <ul><li>Tienda nueva o rediseño</li><li>Hasta 20 productos cargados</li><li>Pagos y envíos configurados</li></ul>
-          <a class="sp-btn sp-btn--ghost" href="servicios/">Ver detalle</a>
+          <div class="plan-actions">
+            <a class="sp-btn sp-btn--secondary" href="https://book.stripe.com/eVq7sDay48lQagd4ZV2Ry02">Reservar<span class="u-sr-only"> la tienda Shopify con 595 €</span></a>
+            <p class="plan-note">Reserva con el 50 % (595 €). El resto, a la entrega, una vez cerrado el alcance.</p>
+            <a class="plan-link" href="servicios/">Ver detalle<span class="u-sr-only"> de la tienda Shopify</span></a>
+          </div>
         </article>
       </div>
+      <p class="pay-note">Pago seguro con Stripe. Tarjeta, Apple Pay y Google Pay. Al contratar aceptas las <a href="condiciones/">condiciones de contratación</a>.</p>
     </div>
   </section>
 
@@ -348,7 +365,7 @@
     </nav>
     <span>© <span class="js-year">2026</span> SellPix · Engineered to sell.</span>
     <nav class="footer-legal" aria-label="Legal">
-      <a href="aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="cookies/">Cookies</a>
+      <a href="aviso-legal/">Aviso legal</a><span aria-hidden="true">·</span><a href="privacidad/">Privacidad</a><span aria-hidden="true">·</span><a href="cookies/">Cookies</a><span aria-hidden="true">·</span><a href="condiciones/">Condiciones</a>
     </nav>
   </div>
 </footer>

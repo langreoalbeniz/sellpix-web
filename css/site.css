@@ -197,3 +197,11 @@ footer .sp-container {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
+
+/* Modelo de formulario dentro de las páginas legales */
+.legal-form {
+  margin: 0 0 var(--space-5); padding: var(--space-5);
+  border: 1px dashed var(--color-line-strong); border-radius: var(--radius-lg);
+}
+.legal-form p { margin: 0 0 var(--space-3); }
+.legal-form p:last-child { margin-bottom: 0; color: var(--color-text-muted); }
