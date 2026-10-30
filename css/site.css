@@ -314,6 +314,8 @@ footer .sp-container {
 .guide ul { padding-left: var(--space-5); }
 .guide li { margin-bottom: var(--space-2); }
 .guide a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+.related-guides { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 760px; }
+.related-guides .guide-card p { margin: 0; color: var(--color-text-muted); }
 .guide-more { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-line); }
 .guide-more h2 { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
 .guide-more ul { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
@@ -321,9 +323,9 @@ footer .sp-container {
 @media (min-width: 768px) { .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .guide-card { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
 .guide-card .sp-eyebrow { color: var(--color-text-muted); }
-.guide-card h2 { margin: 0; }
-.guide-card h2 a { color: var(--color-text); text-decoration: none; }
-.guide-card h2 a:hover { text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+.guide-card h2, .guide-card h3 { margin: 0; }
+.guide-card h2 a, .guide-card h3 a { color: var(--color-text); text-decoration: none; }
+.guide-card h2 a:hover, .guide-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
 .guide-card h2 a::after { content: ""; position: absolute; inset: 0; }
 .guide-card { position: relative; }
 .guide-card p { margin: 0; color: var(--color-text-muted); }
