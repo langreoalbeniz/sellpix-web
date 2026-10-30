@@ -287,3 +287,42 @@ footer .sp-container {
 
 .cta-actions { margin-top: var(--space-5); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
 .cta-secondary { color: inherit; font-weight: 500; text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; display: inline-block; padding-block: var(--space-3); }
+
+/* ── Guías ─────────────────────────────────────────────────────── */
+.guide-hero { padding-block: var(--space-7) var(--space-7); }
+@media (min-width: 1024px) { .guide-hero { padding-block: var(--space-8) var(--space-8); } }
+.guide-hero h1 { margin: 0 0 var(--space-4); max-width: 900px; }
+.guide-lead { margin: 0; color: var(--color-text-muted); max-width: 720px; }
+.guide-meta { margin: var(--space-5) 0 0; color: var(--color-text-muted); }
+.guide-meta a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+.guide-layout { padding-block: var(--space-7) var(--space-9); display: grid; gap: var(--space-7); align-items: start; }
+@media (min-width: 1024px) {
+  .guide-layout { grid-template-columns: 260px minmax(0, 760px); gap: var(--space-8); }
+  .guide-toc { position: sticky; top: var(--space-5); }
+}
+.guide-toc h2 { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
+.guide-toc ol { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.guide-toc a { color: var(--color-text); text-decoration: none; }
+.guide-toc a:hover { text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+.guide { max-width: 760px; }
+.guide h2 { margin: var(--space-8) 0 var(--space-4); scroll-margin-top: var(--space-5); }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { margin: var(--space-6) 0 var(--space-3); }
+.guide p, .guide ul { margin: 0 0 var(--space-4); }
+.guide ul { padding-left: var(--space-5); }
+.guide li { margin-bottom: var(--space-2); }
+.guide a { color: var(--color-text); text-decoration-color: var(--color-lime); text-underline-offset: 2px; }
+.guide-more { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-line); }
+.guide-more h2 { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
+.guide-more ul { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.guide-grid { display: grid; gap: var(--space-5); }
+@media (min-width: 768px) { .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.guide-card { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+.guide-card .sp-eyebrow { color: var(--color-text-muted); }
+.guide-card h2 { margin: 0; }
+.guide-card h2 a { color: var(--color-text); text-decoration: none; }
+.guide-card h2 a:hover { text-decoration: underline; text-decoration-color: var(--color-lime); text-underline-offset: 3px; }
+.guide-card h2 a::after { content: ""; position: absolute; inset: 0; }
+.guide-card { position: relative; }
+.guide-card p { margin: 0; color: var(--color-text-muted); }
+.guide-card p:last-child { margin-top: auto; }

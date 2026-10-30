@@ -42,6 +42,7 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `aviso-legal/` · `privacidad/` · `cookies/` | Páginas legales (LSSI-CE, RGPD/LOPDGDD y cookies). Si se añade un servicio de terceros, analítica o cookies, actualízalas antes de publicar |
 | `servicios/landing-page/` · `web-corporativa/` · `tienda-online-shopify/` · `mantenimiento-web/` | Páginas de producto. Son el único sitio con enlaces de pago: botón → cuestionario de Tally en ventana emergente → Stripe (ver «Recorrido de contratación») |
 | `proyectos/cafeteria/` · `proyectos/fisioterapia/` | Demos de diseño con marcas ficticias (Brumas, Meridiano Fisioterapia). Cada una tiene su propia identidad en `estilo.css` y su tipografía en `fonts/`, carga `brand/tokens.css` solo para la barra fija de SellPix («Concepto · Demostración de diseño de SellPix», con enlace de vuelta a Proyectos), lleva `noindex` y queda fuera del sitemap. Los contactos (WhatsApp, formulario de cita) no son operativos y lo dicen |
+| `guias/` | Índice de guías y una carpeta por artículo (`guias/<slug>/`), generadas con el mismo encabezado y pie que el resto. Cada guía lleva `Article` + `BreadcrumbList`, autor enlazado a `sobre-mi/`, fecha, índice con anclas, imagen OG propia en `img/og-guia-<slug>.jpg` (1200×630) y entra en el sitemap. Sin cifras ni estadísticas sin fuente oficial enlazada |
 | `js/contratar.js` | Script compartido del recorrido de contratación; se carga con `defer` solo en las páginas de producto |
 | `condiciones/` | Condiciones de contratación: servicios (copiados de Servicios), precios con IVA, pagos con Stripe, mantenimiento y desistimiento. Si cambian precios, plazos o enlaces de pago, actualízala a la vez que Servicios |
 | `gracias/` | Página de destino tras pagar en Stripe (`noindex`, fuera del sitemap); borra de la barra el parámetro `?pedido` |
@@ -56,6 +57,8 @@ Tienes conectores y herramientas para GitHub (`git` y `gh`). Encárgate tú de e
 | `brand/fonts/` | Tipografías woff2 (subconjunto latino) y sus licencias OFL. Única fuente de las tipografías: nunca Google Fonts |
 
 Antes de dar por terminada una página, compárala con `index.html` y con estas reglas.
+
+**Menú:** Inicio · Servicios · Proyectos · Guías · Sobre mí · Contacto, en ese orden, en `.site-nav`, `.mobile-menu` y `.footer-links` de todas las páginas (no hay plantilla compartida: al añadir una entrada hay que tocar todos los `index.html`, salvo las demos).
 
 **Páginas nuevas:** créalas como `carpeta/index.html`, con rutas `../brand/…`, `../css/…` y enlaces `../otra-pagina/`. Cada una lleva `<title>` único (máx. 60 caracteres), meta description única (máx. 155), `link rel="canonical"` a `https://sellpix.es/carpeta/`, Open Graph y un solo `h1`. Añádela a `sitemap.xml`.
 
@@ -79,7 +82,7 @@ Todo cambio importante pasa esta verificación **antes del commit**. Si algo no 
 3. **pa11y sin errores** (WCAG 2 AA) en cada página:
    `npx -y pa11y@latest --standard WCAG2AA <url>`
 4. **html-validate sin errores**:
-   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html proyectos/*/index.html proyectos/*/*/index.html`
+   `npx -y html-validate@latest index.html 404.html */index.html servicios/*/index.html proyectos/*/index.html proyectos/*/*/index.html guias/*/index.html`
    La configuración está en `.htmlvalidate.json`. Si una regla es solo de estilo (estilos en línea, mayúsculas, comillas, cierre de etiquetas…) y el código funciona, se desactiva ahí en lugar de reescribir el código.
 
 5. **Enlaces internos**: todos responden 200 (menú, pie, botones, CSS, logotipos).
