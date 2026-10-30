@@ -15,3 +15,4 @@ exclude:
   - .claude
   - .github
   - auditoria
+  - scripts
