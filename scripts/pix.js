@@ -30,14 +30,12 @@ function pix(pose = 'normal', clase = '', extra = '') {
     `<g class="pix-ojos">${OJOS}</g><g class="pix-contento">${CONTENTO}</g><g class="pix-piensa">${PIENSA}</g>` +
     `<g class="pix-celebra">${CHISPAS}</g><g class="pix-pregunta">${PREGUNTA}</g></svg></span>`;
 }
-/* Los ojos del píxel lima de la escalera de la portada (un solo par de ojos que se abren y se cierran, ver site.css) */
-const OJOS_ESCALERA = `<svg class="ojos-escalera" viewBox="0 0 10 10" focusable="false" aria-hidden="true"><g class="ojos-hero">${OJOS}</g></svg>`;
 
 const MARCA = /<!-- pix((?: \w+="[^"]*")*) -->[\s\S]*?<!-- \/pix -->/g;
 const attr = (s, n) => (s.match(new RegExp(` ${n}="([^"]*)"`)) || [])[1] || '';
 function procesar(html) {
   return html.replace(MARCA, (m, a) => `<!-- pix${a} -->${pix(attr(a, 'pose') || 'normal', attr(a, 'clase'), attr(a, 'extra'))}<!-- /pix -->`)
-    .replace(/<!-- ojos-escalera -->[\s\S]*?<!-- \/ojos-escalera -->/g, `<!-- ojos-escalera -->${OJOS_ESCALERA}<!-- /ojos-escalera -->`);
+;
 }
 if (require.main === module) {
   const check = process.argv.includes('--check');
@@ -45,11 +43,11 @@ if (require.main === module) {
   let n = 0; const mal = [];
   for (const f of files) {
     const p = path.join(ROOT, f); const html = fs.readFileSync(p, 'utf8');
-    if (!/<!-- (pix|ojos-escalera)/.test(html)) continue;
+    if (!/<!-- pix/.test(html)) continue;
     n++; const out = procesar(html);
     if (out !== html) { if (check) mal.push(f); else fs.writeFileSync(p, out); }
   }
   console.log(`pix: ${n} páginas con Pix · ${check ? (mal.length ? 'desactualizadas: ' + mal.join(', ') : 'al día') : 'actualizadas'}`);
   if (mal.length) process.exit(1);
 }
-module.exports = { pix, OJOS_ESCALERA };
+module.exports = { pix };

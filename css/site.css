@@ -261,32 +261,6 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 /* Escalera sin el píxel lima que sube: su cima queda apagada (Pix ha saltado a otro sitio de la página) */
 .anima .pixel-stair--sin-lima::after { display: none; }
 
-/* Los ojos del píxel lima de la escalera de la portada: cada ~12,8 s (cuatro respiraciones) se abren, miran a un lado y
-   a otro, parpadean y se cierran (3,2 s). Mientras están abiertos la respiración se queda al 100 %. Sin .anima, sin ojos. */
-.ojos-escalera { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.ojos-escalera .ojo { fill: var(--color-ink); transform-box: fill-box; transform-origin: center; }
-.pixel-stair--ojos span.lit { position: relative; }
-.ojos-hero { opacity: 0; transform-origin: 5px 3.9px; }
-.anima .pixel-stair--ojos .ojos-hero { animation: ojos-hero 12.8s linear 1s infinite; }
-.anima .pixel-stair--ojos span.lit { animation: lima-llega 60ms linear 940ms both, respirar-ojos 12.8s ease-in-out 1s infinite; }
-.pixel-stair.fuera .ojos-hero { animation-play-state: paused; }
-@keyframes respirar-ojos {
-  0%, 25% { opacity: 1; }
-  37.5% { opacity: .35; } 50% { opacity: 1; }
-  62.5% { opacity: .35; } 75% { opacity: 1; }
-  87.5% { opacity: .35; } 100% { opacity: 1; }
-}
-@keyframes ojos-hero {
-  0% { opacity: 0; transform: translate(0, 0) scaleY(1); }
-  2.3%, 7.8% { opacity: 1; transform: translate(0, 0) scaleY(1); }
-  9.4%, 13.3% { opacity: 1; transform: translate(-1.1px, 0) scaleY(1); }
-  15.6%, 19.5% { opacity: 1; transform: translate(1.1px, 0) scaleY(1); }
-  21.1% { opacity: 1; transform: translate(0, 0) scaleY(1); }
-  21.9% { opacity: 1; transform: translate(0, 0) scaleY(.12); }
-  22.7%, 24% { opacity: 1; transform: translate(0, 0) scaleY(1); }
-  25%, 100% { opacity: 0; transform: translate(0, 0) scaleY(1); }
-}
-
 /* ── Cuestionario «¿Qué web necesitas?» (que-web-necesitas/) ───────────────────────────────────────────────────── */
 .quiz-hero { padding-block: var(--space-5) var(--space-4); }
 @media (min-width: 768px) { .quiz-hero { padding-block: var(--space-8) var(--space-6); } }
