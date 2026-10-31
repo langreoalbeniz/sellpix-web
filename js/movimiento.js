@@ -13,42 +13,53 @@
   var permitido = 'IntersectionObserver' in window && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
   if (!permitido) return;
 
-  /* 1 · Entrada: píxeles, escaleras y bloques */
-  var vh = window.innerHeight || d.clientHeight;
-  var entrada = [];
-  function marcar(el, oculto) { if (oculto) el.classList.add('oculto'); entrada.push(el); }
-  document.querySelectorAll('[data-enciende]:not(.encendido), [data-escalera]').forEach(function (el) {
-    if (el.getBoundingClientRect().top < vh) { el.classList.add('encendido'); return; }
-    el.classList.add('oculto'); entrada.push(el);
-  });
+  /* 1 · Entrada: píxeles, escaleras y bloques.
+     No se lee ninguna medida del diseño (getBoundingClientRect, innerHeight…): hacerlo al arrancar fuerza un reflujo
+     antes del primer pintado. Un primer IntersectionObserver, que el navegador resuelve ya con el diseño calculado,
+     dice qué está dentro de la pantalla (se deja quieto y encendido) y qué debajo (se oculta hasta que llegue). */
+  var candidatos = Array.prototype.slice.call(document.querySelectorAll('[data-enciende]:not(.encendido), [data-escalera]'));
   if (document.body && document.body.getAttribute('data-movimiento') === 'revela') {
-    var bloques = document.querySelectorAll('main h2.sp-h2, main .service-card, main .plan, main .sp-card, main .guide-card');
     var porPadre = new Map();
-    bloques.forEach(function (el) {
-      if (el.closest('.sp-cta-block') && el.tagName === 'H2' && el.getBoundingClientRect().top < vh) return;
+    document.querySelectorAll('main h2.sp-h2, main .service-card, main .plan, main .sp-card, main .guide-card').forEach(function (el) {
       var n = porPadre.get(el.parentNode) || 0; porPadre.set(el.parentNode, n + 1);
       el.setAttribute('data-revela', ''); el.style.setProperty('--i', Math.min(n, 5));
-      if (el.getBoundingClientRect().top > vh - 8) marcar(el, true);
+      /* Los titulares del bloque de cierre que ya se ven no se revelan */
+      candidatos.push(el);
     });
   }
-  if (entrada.length) {
+  function mostrar(el) { el.classList.remove('oculto'); el.classList.add('encendido'); }
+  if (candidatos.length) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
-        e.target.classList.remove('oculto'); e.target.classList.add('encendido'); io.unobserve(e.target);
+        mostrar(e.target); io.unobserve(e.target);
       });
     }, { threshold: 0.1 });
-    entrada.forEach(function (el) { io.observe(el); });
+    var primero = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var el = e.target;
+        var dentro = e.boundingClientRect.top < (e.rootBounds ? e.rootBounds.height : 0) - (el.hasAttribute('data-revela') ? 8 : 0);
+        if (dentro) {
+          if (!el.hasAttribute('data-revela')) el.classList.add('encendido');
+          else if (el.closest('.sp-cta-block') && el.tagName === 'H2') el.removeAttribute('data-revela');
+          return;
+        }
+        el.classList.add('oculto'); io.observe(el);
+      });
+      primero.disconnect();
+    });
+    candidatos.forEach(function (el) { primero.observe(el); });
     /* Red de seguridad: nada se queda oculto si el observador no llega a avisar */
     window.addEventListener('load', function () {
       setTimeout(function () {
+        var vh = window.innerHeight || d.clientHeight;
         document.querySelectorAll('.oculto').forEach(function (el) {
           var r = el.getBoundingClientRect();
-          if (r.top < vh && r.bottom > 0) { el.classList.remove('oculto'); el.classList.add('encendido'); }
+          if (r.top < vh && r.bottom > 0) mostrar(el);
         });
       }, 2500);
     });
-    window.addEventListener('beforeprint', function () { document.querySelectorAll('.oculto').forEach(function (el) { el.classList.remove('oculto'); el.classList.add('encendido'); }); });
+    window.addEventListener('beforeprint', function () { document.querySelectorAll('.oculto').forEach(mostrar); });
   }
 
   /* 2 · Ambiente: parado fuera de pantalla */
