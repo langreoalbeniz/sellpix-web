@@ -1,0 +1,15 @@
+{
+  "name": "sellpix-web",
+  "private": true,
+  "description": "Herramientas de la web de SellPix. La web es estática: este archivo solo sirve para los scripts de scripts/. No se publica (_config.yml).",
+  "scripts": {
+    "dossier": "node scripts/dossier.js",
+    "precios": "node scripts/precios.js",
+    "css-critico": "node scripts/critical-css.js",
+    "sitemap": "node scripts/sitemap.js",
+    "comprobar": "node scripts/precios.js --check && node scripts/critical-css.js --check && node scripts/dossier.js --check"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

@@ -13,3 +13,6 @@ auditoria/
 
 # Documentos internos de SellPix (contexto, estrategia, historial): solo en local, nunca en el repositorio público
 SELLPIX-*.md
+
+# Dossier: HTML intermedio que genera scripts/dossier.js (la fuente es dossier/dossier.md)
+dossier/dossier.html
