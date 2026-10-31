@@ -308,6 +308,46 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .pix-acomp-item:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: -2px; }
 .mostrar-pix { margin-left: var(--space-2); }
 
+/* ── Pix asistente (js/pix-asistente.js): bocadillo y panel de preguntas frecuentes ────────────────────────── */
+.pix-globo { position: absolute; right: calc(var(--marco) - (var(--marco) - var(--pix)) / 2 + var(--space-3)); bottom: calc(.26 * var(--marco));
+  width: max-content; max-width: min(320px, calc(100vw - var(--marco) - var(--space-7))); padding: var(--space-4) var(--space-9) var(--space-4) var(--space-4);
+  background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-line); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.pix-globo[hidden] { display: none; }
+/* En móvil el bocadillo va encima de Pix, a lo ancho de la pantalla, para que los botones no se partan */
+@media (max-width: 767px) { .pix-globo { right: 0; bottom: calc(.7 * var(--marco) + var(--space-2)); max-width: calc(100vw - var(--space-8)); } }
+.pix-globo-cerrar { position: absolute; top: var(--space-1); right: var(--space-1); width: 48px; height: 48px; padding: 0; border: 0; border-radius: var(--radius-md);
+  background: transparent; color: var(--color-text-muted); font: 500 var(--text-h3-size) / 1 var(--font-sans); cursor: pointer; }
+.pix-globo-cerrar:hover { color: var(--color-text); background: var(--color-surface-alt); }
+.pix-globo-cerrar:focus-visible, .pix-faq-pregunta:focus-visible, .pix-panel-cerrar:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.pix-globo-texto { margin: 0 0 var(--space-3); font-weight: 600; }
+.pix-globo-botones { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pix-globo-boton { min-height: 48px; padding-inline: var(--space-4); font-size: var(--text-small-size); }
+.pix-globo-puntos { margin: 0; padding-left: var(--space-5); }
+.pix-globo-puntos li + li { margin-top: var(--space-1); }
+.pix-panel-fondo { position: fixed; inset: 0; z-index: 6; background: color-mix(in srgb, var(--color-ink) 40%, transparent); }
+.pix-panel-fondo[hidden] { display: none; }
+.pix-panel { position: fixed; z-index: 7; left: 0; right: 0; bottom: 0; max-height: 80vh; overflow: auto; padding: var(--space-4) var(--space-4) max(var(--space-5), env(safe-area-inset-bottom));
+  background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-line); border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: var(--shadow-md); }
+@media (min-width: 768px) { .pix-panel { left: auto; right: var(--space-5); bottom: var(--space-5); width: 420px; max-height: min(80vh, 640px); border-radius: var(--radius-lg); padding: var(--space-5); } }
+.pix-panel[hidden] { display: none; }
+.pix-panel-cabecera { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-2); }
+.pix-panel-cabecera h2 { margin: 0; }
+.pix-panel-nota { margin: 0 0 var(--space-4); color: var(--color-text-muted); }
+.pix-panel-lista .sp-eyebrow { display: block; margin: var(--space-4) 0 var(--space-2); color: var(--color-text-muted); }
+.pix-panel-busca { margin-top: var(--space-4); }
+.pix-panel-busca label { display: block; margin-bottom: var(--space-2); color: var(--color-text-muted); }
+.pix-faq { border-top: 1px solid var(--color-line); }
+.pix-faq-pregunta { display: block; width: 100%; min-height: 48px; padding: var(--space-3) var(--space-6) var(--space-3) 0; border: 0; background: transparent; color: var(--color-text);
+  font: 600 var(--text-body-size) / var(--text-body-line) var(--font-sans); text-align: left; cursor: pointer; position: relative; }
+.pix-faq-pregunta::after { content: "+"; position: absolute; right: var(--space-2); top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
+.pix-faq-pregunta[aria-expanded="true"]::after { content: "−"; }
+.pix-faq-respuesta { padding: 0 0 var(--space-4); font-size: var(--text-small-size); line-height: var(--text-small-line); }
+.pix-faq-respuesta[hidden] { display: none; }
+.pix-faq-respuesta p, .pix-faq-respuesta ul { margin: 0 0 var(--space-2); }
+.pix-faq-respuesta ul { padding-left: var(--space-5); }
+.pix-faq-ver { margin: 0; }
+.pix-faq-nada { margin: var(--space-3) 0 0; }
+
 /* ── «Conoce a Pix» (estudio/#pix): bio y ficha de la mascota ─────────────────────────────────────────────────── */
 .pix-bio-grid { display: grid; gap: var(--space-6); align-items: center; }
 @media (min-width: 768px) { .pix-bio-grid { grid-template-columns: auto 1fr; gap: var(--space-8); } }

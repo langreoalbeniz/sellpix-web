@@ -153,10 +153,16 @@
     mostrar(t);
   }
 
+  /* ?objetivo=vender|contactos|presentar|cuidar (lo manda el asistente de Pix desde la portada): la primera pregunta
+     queda respondida y se empieza por la segunda. Sin parámetro, o con uno que no existe, se empieza por la primera. */
+  function objetivoInicial() {
+    try { var o = new URLSearchParams(window.location.search).get('objetivo'); var op = Q1.o.filter(function (x) { return x[0] === o; })[0]; return op || null; } catch (e) { return null; }
+  }
   function empezar(enfoque) {
     resp = []; ocupado = false;
     var enLaCima = !!pix && pix.parentNode === document.querySelector('.pixel-stair--quiz') && pix.getBoundingClientRect().width > 0;
-    pintarPregunta(0, enfoque);
+    var ini = objetivoInicial();
+    if (ini) { resp[0] = { v: ini[0], texto: ini[1] }; pintarPregunta(1, enfoque); } else pintarPregunta(0, enfoque);
     P.pose(pix, 'mira');
     if (!enLaCima) P.salta(pix);
   }

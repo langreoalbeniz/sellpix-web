@@ -84,6 +84,7 @@
   var visible = false, oculto = leerOculto(), menuAbierto = false, haSaltado = false;
   var bloqueos = {}; // qué impide que se vea: hero, pix (sección), formulario, pie, menuMovil
   var estado = 'mira', mira = 3, objetivo = 3, precios = 0, tCelebra = null, tMira = null, tParpadeo = null, tVuelta = null;
+  var forzado = null, tForzado = null, oyentes = []; // pose que pide el asistente (js/pix-asistente.js) y quién quiere saber si Pix se ve
 
   function crear() {
     raiz = el('div', 'pix-acomp'); raiz.hidden = true;
@@ -124,13 +125,13 @@
 
   /* Fotograma según el estado: celebra > contento > mira-N; quieto en mira-3 sin .anima */
   function pintar() {
-    var f = !anima() ? 'pix-mira-3' : estado === 'celebra' ? 'pix-celebra' : estado === 'contento' ? 'pix-contento' : 'pix-mira-' + mira;
+    var f = !anima() ? 'pix-mira-3' : forzado ? P.FOTOGRAMA[forzado] : estado === 'celebra' ? 'pix-celebra' : estado === 'contento' ? 'pix-contento' : 'pix-mira-' + mira;
     P.fotograma(img, f);
   }
   function parpadear() {
     window.clearTimeout(tParpadeo);
     tParpadeo = window.setTimeout(parpadear, 5000 + Math.random() * 2000);
-    if (!visible || !anima() || estado !== 'mira') return;
+    if (!visible || !anima() || estado !== 'mira' || forzado) return;
     P.fotograma(img, 'pix-parpadea');
     window.setTimeout(function () { if (estado === 'mira') pintar(); }, 160);
   }
@@ -170,6 +171,13 @@
     window.clearTimeout(tCelebra);
     tCelebra = window.setTimeout(function () { estado = 'contento'; pintar(); }, 1100);
   }
+  /* Pose que pide el asistente durante ms milisegundos (0 = quitar la forzada); sin .anima no cambia nada */
+  function forzar(pose, ms) {
+    window.clearTimeout(tForzado);
+    forzado = pose && pose !== 'mira' && anima() ? pose : null;
+    if (forzado && ms) tForzado = window.setTimeout(function () { forzado = null; pintar(); }, ms);
+    pintar();
+  }
   function recalcularEstado() {
     if (estado === 'celebra') return;
     var nuevo = precios > 0 ? 'contento' : 'mira';
@@ -183,6 +191,7 @@
     var quiero = deseado();
     if (quiero === visible) return;
     visible = quiero;
+    oyentes.forEach(function (f) { f(visible); });
     if (animEntrada) { animEntrada.cancel(); animEntrada = null; }
     if (visible) {
       raiz.hidden = false; pintar();
@@ -220,9 +229,20 @@
     if (botonMostrar) botonMostrar.focus();
   }
 
+  /* Lo que usa el asistente (js/pix-asistente.js): dónde está Pix, su menú y sus poses */
+  function item(texto, alPulsar, indice) {
+    var b = el('button', 'pix-acomp-item', texto); b.type = 'button'; b.setAttribute('role', 'menuitem');
+    b.addEventListener('click', function () { cerrarMenu(false); alPulsar(); });
+    var ref = items[indice]; if (ref) menu.insertBefore(b, ref); else menu.appendChild(b);
+    items.splice(Math.min(indice, items.length), 0, b);
+    return b;
+  }
   function arrancar() {
     pie = document.querySelector('footer');
     crear();
+    window.SellPixAcomp = { RAIZ: RAIZ, IMG: IMG, raiz: raiz, boton: boton, img: img, menu: menu, anima: anima, forzar: forzar, item: item,
+      visible: function () { return visible; }, menuAbierto: function () { return menuAbierto; }, alCambiar: function (f) { oyentes.push(f); } };
+    document.dispatchEvent(new CustomEvent('sellpix:pix-listo'));
     if (oculto) botonPie();
     /* Otro Pix a la vista, el pie o el formulario de contacto: Pix se aparta */
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { bloquear(e.target.getAttribute('data-pix-bloqueo'), e.isIntersecting); }); });
