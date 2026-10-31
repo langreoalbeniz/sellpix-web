@@ -65,6 +65,11 @@ jobs:
           node scripts/cuestionario.js --check
           node scripts/pix.js --check
 
+      - name: FAQ de Pix al día
+        # js/pix-faq.data.json sale de data/pix-faq.json y data/servicios.json (node scripts/pix-faq.js): cada respuesta es texto literal de su página,
+        # los importes coinciden con servicios.json y no hay enlaces de Stripe ni a confirmar/.
+        run: node scripts/pix-faq.js --check
+
       - name: Sombras de Pix 3D nunca cortadas
         # Ninguna imagen de img/pix3d/ puede tener transparencia > 1 en ningún píxel de sus cuatro bordes (BRAND.md, «Mascota: Pix»).
         # Playwright (devDependency) decodifica los WebP con el Chrome del runner; no descarga navegadores.
