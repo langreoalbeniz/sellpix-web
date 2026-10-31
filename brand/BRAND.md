@@ -14,7 +14,7 @@ Una web es una pantalla de píxeles. En SellPix, cada píxel trabaja para vender
 
 1. **Negro, blanco roto y un píxel lima.** El lima es la única nota de color y siempre es el píxel que destaca: el CTA, el píxel del logotipo, un dato clave.
 2. **Rejilla de píxeles.** Todo se apoya en una rejilla de 4 px. Los recursos gráficos son cuadrados redondeados alineados: escaleras, campos de puntos y bloques.
-3. **Bordes, no sombras.** Las superficies se separan con líneas finas o con un cambio de fondo. Las sombras solo aparecen en menús y modales.
+3. **Bordes, no sombras.** Las superficies se separan con líneas finas o con un cambio de fondo. Las sombras solo aparecen en menús y modales. Excepción: Pix y el símbolo 3D llevan su propia luz y sombra renderizadas.
 4. **Aire y contundencia.** Titulares grandes y compactos, mucho espacio en blanco y pocos elementos por pantalla.
 5. **Sin adornos.** Nada de degradados, emojis ni ilustraciones genéricas. Las fotos solo se usan según el apartado «Fotografía».
 
@@ -97,38 +97,60 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 ## Mascota: Pix
 
-Pix es el píxel lima con ojos. No sustituye al logotipo: es un personaje de apoyo que acompaña al visitante en cuatro sitios, la portada, el cuestionario «¿Qué web necesitas?», `gracias/` y la 404.
+Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje de apoyo que acompaña al visitante por la web. Pix no habla: mira, se alegra y celebra, pero nunca dice nada ni abre bocadillos de texto.
 
-**Forma (no se cambia).** Un cuadrado lima (`lime`) con radio del 16 %, y encima una rejilla SVG de 10 × 10 unidades con el desbordamiento visible. Los ojos son `ink` (rectángulos de 1,8 × 1,8 con radio 0,3). Los píxeles acompañantes son de 1 × 1 (radio 0,16) en `line-strong`, nunca en lima.
+**Forma (no se cambia).** Un cubo lima (`lime`) con los bordes redondeados, dos ojos cuadrados `ink` y una luz y una sombra propias. Es 3D renderizado, no 3D en tiempo real: Blender genera fotogramas WebP desde el modelo aprobado, con la misma luz y la misma cámara, y la web solo cambia de fotograma. Los píxeles acompañantes (los de piensa, celebra y la interrogación) son grises, nunca lima. Las imágenes no se regeneran ni se reencuadran a mano.
 
-**Poses.** Solo cambian los ojos y los píxeles grises.
+**Fotogramas** (`img/pix3d/`, 256 × 256 px cada uno, 76 KB en total). Todos comparten encuadre: el cuerpo mide el 42 % del ancho del fotograma, está centrado en horizontal y apoya en el 74 % de la altura. Para que Pix mida X px, el fotograma mide X / 0,42.
 
-| Pose | Ojos y píxeles |
+| Fotograma | Qué es |
 | --- | --- |
-| normal | ojos en (2,2; 3) y (6; 3) |
-| parpadea | los mismos ojos con scaleY 0,12 durante unos 150 ms |
-| mira | ojos desplazados entre 0,6 y 1,2 unidades |
-| piensa | ojos en (+0,8; −0,8) y tres píxeles grises en (10,6; 1,4), (12; 0) y (13,6; −1,6), que aparecen uno a uno |
-| contento | ojos en «^»: seis píxeles de 0,8 × 0,8 |
-| duda | ojo izquierdo normal; el derecho, de 1,8 × 0,7 centrado |
-| celebra | contento y seis píxeles grises que salen del centro hacia fuera y se desvanecen (1,1 s) |
-| confundido | ojo izquierdo en (1,9; 3), ojo derecho de 1 × 1 en (6,4; 3,4) e interrogación gris |
+| `pix-mira-0` … `pix-mira-6` | Pix girando de −35° a +35° (0 = izquierda, 3 = de frente, 6 = derecha). Para mirar hacia donde va el visitante |
+| `pix-parpadea` | Ojos cerrados; se alterna con la pose actual unos 160 ms |
+| `pix-contento` | Ojos en «^» |
+| `pix-celebra` | Contento con chispas grises alrededor; dura 1,1 s y vuelve a contento |
+| `pix-piensa` | Ojos arriba y tres píxeles grises de pensar |
+| `pix-duda` | Ojo derecho entrecerrado |
+| `pix-confundido` | Ojos desiguales e interrogación gris |
+
+**Sombras nunca cortadas.** En cada fotograma la transparencia es 0 en los cuatro bordes y el flujo de calidad falla si alguna imagen de `img/pix3d/` tiene transparencia mayor que 1 en cualquier píxel de sus bordes (`node scripts/pix3d-bordes.js`). En la web, el CSS deja en el flujo solo la caja del cuerpo y la sombra desborda alrededor, así que ningún contenedor de Pix lleva `overflow: hidden` y el acompañante se coloca con el fotograma entero dentro de la pantalla.
+
+**Logotipo (opción A).** La cabecera, el pie y el favicon siguen con el SVG plano. El símbolo 3D (`simbolo-3d-claro-*.webp` y `simbolo-3d-oscuro-*.webp`, 440 y 880 px, 1:1, mismo encuadre), con Pix en la cima de la escalera de cubos, va solo en el héroe de la portada: la versión clara con cubos negros y la oscura con cubos en blanco roto, una sola descarga según el tema.
 
 **Dónde aparece.**
-- **Portada:** no es un personaje aparte; el píxel lima de la escalera del héroe abre los ojos cada 12,8 s (cuatro respiraciones), mira a un lado y a otro, parpadea y los cierra (3,2 s). Mientras tiene los ojos abiertos, la respiración se queda al 100 %. Con movimiento reducido o en pausa, sin ojos.
+- **Portada:** el símbolo 3D del héroe, con Pix en la cima. Es el LCP en escritorio (precargado); en móvil queda bajo el primer pantallazo.
+- **Acompañante** (`js/pix-acompanante.js`): botón fijo abajo a la derecha (Pix de 56 px en móvil y 72 en escritorio, área táctil de 48 px como mínimo, nombre accesible «Opciones de Pix»). Aparece con un salto de 600 ms cuando no hay otro Pix a la vista y se aparta en el pie, cuando se ve el formulario de contacto o la sección «Conoce a Pix», y con el menú móvil abierto. Mira hacia el ratón en escritorio y gira un fotograma con el scroll en móvil, parpadea cada 5–7 s, se pone contento con un precio a la vista y celebra con un saltito al pulsar «Contratar» o «Suscribirme». Su menú lleva al cuestionario, abre el visor y permite «Ocultar a Pix» (preferencia en el navegador; en el pie queda «Mostrar a Pix»). No se carga en `confirmar/`, las páginas legales, `condiciones/`, `creditos/`, `que-web-necesitas/`, `gracias/` ni la 404.
 - **Cuestionario** (`que-web-necesitas/`): sentado en la cima de una escalera de tres columnas. Salta al empezar (600 ms), mira las opciones, da un saltito con cada respuesta (300 ms), duda con «Todavía no lo sé» y «Otra o no lo sé», piensa 700 ms antes del resultado y celebra (1,1 s) y se queda contento.
 - **`gracias/`:** celebra una vez al cargar, junto al titular, y se queda contento.
-- **404:** confundido junto al titular; mira despacio a los lados y la interrogación aparece y desaparece (ambiente).
+- **404:** confundido junto al titular (el fotograma trae la interrogación); solo parpadea.
+- **«Conoce a Pix»** (`estudio/#pix`): Pix de frente a buen tamaño, la bio y la ficha de abajo, literales, y el botón fantasma «Ver a Pix en tu espacio».
+
+**Realidad aumentada.** «Ver a Pix en tu espacio» abre un `<dialog>` con `<model-viewer>` (`modelos/pix.glb` y `modelos/pix.usdz`, 30 cm de lado): se puede girar y, en móvil, ponerlo en la mesa (WebXR, Scene Viewer o Vista rápida). El visor se importa solo al pulsar, nunca al cargar la página, y se sirve desde la propia web (`js/vendor/`, licencia Apache 2.0 en `creditos/`). En escritorio sin AR aparece «Desde el móvil puedes ponerlo en tu mesa.».
+
+**Bio (aprobada el 31/10, texto literal).**
+
+> **Pix**
+> Pix es el píxel que vende. Vivía en lo alto de la escalera de SellPix, encendido y quieto, hasta que un día abrió los ojos y bajó a ver la web. Desde entonces te acompaña mientras navegas: mira por dónde vas, se alegra cuando llegas a lo que buscas y lo celebra contigo cuando das el paso. No habla mucho. Lo suyo es estar pendiente.
+>
+> - **Qué es:** un píxel lima, cuadrado, con los bordes redondeados.
+> - **Dónde vive:** en la cima de la escalera de SellPix.
+> - **Qué hace:** te acompaña por la web y te ayuda a elegir en el cuestionario.
+> - **Le gusta:** las webs que se entienden a la primera, los precios cerrados y subir escaleras.
+> - **No le gusta:** las ventanas que no se cierran.
+>
+> Botón: «Ver a Pix en tu espacio».
 
 **Reglas.**
-- Nunca en el logotipo, ni en la cabecera o el pie.
-- Uno por pantalla, de 24 px como mínimo.
+- Nunca en el logotipo, ni en la cabecera o el pie (salvo el botón «Mostrar a Pix»).
+- Un solo Pix a la vista, de 24 px como mínimo; el acompañante se esconde cuando se ve otro.
 - El lima, por debajo del 5 % de la pantalla.
-- Los píxeles acompañantes, en gris (`line-strong`).
-- Solo CSS y SVG, con `transform` y `opacity` (sin GIF, vídeo ni imágenes). Entradas con la curva de marca; ambiente en ease-in-out, parado fuera de pantalla.
-- Quieto en su pose final con movimiento reducido o en pausa (en la portada, sin ojos).
-- `aria-hidden="true"`: es decoración.
-- El marcado sale de `scripts/pix.js` (`npm run pix`); las poses, de `css/site.css`; los saltos del cuestionario, de `js/pix.js`.
+- Fotogramas renderizados y `<img>`: cambiar de pose es cambiar el src entre fotogramas precargados; los saltos, con `transform` y `opacity`. Entradas con la curva de marca; ambiente parado fuera de pantalla. Nada de GIF ni vídeo.
+- Las sombras nunca se cortan (transparencia 0 en los bordes).
+- Quieto en su pose final con movimiento reducido o en pausa: aparece sin salto, no mira, no parpadea ni reacciona; el menú y el visor siguen funcionando.
+- Realidad aumentada solo al pulsar.
+- Pix no habla.
+- `aria-hidden="true"` y `alt=""` en los Pix decorativos (acompañante, cuestionario, gracias, 404); el de «Conoce a Pix» lleva `alt`.
+- El marcado de los Pix de página sale de `scripts/pix.js` (`npm run pix`); los fotogramas y los saltos, de `js/pix.js`; el acompañante y el visor, de `js/pix-acompanante.js`; el CSS, de `css/site.css`.
 
 ## Espaciado, radios y movimiento
 
