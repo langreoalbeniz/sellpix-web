@@ -33,6 +33,16 @@ jobs:
         with:
           node-version: 22
 
+      - name: Ningún documento interno SELLPIX-*.md versionado
+        # Los documentos internos de SellPix (contexto, estrategia, historial) solo viven en local; .gitignore los ignora.
+        run: |
+          if git ls-files -- ':(glob)**/SELLPIX-*.md' | grep -q .; then
+            git ls-files -- ':(glob)**/SELLPIX-*.md'
+            echo "::error::Hay documentos internos SELLPIX-*.md versionados en este repositorio público. Quítalos con git rm --cached."
+            exit 1
+          fi
+          echo "Sin documentos internos versionados."
+
       - name: Ningún marcador «PENDIENTE» publicado
         run: |
           if git grep -nI "PENDIENTE" -- . ":(exclude)CLAUDE.md" ":(exclude)*.md" ":(exclude).github"; then
