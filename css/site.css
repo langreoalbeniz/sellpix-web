@@ -293,6 +293,8 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .quiz-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-5); }
 .quiz-head h1 { margin: 0 0 var(--space-2); }
 .quiz-head .sp-lead { margin: 0; color: var(--color-text-muted); max-width: 560px; }
+/* En móvil se reserva el alto de dos líneas del titular y de la entradilla: el cambio de fuente no mueve el cuestionario */
+@media (max-width: 767px) { .quiz-head h1 { min-height: calc(2 * var(--text-h1-line)); } .quiz-head .sp-lead { min-height: calc(2 * var(--text-lead-line)); } }
 .quiz-lead-largo { display: none; }
 @media (min-width: 768px) { .quiz-lead-largo { display: inline; } .quiz-lead-corto { display: none; } }
 @media (max-width: 767px) { .quiz-hero .eyebrow-block, .quiz-hero .pixel-stair--3 { display: none; } .quiz-hero .breadcrumb { margin-bottom: var(--space-2); } }
