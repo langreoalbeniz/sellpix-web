@@ -10,3 +10,6 @@ dist/
 .claude/worktrees/
 auditoria/
 .lighthouseci/
+
+# Documentos internos de SellPix (contexto, estrategia, historial): solo en local, nunca en el repositorio público
+SELLPIX-*.md
