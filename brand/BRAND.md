@@ -153,8 +153,9 @@ Datos de contacto para las aplicaciones: hola@sellpix.es · sellpix.es.
 Las fotos solo se usan según este apartado. Son de Unsplash, **en blanco y negro, abstractas y sin personas posando**: carreteras de noche con larga exposición, macros de píxeles de pantalla, ciudades de noche. Nada de servidores, oficinas genéricas ni modelos.
 
 - **Uso:** como fondo de sección, siempre bajo una capa sólida de `surface-inverse` al 70–80 %, con el texto en AA y en `text-inverse`. Máximo una foto por página más la del bloque de cierre, que es la misma en toda la web. Nunca en el primer pantallazo de la portada.
+- **Cabeceras:** las fotos de cabecera solo se cargan a partir de 768 px; en móvil la cabecera usa `surface-inverse` con el campo de píxeles.
 - **Movimiento:** zoom ambiente de 1 a 1,06 en unos 20 s (solo `transform`).
 - **Asignación:** cierre, carretera A73 (Markus Spiske); Servicios, subpíxeles (Gyula Jónás); Asturias, Oviedo de noche (Vitalii Kyktov); mantenimientos, ciudad de noche (Kevin Bosc). Se sirven desde `img/fondos/`.
-- **Formato:** .webp y .jpg a 800 y 1600 px, con `<img>` y `loading="lazy"`, nunca `background-image`. Fuente interna de los datos en `img/CREDITOS.txt` (no se publica).
+- **Formato:** .webp y .jpg a 800 y 1600 px, con `<img>` (`loading="lazy"` en el bloque de cierre; en las cabeceras, `fetchpriority="high"` y precarga), nunca `background-image`. Fuente interna de los datos en `img/CREDITOS.txt` (no se publica).
 - **«Cómo creamos tu proyecto»:** la página `proyectos/` usa fotografías propias de su tema en blanco y negro, abstractas y sin poses: escritorios, manos trabajando, bocetos, una conversación de trabajo vista de lejos. Nada de modelos mirando a cámara ni escenas de oficina genéricas. Se sirven desde `img/proyectos/` en .webp y .jpg, a 800 y 1600 px, y su crédito está solo en `creditos/`.
 - **Créditos:** todos en una sola página, `creditos/`, enlazada desde el pie de todas las páginas junto a los enlaces legales. Es el único sitio donde se ven: ni en el pie de cada página ni en `proyectos/`. Recoge fotos (autor, enlace a Unsplash y página donde se usa) y tipografías (OFL).
