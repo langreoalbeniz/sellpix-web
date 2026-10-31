@@ -1,6 +1,6 @@
 {
   "_nota": "La escribe scripts/dossier.js al generar el PDF. El flujo de calidad comprueba con --check que el PDF corresponde a estas entradas.",
-  "entrada": "6f6f16c80e0d1fc58f1d72b2dbf4b7be696f712db1a350cb4f809b364626e704",
-  "pdf": "9ced2a0246bf5db7d0ca9328419fa54f0da8b305da011682d6ae3c7acf544acf",
+  "entrada": "29266ede4327e0c0ba6e0927fd250addd7f217d8d171a048ab037b3b0ecb2cde",
+  "pdf": "deae738acd519631afa63c334998108eb47499076e01999954fdd996831635f2",
   "bytes": 1144959
 }
