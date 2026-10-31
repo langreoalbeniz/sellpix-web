@@ -41,6 +41,14 @@ jobs:
           fi
           echo "Sin marcadores PENDIENTE."
 
+      - name: Precios al día con data/servicios.json
+        # Los precios marcados con data-dato salen de data/servicios.json y ningún importe publicado puede faltar en él.
+        run: node scripts/precios.js --check
+
+      - name: Dossier al día
+        # descargas/sellpix-dossier.pdf tiene que ser el que genera npm run dossier con dossier/dossier.md y los datos actuales.
+        run: node scripts/dossier.js --check
+
       - name: CSS crítico al día
         # El bloque <style id="css-critico"> de cada página se genera desde brand/tokens.css y css/site.css.
         run: node scripts/critical-css.js --check
@@ -49,7 +57,7 @@ jobs:
         id: paginas
         run: |
           # Todas las páginas HTML versionadas que se publican (carpeta/index.html y 404.html), como rutas y como URLs locales.
-          git ls-files -- '*.html' | sort > paginas.txt
+          git ls-files -- '*.html' ':!dossier' | sort > paginas.txt
           sed -E 's#(^|/)index\.html$#\1#' paginas.txt | sed 's#^#http://localhost:8080/#' > urls.txt
           echo "$(wc -l < paginas.txt) páginas:"; cat urls.txt
 

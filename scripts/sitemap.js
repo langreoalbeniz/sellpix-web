@@ -28,7 +28,7 @@ function rango(url) {
   return [grupo, hijo, url];
 }
 
-const paginas = git('ls-files --cached --others --exclude-standard -- "*.html"')
+const paginas = git('ls-files --cached --others --exclude-standard -- "*.html" ":!dossier"')
   .split(/\r?\n/)
   .filter((f) => f.endsWith('index.html'))
   .filter((f) => !/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(fs.readFileSync(path.join(ROOT, f), 'utf8')))

@@ -109,7 +109,7 @@ ${FIN}`;
 }
 
 function paginas() {
-  return execSync('git ls-files --cached --others --exclude-standard -- "*.html"', { cwd: ROOT, encoding: 'utf8' })
+  return execSync('git ls-files --cached --others --exclude-standard -- "*.html" ":!dossier"', { cwd: ROOT, encoding: 'utf8' })
     .split(/\r?\n/).filter(Boolean);
 }
 function relDe(f) { return f === '404.html' ? '' : '../'.repeat(f.split('/').length - 1); } // la 404 fija <base href="/">

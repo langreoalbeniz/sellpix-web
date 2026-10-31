@@ -16,3 +16,9 @@ exclude:
   - .github
   - auditoria
   - scripts
+  # Fuente del dossier (el PDF publicado está en descargas/), datos de precios y herramientas de Node
+  - dossier
+  - data
+  - package.json
+  - package-lock.json
+  - node_modules
