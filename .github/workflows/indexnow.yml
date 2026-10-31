@@ -65,11 +65,11 @@ jobs:
             git diff --name-only "$BASE" "$HEAD_SHA" > cambios.txt
             echo "Comparando $BASE → $HEAD_SHA: $(wc -l < cambios.txt) archivos cambiados"
             grep -E '(^|/)index\.html$' cambios.txt | sed -E 's#(^|/)index\.html$#\1#' | sed "s#^#https://$HOST/#" | sort -u > candidatas.txt
-            if grep -qE '^(sitemap\.xml$|css/|brand/|js/)' cambios.txt; then
-              echo "Cambio global (sitemap.xml, css/, brand/ o js/): se envía todo el sitemap."
+            if grep -qE '^sitemap\.xml$' cambios.txt; then
+              echo "Cambia sitemap.xml: se envía todo el sitemap."
               cp sitemap-urls.txt urls.txt
             elif [ "$(grep -Fxc -f sitemap-urls.txt candidatas.txt)" -ge 12 ]; then
-              echo "Cambio en muchas páginas a la vez (pie, menú…): se envía todo el sitemap."
+              echo "Cambian 12 páginas HTML o más a la vez: se envía todo el sitemap."
               cp sitemap-urls.txt urls.txt
             else
               # Páginas HTML cambiadas, más las URLs que el sitemap tiene ahora y no tenía en el despliegue anterior.
@@ -80,6 +80,7 @@ jobs:
             fi
           fi
           n=$(grep -c . urls.txt || true)
+          if [ "$n" = "0" ]; then echo "Sin URLs de contenido que enviar (css/, js/, brand/ o archivos que no son páginas del sitemap)."; fi
           echo "URLs a enviar: $n"; cat urls.txt
           echo "n=$n" >> "$GITHUB_OUTPUT"
 
