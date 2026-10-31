@@ -108,23 +108,65 @@ footer .sp-container {
 .pixel-stair span.on { opacity: 1; }
 .pixel-stair span.ghost { opacity: .08; }
 .pixel-stair span.lit { opacity: 1; background: var(--color-lime); }
-/* Escalera que se enciende columna a columna al cargar (portada y gracias): 250 ms por píxel,
-   110 ms entre columnas, y el píxel lima al final (650 + 250 = 900 ms). Una sola vez. */
-@media (prefers-reduced-motion: no-preference) {
-  .pixel-stair--enciende span { animation: encender-escalera var(--duration-base) var(--ease) both; animation-delay: calc(var(--col, 0) * 110ms); }
-  .pixel-stair--enciende span:nth-child(6n+2) { --col: 1; }
-  .pixel-stair--enciende span:nth-child(6n+3) { --col: 2; }
-  .pixel-stair--enciende span:nth-child(6n+4) { --col: 3; }
-  .pixel-stair--enciende span:nth-child(6n+5) { --col: 4; }
-  .pixel-stair--enciende span:nth-child(6n+6) { --col: 5; }
-  .pixel-stair--enciende span.lit { animation-delay: 650ms; }
-  @keyframes encender-escalera { from { opacity: 0; transform: scale(.6); } }
+/* ── Movimiento (BRAND.md, «Movimiento») ─────────────────────────────────────────────────────────────
+   Todo lo que se mueve cuelga de <html class="anima">, que el <head> pone solo si hay IntersectionObserver y no se
+   pide movimiento reducido, y que el botón «Pausar animaciones» quita. Sin esa clase todo se ve en su estado final.
+   Entrada: una sola vez, 500–900 ms. Ambiente: en bucle, 3–20 s, y parado fuera de pantalla (.fuera). */
+
+/* Entrada · escalera: 250 ms por píxel, 110 ms entre columnas y el píxel lima al final (650 + 250 = 900 ms) */
+.anima .pixel-stair--enciende span { animation: encender-escalera var(--duration-base) var(--ease) both; animation-delay: calc(var(--col, 0) * 110ms); }
+.anima .pixel-stair--enciende span:nth-child(6n+2) { --col: 1; }
+.anima .pixel-stair--enciende span:nth-child(6n+3) { --col: 2; }
+.anima .pixel-stair--enciende span:nth-child(6n+4) { --col: 3; }
+.anima .pixel-stair--enciende span:nth-child(6n+5) { --col: 4; }
+.anima .pixel-stair--enciende span:nth-child(6n+6) { --col: 5; }
+/* Entrada · la escalera que está más abajo se monta al entrar en pantalla */
+.anima .pixel-stair--enciende.oculto span { animation: none; opacity: 0; }
+/* Ambiente · el píxel lima respira tras encenderse: solo opacidad, sin brillo ni sombra */
+.anima .pixel-stair--enciende span.lit { animation: encender-escalera var(--duration-base) var(--ease) 650ms both, respirar var(--duration-ambient) ease-in-out 900ms infinite; }
+.pixel-stair.fuera span.lit { animation-play-state: paused; }
+@keyframes encender-escalera { from { opacity: 0; transform: scale(.6); } }
+@keyframes respirar { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+/* Entrada · píxeles sueltos que se encienden al entrar en pantalla */
+.anima [data-enciende] { transition: opacity var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
+.anima [data-enciende].oculto { opacity: 0; transform: scale(.4); }
+
+/* Entrada · titulares de sección y tarjetas (solo los que entran en pantalla al hacer scroll): opacidad y 12 px,
+   en --duration-reveal, escalonados 80 ms. Lo que se ve en el primer pantallazo nunca se oculta. */
+.anima [data-revela] {
+  transition: opacity var(--duration-reveal) var(--ease) calc(var(--i, 0) * 80ms), transform var(--duration-reveal) var(--ease) calc(var(--i, 0) * 80ms),
+    border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease);
+}
+.anima [data-revela].oculto { opacity: 0; transform: translateY(12px); }
+@media print { .oculto { opacity: 1 !important; transform: none !important; } }
+
+/* Ambiente · campo de píxeles vivo: ocho puntos que se iluminan y se apagan despacio, nunca en lima. Cada uno se
+   coloca sobre un punto del campo (cuadrícula de 24 px) y sube de line-strong al 35 % a text-muted al 80 %. */
+.campo-vivo { display: none; }
+@supports (left: round(down, 50%, 24px)) {
+  .campo-vivo { display: block; position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .campo-vivo i {
+    position: absolute; width: 3px; height: 3px; background: var(--color-text-muted); opacity: 0;
+    left: round(down, calc(var(--fx) * 100%), 24px); top: round(down, calc(var(--fy) * 100%), 24px);
+  }
+  .anima .campo-vivo i { animation: brillo-campo var(--d) ease-in-out var(--t) infinite; }
+  .sp-pixel-field.fuera .campo-vivo i { animation-play-state: paused; }
+  .campo-vivo i:nth-child(1) { --fx: .08; --fy: .22; --d: 5s;   --t: 0s; }
+  .campo-vivo i:nth-child(2) { --fx: .22; --fy: .70; --d: 6s;   --t: -1.5s; }
+  .campo-vivo i:nth-child(3) { --fx: .37; --fy: .36; --d: 4.5s; --t: -3s; }
+  .campo-vivo i:nth-child(4) { --fx: .52; --fy: .80; --d: 6.5s; --t: -.8s; }
+  .campo-vivo i:nth-child(5) { --fx: .63; --fy: .18; --d: 5.5s; --t: -4s; }
+  .campo-vivo i:nth-child(6) { --fx: .74; --fy: .58; --d: 4s;   --t: -2.2s; }
+  .campo-vivo i:nth-child(7) { --fx: .86; --fy: .30; --d: 7s;   --t: -5s; }
+  .campo-vivo i:nth-child(8) { --fx: .94; --fy: .78; --d: 5s;   --t: -3.6s; }
+  @keyframes brillo-campo { 0%, 100% { opacity: 0; } 50% { opacity: .8; } }
 }
 
-/* Píxeles que se encienden una vez al entrar en pantalla. Solo con <html class="anima">, que pone el script en línea
-   cuando hay IntersectionObserver y no se pide movimiento reducido: sin JavaScript se ven encendidos desde el principio. */
-.anima [data-enciende] { transition: opacity var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
-.anima [data-enciende]:not(.encendido) { opacity: 0; transform: scale(.4); }
+/* Botón «Pausar animaciones» del pie: fantasma y pequeño; solo aparece si hay animaciones que pausar */
+.pausa-anim { min-height: 44px; padding: var(--space-2) var(--space-4); font-size: var(--text-small-size); line-height: var(--text-small-line); font-weight: 500; color: var(--color-text-muted); }
+.pausa-anim[hidden] { display: none; }
+.pausa-anim:hover { color: var(--color-text); }
 
 /* Transiciones de hover y foco (150 ms, sin sombras): tarjetas enlazadas y enlaces de tarjeta */
 .guide-card, .service-card, .plan, .sp-card { transition: border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease); }

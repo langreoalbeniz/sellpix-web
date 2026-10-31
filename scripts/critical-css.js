@@ -22,6 +22,9 @@ const { execSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const INICIO = '<!-- css-critico: lo genera scripts/critical-css.js a partir de brand/tokens.css y css/site.css; no lo edites a mano -->';
 const FIN = '<!-- /css-critico -->';
+/* Antes del primer pintado: marca <html class="anima"> (o "sin-movimiento" si se pausó) solo si hay IntersectionObserver y no se pide
+   movimiento reducido. Sin esa clase nada se anima. js/movimiento.js hace el resto. */
+const MOVIMIENTO = '<script>(function(){var d=document.documentElement,p=0;try{p=localStorage.getItem("sellpix_sin_movimiento")==="1"}catch(e){}if(!("IntersectionObserver"in window)||!matchMedia("(prefers-reduced-motion: no-preference)").matches)return;d.classList.add(p?"sin-movimiento":"anima")})()</script>';
 
 /* Clases, etiquetas e ids que aparecen en la primera pantalla de alguna página */
 const PRIMERA_PANTALLA = {
@@ -29,13 +32,13 @@ const PRIMERA_PANTALLA = {
     contact-jump contact-layout cta-actions cta-secondary detail-dot dot expect-list eyebrow-block eyebrow-block--tight
     faq-figure featured footer-legal footer-links footer-logo footer-place ghost guide guide-card guide-grid guide-hero
     guide-layout guide-lead guide-meta guide-toc header-actions header-cta hero how-hero js-year legal legal-data legal-hero
-    anima encendido pixel-stair--enciende gracias-grid stage-stair lit mobile-menu nav-toggle needs not-found on on-dark on-light open page-hero photo pixel-stair price price-from
+    anima encendido pixel-stair--enciende gracias-grid stage-stair lit mobile-menu campo-vivo fuera oculto pausa-anim sin-movimiento fondo-foto nav-toggle needs not-found on on-dark on-light open page-hero photo pixel-stair price price-from
     price-tax price-unit product-buy buy-scope product-cols product-hero product-price product-section proof section-head
     service-card service-tag services-grid site-header site-logo site-nav skip sp-body sp-btn sp-btn--ghost
     sp-btn--primary sp-btn--secondary sp-card sp-container sp-display sp-eyebrow sp-h1 sp-h2 sp-h3 sp-h4 sp-lead sp-pixel
     sp-pixel-field sp-section sp-small sp-stat sp-tally tag tally-alt tally-slot tally-fallback u-mt-6 u-mt-7 u-muted
     u-nowrap u-sr-only`.split(/\s+/),
-  etiquetas: 'html body a article br button code dd div dl dt footer h1 h2 h3 header iframe img li main nav ol p picture rect section small source span strong svg time title ul'.split(' '),
+  etiquetas: 'html body a article br i button code dd div dl dt footer h1 h2 h3 header iframe img li main nav ol p picture rect section small source span strong svg time title ul'.split(' '),
   ids: 'formulario main mobile-menu'.split(' '),
 };
 
@@ -105,6 +108,8 @@ function bloque(rel) {
 <style id="css-critico">${cssCritico(rel)}</style>
 <link rel="preload" href="${rel}css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="${rel}css/site.css"></noscript>
+${MOVIMIENTO}
+<script src="${rel}js/movimiento.js" defer></script>
 ${FIN}`;
 }
 
