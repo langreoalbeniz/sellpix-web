@@ -1,0 +1,129 @@
+{
+  "_nota": "Fuente única de precios, alcances, plazos y extras de SellPix (IVA incluido). La usan la web (node scripts/precios.js) y el dossier (node scripts/dossier.js). Si cambias un valor, ejecuta los dos scripts, revisa los textos libres que el check señale y actualiza también el formulario de Tally y el enlace de Stripe si hace falta.",
+  "servicios": {
+    "landing": {
+      "nombre": "Landing page",
+      "tipo": "paquete",
+      "precio": 150,
+      "base": 123.97,
+      "iva": 26.03,
+      "dias": 5,
+      "alcance": "1 página",
+      "url": "https://sellpix.es/servicios/landing-page/",
+      "tally": "pee8yP",
+      "stripe": "https://buy.stripe.com/fZu3cnay4eKe9c963Z2Ry04",
+      "dossier": {
+        "etiqueta": "Landing page",
+        "destacado": false,
+        "mostrarAlcance": false,
+        "incluye": [
+          "Análisis del negocio y del cliente ideal",
+          "Diseño a medida, sin plantillas",
+          "1 página con todas las secciones necesarias",
+          "Formulario de contacto o botón WhatsApp",
+          "Adaptada a móvil y rápida",
+          "2 rondas de revisión incluidas"
+        ]
+      }
+    },
+    "web-corporativa": {
+      "nombre": "Web corporativa",
+      "tipo": "paquete",
+      "precio": 449,
+      "base": 371.07,
+      "iva": 77.93,
+      "dias": 10,
+      "alcance": "hasta 5 páginas",
+      "url": "https://sellpix.es/servicios/web-corporativa/",
+      "tally": "M11oN8",
+      "stripe": "https://buy.stripe.com/7sY28jay47hM9c99gb2Ry07",
+      "dossier": {
+        "etiqueta": "Web corporativa",
+        "destacado": true,
+        "incluye": [
+          "Análisis del negocio y del cliente ideal",
+          "Diseño a medida, sin plantillas",
+          "SEO básico (títulos, descripciones, velocidad)",
+          "Textos orientados a venta",
+          "Formulario de contacto",
+          "Adaptada a móvil y rápida",
+          "2 rondas de revisión incluidas"
+        ]
+      }
+    },
+    "tienda-online-shopify": {
+      "nombre": "Tienda online en Shopify",
+      "tipo": "paquete",
+      "precio": 849,
+      "base": 701.65,
+      "iva": 147.35,
+      "dias": 15,
+      "alcance": "hasta 20 productos",
+      "url": "https://sellpix.es/servicios/tienda-online-shopify/",
+      "tally": "J115pX",
+      "stripe": "https://buy.stripe.com/cNi5kv7lS0To4VT4ZV2Ry08",
+      "dossier": {
+        "etiqueta": "Tienda Shopify",
+        "destacado": false,
+        "incluye": [
+          "Análisis del negocio y del cliente ideal",
+          "Diseño a medida sobre Shopify",
+          "Tienda nueva o rediseño",
+          "Pagos (Stripe, PayPal, Bizum) configurados",
+          "Tarifas de envío y zonas configuradas",
+          "SEO básico y velocidad optimizada",
+          "2 rondas de revisión incluidas"
+        ]
+      }
+    },
+    "mantenimiento-web": {
+      "nombre": "Mantenimiento web",
+      "tipo": "mantenimiento",
+      "precio": 29,
+      "unidad": "mes",
+      "url": "https://sellpix.es/servicios/mantenimiento-web/",
+      "tally": "gbbKdJ",
+      "stripe": "https://buy.stripe.com/14AaEP49G31w1JH2RN2Ry03",
+      "dossier": {
+        "etiqueta": "Mantenimiento",
+        "resumen": "Webs hechas por SellPix: pequeños cambios, revisión técnica mensual y copias de seguridad."
+      }
+    },
+    "mantenimiento-wordpress": {
+      "nombre": "Mantenimiento WordPress",
+      "tipo": "mantenimiento",
+      "precio": 49,
+      "base": 40.5,
+      "iva": 8.5,
+      "unidad": "mes",
+      "url": "https://sellpix.es/servicios/mantenimiento-wordpress/",
+      "tally": "5XbbWQ",
+      "stripe": "https://buy.stripe.com/28EeV57lS31w1JHfEz2Ry0b",
+      "dossier": {
+        "etiqueta": "Mantenimiento WordPress",
+        "resumen": "Webs que no hicimos nosotros: revisión inicial gratuita, actualizaciones mensuales con copia previa, copia semanal, seguridad y caídas, pequeños cambios e informe mensual."
+      }
+    },
+    "mantenimiento-woocommerce": {
+      "nombre": "Mantenimiento WooCommerce",
+      "tipo": "mantenimiento",
+      "precio": 99,
+      "base": 81.82,
+      "iva": 17.18,
+      "unidad": "mes",
+      "alcance": "hasta 500 productos",
+      "url": "https://sellpix.es/servicios/mantenimiento-wordpress/",
+      "tally": "dbEEBV",
+      "stripe": "https://buy.stripe.com/00w5kvdKg7hM9c9boj2Ry0c",
+      "dossier": {
+        "etiqueta": "Mantenimiento WooCommerce",
+        "resumen": "Hasta 500 productos: todo lo de WordPress, más prueba de compra tras cada actualización, copia diaria, plugins de pago y envío, y revisión mensual de errores."
+      }
+    }
+  },
+  "extras": {
+    "pagina-adicional": { "nombre": "Página adicional", "precio": 60, "base": 49.59, "iva": 10.41, "unidad": "página" },
+    "revision-extra": { "nombre": "Revisión extra", "precio": 50, "base": 41.32, "iva": 8.68, "unidad": "ronda" },
+    "entrega-urgente": { "nombre": "Entrega urgente", "precio": null, "texto": "bajo consulta" }
+  }
+}
