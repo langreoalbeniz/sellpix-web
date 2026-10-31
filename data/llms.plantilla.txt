@@ -7,6 +7,7 @@ Datos de contacto: hola@sellpix.es. Primer contacto y propuesta por email; reuni
 ## Servicios
 
 - [Servicios y precios](https://sellpix.es/servicios/): resumen de los seis servicios (landing, web corporativa, tienda Shopify, mantenimiento web, mantenimiento WordPress y mantenimiento WooCommerce) con lo que incluye cada uno.
+- [¿Qué web necesitas?](https://sellpix.es/que-web-necesitas/): cuestionario de cuatro preguntas que recomienda el servicio que encaja con tu negocio y muestra su precio.
 - [Landing page]({{landing.url}}): una página a medida por {{landing.precio}}, entregada en {{landing.plazo}} desde la recepción de los materiales. Pago completo al contratar.
 - [Web corporativa]({{web-corporativa.url}}): {{web-corporativa.alcance}}, {{web-corporativa.precio}}, en {{web-corporativa.plazo}}. Pago completo al contratar.
 - [Tienda online en Shopify]({{tienda-online-shopify.url}}): tienda nueva o rediseño, {{tienda-online-shopify.alcance}}, {{tienda-online-shopify.precio}}, en {{tienda-online-shopify.plazo}}. Pago completo al contratar.

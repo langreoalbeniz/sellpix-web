@@ -7,6 +7,7 @@ Datos de contacto: hola@sellpix.es. Primer contacto y propuesta por email; reuni
 ## Servicios
 
 - [Servicios y precios](https://sellpix.es/servicios/): resumen de los seis servicios (landing, web corporativa, tienda Shopify, mantenimiento web, mantenimiento WordPress y mantenimiento WooCommerce) con lo que incluye cada uno.
+- [¿Qué web necesitas?](https://sellpix.es/que-web-necesitas/): cuestionario de cuatro preguntas que recomienda el servicio que encaja con tu negocio y muestra su precio.
 - [Landing page](https://sellpix.es/servicios/landing-page/): una página a medida por 150 €, entregada en 5 días hábiles desde la recepción de los materiales. Pago completo al contratar.
 - [Web corporativa](https://sellpix.es/servicios/web-corporativa/): hasta 5 páginas, 449 €, en 10 días hábiles. Pago completo al contratar.
 - [Tienda online en Shopify](https://sellpix.es/servicios/tienda-online-shopify/): tienda nueva o rediseño, hasta 20 productos, 849 €, en 15 días hábiles. Pago completo al contratar.

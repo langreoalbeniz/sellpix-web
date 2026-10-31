@@ -59,6 +59,12 @@ jobs:
         # llms.txt sale de data/llms.plantilla.txt y data/servicios.json (node scripts/llms.js); no enlaza creditos/, confirmar/ ni gracias/.
         run: node scripts/llms.js --check
 
+      - name: Cuestionario al día
+        # que-web-necesitas/ lleva los precios, alcances, plazos y URLs de data/servicios.json (node scripts/cuestionario.js) y el marcado de Pix es el de scripts/pix.js.
+        run: |
+          node scripts/cuestionario.js --check
+          node scripts/pix.js --check
+
       - name: Dossier al día
         # descargas/sellpix-dossier.pdf tiene que ser el que genera npm run dossier con dossier/dossier.md y los datos actuales.
         run: node scripts/dossier.js --check

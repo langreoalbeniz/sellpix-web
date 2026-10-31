@@ -20,7 +20,7 @@ const SITE = 'https://sellpix.es/';
 const git = (cmd) => execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8' }).trim();
 const hoy = new Date().toISOString().slice(0, 10);
 
-const GRUPOS = ['', 'servicios/', 'proyectos/', 'guias/', 'estudio/', 'contacto/', 'diseno-web-asturias/', 'aviso-legal/', 'privacidad/', 'cookies/', 'condiciones/'];
+const GRUPOS = ['', 'servicios/', 'que-web-necesitas/', 'proyectos/', 'guias/', 'estudio/', 'contacto/', 'diseno-web-asturias/', 'aviso-legal/', 'privacidad/', 'cookies/', 'condiciones/'];
 function rango(url) {
   const i = GRUPOS.findIndex((g) => (g === '' ? url === '' : url.startsWith(g)));
   const grupo = i === -1 ? GRUPOS.length : i;
