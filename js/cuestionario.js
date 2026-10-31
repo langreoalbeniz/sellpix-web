@@ -55,7 +55,26 @@
   }
 
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
-  function limpiar() { while (raiz.firstChild) raiz.removeChild(raiz.firstChild); }
+  var origen = null; // dónde estaba Pix antes de limpiar (la cima de la escalera, la primera vez)
+  function limpiar() { origen = pix && pix.parentNode ? pix.getBoundingClientRect() : null; if (pix && pix.parentNode) pix.parentNode.removeChild(pix); while (raiz.firstChild) raiz.removeChild(raiz.firstChild); }
+  /* Título con Pix a su izquierda: Pix se mueve de sitio sin recrearse y, si venía de otro lugar, salta hasta aquí */
+  function cabeza(t) {
+    var antes = origen;
+    var c = el('div', 'quiz-cabeza');
+    if (pix) c.appendChild(pix);
+    c.appendChild(t);
+    return { nodo: c, volar: function () {
+      if (!pix || !antes || !antes.width) return;
+      var d = pix.getBoundingClientRect(), dx = antes.left - d.left, dy = antes.top - d.top;
+      if (Math.abs(dx) + Math.abs(dy) > 4 && P.vuela) P.vuela(pix, dx, dy);
+    } };
+  }
+  /* Al cambiar de pantalla, el foco va al título y, si no se ve, la tarjeta sube al principio de la vista */
+  function mostrar(t) {
+    t.focus({ preventScroll: true });
+    var r = t.getBoundingClientRect();
+    if (r.top < 80 || r.bottom > (window.innerHeight || document.documentElement.clientHeight)) raiz.parentNode.scrollIntoView({ block: 'start', behavior: P.anima() ? 'smooth' : 'auto' });
+  }
   function retardo(ms) { return P.anima() ? ms : 0; }
 
   function pintarPregunta(i, enfoque) {
@@ -70,13 +89,14 @@
       g.appendChild(b);
     });
     raiz.appendChild(el('p', 'quiz-paso sp-small', 'Paso ' + (i + 1) + ' de ' + total()));
-    raiz.appendChild(t); raiz.appendChild(g);
+    var cb = cabeza(t); raiz.appendChild(cb.nodo); raiz.appendChild(g);
     if (i > 0) {
       var pie = el('div', 'quiz-pie'); var a = el('button', 'sp-btn sp-btn--ghost', 'Atrás'); a.type = 'button';
       a.addEventListener('click', function () { if (ocupado) return; pintarPregunta(i - 1, true); P.pose(pix, 'mira'); });
       pie.appendChild(a); raiz.appendChild(pie);
     }
-    if (enfoque) t.focus();
+    cb.volar();
+    if (enfoque) mostrar(t);
   }
 
   function responder(i, op, boton, grupo) {
@@ -108,7 +128,7 @@
     limpiar();
     var t = el('h2', 'quiz-titulo sp-h2', s ? s.nombre : 'Te lo presupuestamos'); t.id = 'quiz-titulo'; t.tabIndex = -1;
     raiz.appendChild(el('p', 'quiz-paso sp-small', s ? 'Te recomendamos' : 'Tu resultado'));
-    raiz.appendChild(t);
+    var cb = cabeza(t); raiz.appendChild(cb.nodo);
     if (s) {
       var pr = el('p', 'quiz-precio');
       pr.appendChild(el('span', 'sp-stat', s.precio));
@@ -130,13 +150,15 @@
     var otra = el('div', 'quiz-otro'); var b = el('button', 'sp-btn sp-btn--ghost', 'Volver a empezar'); b.type = 'button';
     b.addEventListener('click', function () { empezar(true); }); otra.appendChild(b); raiz.appendChild(otra);
     P.pose(pix, P.anima() ? 'celebra' : 'contento');
-    t.focus();
+    mostrar(t);
   }
 
   function empezar(enfoque) {
     resp = []; ocupado = false;
+    var enLaCima = !!pix && pix.parentNode === document.querySelector('.pixel-stair--quiz') && pix.getBoundingClientRect().width > 0;
     pintarPregunta(0, enfoque);
-    P.pose(pix, 'mira'); P.salta(pix);
+    P.pose(pix, 'mira');
+    if (!enLaCima) P.salta(pix);
   }
   empezar(false);
 })();

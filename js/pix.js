@@ -23,6 +23,15 @@
         { transform: 'translateY(0) scale(1, 1)' }
       ], 600);
     },
+    /* Salto de entrada desde otro sitio (dx, dy = lo que hay que volver atrás): arco de unos 600 ms y aterrizaje aplastado */
+    vuela: function (el, dx, dy) {
+      saltar(el, [
+        { transform: 'translate(' + dx + 'px, ' + dy + 'px)' },
+        { transform: 'translate(' + dx * 0.5 + 'px, ' + (dy * 0.5 - 48) + 'px) scale(.94, 1.08)', offset: 0.4 },
+        { transform: 'translate(0, 0) scale(1.08, .86)', offset: 0.75 },
+        { transform: 'translate(0, 0) scale(1, 1)' }
+      ], 600);
+    },
     /* Saltito con cada respuesta, unos 300 ms */
     brinca: function (el) {
       saltar(el, [

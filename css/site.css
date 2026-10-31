@@ -253,6 +253,11 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .pix-titular { display: flex; align-items: center; gap: var(--space-5); margin: var(--space-6) 0 var(--space-4); --pix: var(--space-7); }
 .not-found .pix-titular h1 { margin: 0; }
 @media (min-width: 1024px) { .pix-titular { --pix: var(--space-8); } }
+/* Con la interrogación (404): aire de sobra entre los píxeles grises, el antetítulo y el titular */
+.pix-titular--pregunta { gap: var(--space-6); margin-top: var(--space-7); }
+@media (min-width: 1024px) { .pix-titular--pregunta { gap: var(--space-7); } }
+/* Escalera sin el píxel lima que sube: su cima queda apagada (Pix ha saltado a otro sitio de la página) */
+.anima .pixel-stair--sin-lima::after { display: none; }
 
 /* Los ojos del píxel lima de la escalera de la portada: cada ~12,8 s (cuatro respiraciones) se abren, miran a un lado y
    a otro, parpadean y se cierran (3,2 s). Mientras están abiertos la respiración se queda al 100 %. Sin .anima, sin ojos. */
@@ -281,17 +286,33 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 }
 
 /* ── Cuestionario «¿Qué web necesitas?» (que-web-necesitas/) ───────────────────────────────────────────────────── */
-.quiz-hero { padding-block: var(--space-8) var(--space-6); }
+.quiz-hero { padding-block: var(--space-5) var(--space-4); }
+@media (min-width: 768px) { .quiz-hero { padding-block: var(--space-8) var(--space-6); } }
 .quiz-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-5); }
-.quiz-head h1 { margin: 0 0 var(--space-3); }
+.quiz-head h1 { margin: 0 0 var(--space-2); }
 .quiz-head .sp-lead { margin: 0; color: var(--color-text-muted); max-width: 560px; }
+.quiz-lead-largo { display: none; }
+@media (min-width: 768px) { .quiz-lead-largo { display: inline; } .quiz-lead-corto { display: none; } }
+@media (max-width: 767px) { .quiz-hero .eyebrow-block, .quiz-hero .pixel-stair--3 { display: none; } .quiz-hero .breadcrumb { margin-bottom: var(--space-2); } }
 .pixel-stair--3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); width: var(--space-10); gap: var(--space-2); flex: none; margin: var(--space-6) var(--space-5) 0 0; }
 .pixel-stair .pix { width: 100%; height: auto; aspect-ratio: 1; opacity: 1; background: var(--color-lime); border-radius: 16%; }
-.quiz { padding-block: var(--space-5) var(--space-9); }
-.quiz-card { max-width: 760px; min-height: 440px; padding: var(--space-5); }
+.quiz { padding-block: var(--space-3) var(--space-9); }
+@media (min-width: 768px) { .quiz { padding-block: var(--space-5) var(--space-9); } }
+.quiz-card { --pix-quiz: calc(var(--space-6) + var(--space-1)); position: relative; max-width: 760px; min-height: 320px; padding: var(--space-4); scroll-margin-top: var(--space-8); }
+@media (min-width: 768px) { .quiz-card { min-height: 440px; padding: var(--space-5); } }
 @media (min-width: 1024px) { .quiz-card { padding: var(--space-6); } }
+/* Pix en el cuestionario: empieza en la cima de una escalera pequeña en la esquina de la tarjeta (solo desde 768 px), salta
+   a la izquierda del título de la pregunta y se queda allí. La celda de la cima de la escalera queda apagada. */
+.pixel-stair--quiz { display: none; position: absolute; top: var(--space-5); right: var(--space-5); width: calc(3 * var(--pix-quiz) + 2 * var(--space-2)); margin: 0; }
+@media (min-width: 768px) { .pixel-stair--quiz { display: grid; } }
+@media (min-width: 1024px) { .pixel-stair--quiz { top: var(--space-6); right: var(--space-6); } }
+.pixel-stair--quiz .pix { --pix: var(--pix-quiz); position: absolute; top: 0; right: 0; width: var(--pix-quiz); height: var(--pix-quiz); }
+.quiz-cabeza { display: flex; align-items: flex-start; gap: var(--space-3); margin: 0 0 var(--space-4); }
+@media (min-width: 768px) { .quiz-cabeza { margin-bottom: var(--space-5); padding-right: calc(3 * var(--pix-quiz) + 2 * var(--space-2) + var(--space-4)); min-height: calc(3 * var(--pix-quiz) + 2 * var(--space-2)); } }
+.quiz-cabeza .pix { --pix: var(--pix-quiz); margin-top: var(--space-1); }
+.quiz-cabeza .quiz-titulo { margin: 0; }
 .quiz-paso { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
-.quiz-titulo { margin: 0 0 var(--space-5); }
+@media (max-width: 767px) { .quiz-titulo { font-size: var(--text-h3-size); line-height: var(--text-h3-line); } .quiz-opcion { min-height: var(--space-7); } }
 .quiz-opciones { display: grid; gap: var(--space-3); }
 .quiz-opcion { width: 100%; justify-content: flex-start; text-align: left; min-height: var(--space-8); }
 .quiz-opcion[aria-pressed="true"] { background: var(--color-surface-inverse); color: var(--color-text-inverse); border-color: var(--color-surface-inverse); }
