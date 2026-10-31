@@ -55,6 +55,10 @@ jobs:
         # Los precios marcados con data-dato salen de data/servicios.json y ningún importe publicado puede faltar en él.
         run: node scripts/precios.js --check
 
+      - name: llms.txt al día
+        # llms.txt sale de data/llms.plantilla.txt y data/servicios.json (node scripts/llms.js); no enlaza creditos/, confirmar/ ni gracias/.
+        run: node scripts/llms.js --check
+
       - name: Dossier al día
         # descargas/sellpix-dossier.pdf tiene que ser el que genera npm run dossier con dossier/dossier.md y los datos actuales.
         run: node scripts/dossier.js --check

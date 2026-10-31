@@ -6,8 +6,9 @@
     "dossier": "node scripts/dossier.js",
     "precios": "node scripts/precios.js",
     "css-critico": "node scripts/critical-css.js",
+    "llms": "node scripts/llms.js",
     "sitemap": "node scripts/sitemap.js",
-    "comprobar": "node scripts/precios.js --check && node scripts/critical-css.js --check && node scripts/dossier.js --check"
+    "comprobar": "node scripts/precios.js --check && node scripts/llms.js --check && node scripts/critical-css.js --check && node scripts/dossier.js --check"
   },
   "devDependencies": {
     "playwright": "1.64.1"

@@ -1,0 +1,49 @@
+# SellPix
+
+> SellPix es un estudio de diseño web y branding con sede en Oviedo (Asturias, España). Hace landing pages, webs corporativas y tiendas online en Shopify para pequeños negocios, con criterio comercial y precio cerrado. Eslogan: Engineered to sell. Idioma del sitio: español.
+
+Datos de contacto: hola@sellpix.es. Primer contacto y propuesta por email; reuniones por videollamada; trabaja en remoto para toda España. Los precios incluyen IVA y están publicados; el resto de condiciones, en la página de condiciones.
+
+## Servicios
+
+- [Servicios y precios](https://sellpix.es/servicios/): resumen de los seis servicios (landing, web corporativa, tienda Shopify, mantenimiento web, mantenimiento WordPress y mantenimiento WooCommerce) con lo que incluye cada uno.
+- [Landing page]({{landing.url}}): una página a medida por {{landing.precio}}, entregada en {{landing.plazo}} desde la recepción de los materiales. Pago completo al contratar.
+- [Web corporativa]({{web-corporativa.url}}): {{web-corporativa.alcance}}, {{web-corporativa.precio}}, en {{web-corporativa.plazo}}. Pago completo al contratar.
+- [Tienda online en Shopify]({{tienda-online-shopify.url}}): tienda nueva o rediseño, {{tienda-online-shopify.alcance}}, {{tienda-online-shopify.precio}}, en {{tienda-online-shopify.plazo}}. Pago completo al contratar.
+- [Mantenimiento web]({{mantenimiento-web.url}}): {{mantenimiento-web.precio}} al mes, sin permanencia.
+- [Mantenimiento WordPress]({{mantenimiento-wordpress.url}}): para webs WordPress que no hizo SellPix. {{mantenimiento-wordpress.precio}} al mes: actualización mensual con copia previa, copia semanal, revisión de seguridad y caídas, pequeños cambios e informe mensual. Revisión inicial gratuita, sin permanencia.
+- [Mantenimiento WooCommerce]({{mantenimiento-woocommerce.url}}): para tiendas WooCommerce que no hizo SellPix, {{mantenimiento-woocommerce.alcance}}. {{mantenimiento-woocommerce.precio}} al mes: lo del plan WordPress y además prueba de compra tras cada actualización, copia diaria, plugins de pago y envío y revisión de errores. Revisión inicial gratuita, sin permanencia.
+- Extras (en Servicios y Condiciones): página adicional {{pagina-adicional.precio}} (web corporativa y tienda), revisión extra {{revision-extra.precio}} por ronda, entrega urgente {{entrega-urgente.precio}}. Se presupuestan por escrito y se pagan antes de hacerlos.
+- [Condiciones de contratación](https://sellpix.es/condiciones/): qué incluye cada servicio, pagos, plazos, revisiones y desistimiento.
+- [Dossier comercial en PDF](https://sellpix.es/descargas/sellpix-dossier.pdf): servicios, precios, cómo trabajamos y qué necesitamos del cliente, en 8 páginas.
+
+## Guías
+
+- [Guías](https://sellpix.es/guias/): artículos prácticos para decidir y preparar la web de un pequeño negocio.
+- [Qué debe tener la web de un pequeño negocio para vender](https://sellpix.es/guias/que-debe-tener-la-web-de-un-pequeno-negocio/)
+- [Landing page o web corporativa: cuál necesita tu negocio](https://sellpix.es/guias/landing-page-o-web-corporativa/)
+- [Qué es una landing page y ejemplos por tipo de negocio](https://sellpix.es/guias/que-es-una-landing-page/)
+- [Cómo preparar los textos y las fotos antes de encargar tu web](https://sellpix.es/guias/preparar-textos-y-fotos-para-tu-web/)
+- [Abrir una tienda online en Shopify: qué necesitas y qué cuesta](https://sellpix.es/guias/abrir-tienda-online-shopify/)
+- [Cuánto cuesta una página web para un pequeño negocio](https://sellpix.es/guias/cuanto-cuesta-una-pagina-web-pequeno-negocio/)
+- [Cuánto cuesta el mantenimiento de una página web](https://sellpix.es/guias/mantenimiento-web-que-incluye/)
+
+## Cómo trabajamos
+
+- [Cómo creamos tu proyecto](https://sellpix.es/proyectos/): la web como comercial 24/7 y el recorrido en cinco etapas, con lo que aporta el cliente y lo que aporta SellPix.
+
+## Sobre el estudio
+
+- [El estudio](https://sellpix.es/estudio/): cómo trabaja SellPix: negocio primero, precio cerrado, IA con revisión humana y la web es del cliente.
+- [Diseño web en Asturias](https://sellpix.es/diseno-web-asturias/): Oviedo, Gijón, Avilés y resto de la región.
+- [Contacto](https://sellpix.es/contacto/): formulario; respuesta en menos de 24 horas.
+
+## Legal
+
+- [Aviso legal](https://sellpix.es/aviso-legal/)
+- [Política de privacidad](https://sellpix.es/privacidad/)
+- [Política de cookies](https://sellpix.es/cookies/)
+
+## Optional
+
+- [Manual de marca y tokens](https://github.com/langreoalbeniz/sellpix-web): código fuente público del sitio en GitHub.
