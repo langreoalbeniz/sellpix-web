@@ -213,6 +213,99 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 @media (prefers-reduced-motion: no-preference) { html:has(.service-jump) { scroll-behavior: smooth; } }
 .credits-list li + li { margin-top: var(--space-3); }
 
+/* ── Pix, la mascota (BRAND.md, «Mascota: Pix») ──────────────────────────────────────────────────────────────────
+   Un cuadrado lima (radio 16 %) con un SVG de 10 × 10 unidades encima (scripts/pix.js escribe el marcado). La pose la
+   elige data-pose: solo cambian los ojos y los píxeles grises (línea fuerte, nunca lima). Los números de translate y
+   scale están en unidades de esa rejilla. Solo opacity y transform; entradas con la curva de marca y ambiente en
+   ease-in-out, parado fuera de pantalla (.fuera). Sin la clase .anima (movimiento reducido, pausa o sin JS) Pix queda
+   quieto en su pose final. */
+.pix { --pix: var(--space-8); position: relative; display: inline-block; flex: none; width: var(--pix); height: var(--pix); background: var(--color-lime); border-radius: 16%; vertical-align: middle; transform-origin: 50% 100%; }
+.pix--sm { --pix: var(--space-7); }
+.pix-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pix .ojo, .pix-contento rect { fill: var(--color-ink); }
+.pix-piensa rect, .pix-celebra rect, .pix-pregunta rect { fill: var(--color-line-strong); }
+.pix .ojo { transform-box: fill-box; transform-origin: center; }
+.pix-contento, .pix-piensa, .pix-celebra, .pix-pregunta { display: none; }
+.pix[data-pose="contento"] .pix-ojos, .pix[data-pose="celebra"] .pix-ojos { display: none; }
+.pix[data-pose="contento"] .pix-contento, .pix[data-pose="celebra"] .pix-contento { display: inline; }
+.pix[data-pose="piensa"] .pix-piensa { display: inline; }
+.pix[data-pose="celebra"] .pix-celebra { display: inline; }
+.pix[data-pose="confundido"] .pix-pregunta { display: inline; }
+.pix-celebra rect { opacity: 0; }
+.pix[data-pose="parpadea"] .ojo { transform: scaleY(.12); }
+.pix[data-pose="mira"] .pix-ojos { transform: translate(.6px, .5px); }
+.pix[data-pose="piensa"] .pix-ojos { transform: translate(.8px, -.8px); }
+.pix[data-pose="duda"] .ojo-d { transform: scaleY(.389); }
+.pix[data-pose="confundido"] .ojo-i { transform: translate(-.3px, 0); }
+.pix[data-pose="confundido"] .ojo-d { transform: scale(.556); }
+.anima .pix-ojos { transition: transform var(--duration-base) var(--ease); }
+.anima .pix[data-pose="normal"] .ojo, .anima .pix[data-pose="mira"] .ojo { animation: pix-parpadeo 5s ease-in-out infinite; }
+.anima .pix[data-pose="mira"] .pix-ojos, .anima .pix[data-pose="confundido"] .pix-ojos { animation: pix-mira 6s ease-in-out infinite alternate; }
+.anima .pix[data-pose="confundido"] .pix-pregunta { animation: pix-pregunta 4s ease-in-out infinite; }
+.anima .pix[data-pose="piensa"] .pix-piensa rect { animation: pix-aparece var(--duration-base) var(--ease) both; animation-delay: calc(var(--n) * 180ms); }
+.anima .pix[data-pose="celebra"] .pix-celebra rect { animation: pix-chispa 1.1s var(--ease) both; }
+.pix.fuera .ojo, .pix.fuera .pix-ojos, .pix.fuera .pix-pregunta { animation-play-state: paused; }
+@keyframes pix-parpadeo { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.12); } }
+@keyframes pix-mira { from { transform: translate(-.9px, .3px); } to { transform: translate(.9px, .3px); } }
+@keyframes pix-pregunta { 0%, 10%, 100% { opacity: 0; } 25%, 70% { opacity: 1; } 85% { opacity: 0; } }
+@keyframes pix-aparece { from { opacity: 0; } }
+@keyframes pix-chispa { from { opacity: 1; transform: translate(0, 0); } to { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+.pix-titular { display: flex; align-items: center; gap: var(--space-5); margin: var(--space-6) 0 var(--space-4); --pix: var(--space-7); }
+.not-found .pix-titular h1 { margin: 0; }
+@media (min-width: 1024px) { .pix-titular { --pix: var(--space-8); } }
+
+/* Los ojos del píxel lima de la escalera de la portada: cada ~12,8 s (cuatro respiraciones) se abren, miran a un lado y
+   a otro, parpadean y se cierran (3,2 s). Mientras están abiertos la respiración se queda al 100 %. Sin .anima, sin ojos. */
+.ojos-escalera { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.ojos-escalera .ojo { fill: var(--color-ink); transform-box: fill-box; transform-origin: center; }
+.pixel-stair--ojos span.lit { position: relative; }
+.ojos-hero { opacity: 0; transform-origin: 5px 3.9px; }
+.anima .pixel-stair--ojos .ojos-hero { animation: ojos-hero 12.8s linear 1s infinite; }
+.anima .pixel-stair--ojos span.lit { animation: lima-llega 60ms linear 940ms both, respirar-ojos 12.8s ease-in-out 1s infinite; }
+.pixel-stair.fuera .ojos-hero { animation-play-state: paused; }
+@keyframes respirar-ojos {
+  0%, 25% { opacity: 1; }
+  37.5% { opacity: .35; } 50% { opacity: 1; }
+  62.5% { opacity: .35; } 75% { opacity: 1; }
+  87.5% { opacity: .35; } 100% { opacity: 1; }
+}
+@keyframes ojos-hero {
+  0% { opacity: 0; transform: translate(0, 0) scaleY(1); }
+  2.3%, 7.8% { opacity: 1; transform: translate(0, 0) scaleY(1); }
+  9.4%, 13.3% { opacity: 1; transform: translate(-1.1px, 0) scaleY(1); }
+  15.6%, 19.5% { opacity: 1; transform: translate(1.1px, 0) scaleY(1); }
+  21.1% { opacity: 1; transform: translate(0, 0) scaleY(1); }
+  21.9% { opacity: 1; transform: translate(0, 0) scaleY(.12); }
+  22.7%, 24% { opacity: 1; transform: translate(0, 0) scaleY(1); }
+  25%, 100% { opacity: 0; transform: translate(0, 0) scaleY(1); }
+}
+
+/* ── Cuestionario «¿Qué web necesitas?» (que-web-necesitas/) ───────────────────────────────────────────────────── */
+.quiz-hero { padding-block: var(--space-8) var(--space-6); }
+.quiz-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-5); }
+.quiz-head h1 { margin: 0 0 var(--space-3); }
+.quiz-head .sp-lead { margin: 0; color: var(--color-text-muted); max-width: 560px; }
+.pixel-stair--3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); width: var(--space-10); gap: var(--space-2); flex: none; margin: var(--space-6) var(--space-5) 0 0; }
+.pixel-stair .pix { width: 100%; height: auto; aspect-ratio: 1; opacity: 1; background: var(--color-lime); border-radius: 16%; }
+.quiz { padding-block: var(--space-5) var(--space-9); }
+.quiz-card { max-width: 760px; min-height: 440px; padding: var(--space-5); }
+@media (min-width: 1024px) { .quiz-card { padding: var(--space-6); } }
+.quiz-paso { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
+.quiz-titulo { margin: 0 0 var(--space-5); }
+.quiz-opciones { display: grid; gap: var(--space-3); }
+.quiz-opcion { width: 100%; justify-content: flex-start; text-align: left; min-height: var(--space-8); }
+.quiz-opcion[aria-pressed="true"] { background: var(--color-surface-inverse); color: var(--color-text-inverse); border-color: var(--color-surface-inverse); }
+.quiz-pie { margin-top: var(--space-5); }
+.quiz-precio { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); margin: 0 0 var(--space-4); }
+.quiz-precio small { color: var(--color-text-muted); }
+.quiz-datos { list-style: none; margin: 0 0 var(--space-4); padding: 0; }
+.quiz-datos li + li { margin-top: var(--space-1); }
+.quiz-nota { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
+.quiz-acciones { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+.quiz-otro { margin-top: var(--space-4); }
+.hero-quiz { margin: var(--space-4) 0 0; }
+.hero-quiz a { font-weight: 500; }
+
 /* Botón «Pausar animaciones» del pie: fantasma y pequeño; solo aparece si hay animaciones que pausar */
 .pausa-anim { min-height: 44px; padding: var(--space-2) var(--space-4); font-size: var(--text-small-size); line-height: var(--text-small-line); font-weight: 500; color: var(--color-text-muted); }
 .pausa-anim[hidden] { display: none; }

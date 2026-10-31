@@ -66,7 +66,7 @@
   var ambiente = new IntersectionObserver(function (es) {
     es.forEach(function (e) { e.target.classList.toggle('fuera', !e.isIntersecting); });
   });
-  document.querySelectorAll('.sp-pixel-field, .pixel-stair, .fondo-foto').forEach(function (el) { ambiente.observe(el); });
+  document.querySelectorAll('.sp-pixel-field, .pixel-stair, .fondo-foto, .pix').forEach(function (el) { ambiente.observe(el); });
 
   /* 3 · Botón «Pausar animaciones» */
   var boton = document.querySelector('.pausa-anim');
