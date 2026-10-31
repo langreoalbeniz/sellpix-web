@@ -214,50 +214,24 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .credits-list li + li { margin-top: var(--space-3); }
 
 /* ── Pix, la mascota (BRAND.md, «Mascota: Pix») ──────────────────────────────────────────────────────────────────
-   Un cuadrado lima (radio 16 %) con un SVG de 10 × 10 unidades encima (scripts/pix.js escribe el marcado). La pose la
-   elige data-pose: solo cambian los ojos y los píxeles grises (línea fuerte, nunca lima). Los números de translate y
-   scale están en unidades de esa rejilla. Solo opacity y transform; entradas con la curva de marca y ambiente en
-   ease-in-out, parado fuera de pantalla (.fuera). Sin la clase .anima (movimiento reducido, pausa o sin JS) Pix queda
-   quieto en su pose final. */
-.pix { --pix: var(--space-8); position: relative; display: inline-block; flex: none; width: var(--pix); height: var(--pix); background: var(--color-lime); border-radius: 16%; vertical-align: middle; transform-origin: 50% 100%; }
+   Fotogramas renderizados en 3D (img/pix3d/, 256 px, con la luz y la sombra pintadas; scripts/pix.js escribe la <img>).
+   Dentro de cada fotograma el cuerpo de Pix mide el 42 % del ancho, está centrado y apoya en el 74 % de la altura; el
+   resto es aire y sombra. --pix es el tamaño del cuerpo: el fotograma mide --pix / 0,42 y los márgenes negativos dejan
+   en el flujo solo la caja del cuerpo, así la sombra no ocupa sitio y nunca se recorta (ningún contenedor de Pix lleva
+   overflow hidden). La pose la cambia js/pix.js cambiando el src entre fotogramas precargados; los saltos son transform.
+   Sin la clase .anima (movimiento reducido, pausa o sin JS) Pix queda quieto en su pose final. */
+.pix { --pix: var(--space-8); --marco: calc(var(--pix) / .42); display: block; flex: none; width: var(--marco); height: var(--marco); max-width: none;
+  margin: calc(-.3 * var(--marco)) calc((var(--pix) - var(--marco)) / 2) calc(-.26 * var(--marco)); pointer-events: none; transform-origin: 50% 74%; }
 .pix--sm { --pix: var(--space-7); }
-.pix-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.pix .ojo, .pix-contento rect { fill: var(--color-ink); }
-.pix-piensa rect, .pix-celebra rect, .pix-pregunta rect { fill: var(--color-line-strong); }
-.pix .ojo { transform-box: fill-box; transform-origin: center; }
-.pix-contento, .pix-piensa, .pix-celebra, .pix-pregunta { display: none; }
-.pix[data-pose="contento"] .pix-ojos, .pix[data-pose="celebra"] .pix-ojos { display: none; }
-.pix[data-pose="contento"] .pix-contento, .pix[data-pose="celebra"] .pix-contento { display: inline; }
-.pix[data-pose="piensa"] .pix-piensa { display: inline; }
-.pix[data-pose="celebra"] .pix-celebra { display: inline; }
-.pix[data-pose="confundido"] .pix-pregunta { display: inline; }
-.pix-celebra rect { opacity: 0; }
-.pix[data-pose="parpadea"] .ojo { transform: scaleY(.12); }
-.pix[data-pose="mira"] .pix-ojos { transform: translate(.6px, .5px); }
-.pix[data-pose="piensa"] .pix-ojos { transform: translate(.8px, -.8px); }
-.pix[data-pose="duda"] .ojo-d { transform: scaleY(.389); }
-.pix[data-pose="confundido"] .ojo-i { transform: translate(-.3px, 0); }
-.pix[data-pose="confundido"] .ojo-d { transform: scale(.556); }
-.anima .pix-ojos { transition: transform var(--duration-base) var(--ease); }
-.anima .pix[data-pose="normal"] .ojo, .anima .pix[data-pose="mira"] .ojo { animation: pix-parpadeo 5s ease-in-out infinite; }
-.anima .pix[data-pose="mira"] .pix-ojos, .anima .pix[data-pose="confundido"] .pix-ojos { animation: pix-mira 6s ease-in-out infinite alternate; }
-.anima .pix[data-pose="confundido"] .pix-pregunta { animation: pix-pregunta 4s ease-in-out infinite; }
-.anima .pix[data-pose="piensa"] .pix-piensa rect { animation: pix-aparece var(--duration-base) var(--ease) both; animation-delay: calc(var(--n) * 180ms); }
-.anima .pix[data-pose="celebra"] .pix-celebra rect { animation: pix-chispa 1.1s var(--ease) both; }
-.pix.fuera .ojo, .pix.fuera .pix-ojos, .pix.fuera .pix-pregunta { animation-play-state: paused; }
-@keyframes pix-parpadeo { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.12); } }
-@keyframes pix-mira { from { transform: translate(-.9px, .3px); } to { transform: translate(.9px, .3px); } }
-@keyframes pix-pregunta { 0%, 10%, 100% { opacity: 0; } 25%, 70% { opacity: 1; } 85% { opacity: 0; } }
-@keyframes pix-aparece { from { opacity: 0; } }
-@keyframes pix-chispa { from { opacity: 1; transform: translate(0, 0); } to { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
-.pix-titular { display: flex; align-items: center; gap: var(--space-5); margin: var(--space-6) 0 var(--space-4); --pix: var(--space-7); }
+.pix-titular { display: flex; align-items: center; gap: var(--space-5); margin: var(--space-6) 0 var(--space-4); --pix-t: var(--space-7); --marco-t: calc(var(--pix-t) / .42); }
+.pix-titular .pix { --pix: var(--pix-t); }
 .not-found .pix-titular h1 { margin: 0; }
 /* En móvil el titular ocupa dos líneas: se reserva su alto para que el cambio de fuente no mueva el pie */
 @media (max-width: 1023px) { .pix-titular { min-height: calc(2 * var(--text-h1-line)); } }
-@media (min-width: 1024px) { .pix-titular { --pix: var(--space-8); } }
-/* Con la interrogación (404): aire de sobra entre los píxeles grises, el antetítulo y el titular */
-.pix-titular--pregunta { gap: var(--space-6); margin-top: var(--space-7); }
-@media (min-width: 1024px) { .pix-titular--pregunta { gap: var(--space-7); } }
+@media (min-width: 1024px) { .pix-titular { --pix-t: var(--space-8); } }
+/* Con la interrogación (404): el fotograma «confundido» la lleva a la derecha y por encima del cuerpo (hasta el 25 % del
+   marco), así que el hueco con el titular y con el antetítulo crece con el tamaño de Pix y deja 8 px de aire como mínimo */
+.pix-titular--pregunta { gap: calc(.25 * var(--marco-t) + var(--space-2)); margin-top: calc(.25 * var(--marco-t) + var(--space-2)); }
 /* Escalera sin el píxel lima que sube: su cima queda apagada (Pix ha saltado a otro sitio de la página) */
 .anima .pixel-stair--sin-lima::after { display: none; }
 
@@ -273,7 +247,6 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 @media (min-width: 768px) { .quiz-lead-largo { display: inline; } .quiz-lead-corto { display: none; } }
 @media (max-width: 767px) { .quiz-hero .eyebrow-block, .quiz-hero .pixel-stair--3 { display: none; } .quiz-hero .breadcrumb { margin-bottom: var(--space-2); } }
 .pixel-stair--3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); width: var(--space-10); gap: var(--space-2); flex: none; margin: var(--space-6) var(--space-5) 0 0; }
-.pixel-stair .pix { width: 100%; height: auto; aspect-ratio: 1; opacity: 1; background: var(--color-lime); border-radius: 16%; }
 .quiz { padding-block: var(--space-3) var(--space-9); }
 @media (min-width: 768px) { .quiz { padding-block: var(--space-5) var(--space-9); } }
 .quiz-card { --pix-quiz: calc(var(--space-6) + var(--space-1)); position: relative; max-width: 760px; min-height: calc(9 * var(--space-7)); padding: var(--space-4); scroll-margin-top: var(--space-8); }
@@ -284,10 +257,10 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .pixel-stair--quiz { display: none; position: absolute; top: var(--space-5); right: var(--space-5); width: calc(3 * var(--pix-quiz) + 2 * var(--space-2)); margin: 0; }
 @media (min-width: 768px) { .pixel-stair--quiz { display: grid; } }
 @media (min-width: 1024px) { .pixel-stair--quiz { top: var(--space-6); right: var(--space-6); } }
-.pixel-stair--quiz .pix { --pix: var(--pix-quiz); position: absolute; top: 0; right: 0; width: var(--pix-quiz); height: var(--pix-quiz); }
+.pixel-stair--quiz .pix { --pix: var(--pix-quiz); position: absolute; top: calc(-.3 * var(--marco)); right: calc((var(--pix) - var(--marco)) / 2); margin: 0; }
 .quiz-cabeza { display: flex; align-items: flex-start; gap: var(--space-3); margin: 0 0 var(--space-4); }
 @media (min-width: 768px) { .quiz-cabeza { margin-bottom: var(--space-5); padding-right: calc(3 * var(--pix-quiz) + 2 * var(--space-2) + var(--space-4)); min-height: calc(3 * var(--pix-quiz) + 2 * var(--space-2)); } }
-.quiz-cabeza .pix { --pix: var(--pix-quiz); margin-top: var(--space-1); }
+.quiz-cabeza .pix { --pix: var(--pix-quiz); margin-top: calc(-.3 * var(--marco) + var(--space-1)); }
 .quiz-cabeza .quiz-titulo { margin: 0; }
 .quiz-paso { margin: 0 0 var(--space-3); color: var(--color-text-muted); }
 @media (max-width: 767px) { .quiz-titulo { font-size: var(--text-h3-size); line-height: var(--text-h3-line); } .quiz-opcion { min-height: var(--space-7); } }
