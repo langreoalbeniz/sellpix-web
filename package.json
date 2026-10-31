@@ -1,7 +1,7 @@
 {
   "name": "sellpix-web",
   "private": true,
-  "description": "Herramientas de la web de SellPix. La web es estática: este archivo solo sirve para los scripts de scripts/. No se publica (_config.yml).",
+  "description": "Herramientas de la web de SellPix. La web es estática: este archivo solo sirve para los scripts de scripts/ (Playwright decodifica las imágenes de Pix con el Chrome del sistema). No se publica (_config.yml).",
   "scripts": {
     "dossier": "node scripts/dossier.js",
     "precios": "node scripts/precios.js",
@@ -9,8 +9,9 @@
     "llms": "node scripts/llms.js",
     "cuestionario": "node scripts/cuestionario.js",
     "pix": "node scripts/pix.js",
+    "pix3d-bordes": "node scripts/pix3d-bordes.js",
     "sitemap": "node scripts/sitemap.js",
-    "comprobar": "node scripts/precios.js --check && node scripts/llms.js --check && node scripts/cuestionario.js --check && node scripts/pix.js --check && node scripts/critical-css.js --check && node scripts/dossier.js --check"
+    "comprobar": "node scripts/precios.js --check && node scripts/llms.js --check && node scripts/cuestionario.js --check && node scripts/pix.js --check && node scripts/pix3d-bordes.js && node scripts/critical-css.js --check && node scripts/dossier.js --check"
   },
   "devDependencies": {
     "playwright": "1.64.1"
