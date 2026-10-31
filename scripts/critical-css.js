@@ -29,7 +29,7 @@ const MOVIMIENTO = '<script>(function(){var d=document.documentElement,p=0;try{p
 /* Clases, etiquetas e ids que aparecen en la primera pantalla de alguna página */
 const PRIMERA_PANTALLA = {
   clases: `actions breadcrumb buy-guarantees buy-note checklist checklist--muted contact-detail contact-details contact-intro
-    contact-jump contact-layout cta-actions cta-secondary detail-dot dot expect-list eyebrow-block eyebrow-block--tight
+    contact-jump contact-layout service-jump cta-actions cta-secondary detail-dot dot expect-list eyebrow-block eyebrow-block--tight
     faq-figure featured footer-legal footer-links footer-logo footer-place ghost guide guide-card guide-grid guide-hero
     guide-layout guide-lead guide-meta guide-toc header-actions header-cta hero how-hero js-year legal legal-data legal-hero
     anima encendido pixel-stair--enciende gracias-grid stage-stair lit mobile-menu campo-vivo con-foto con-foto-hero credits-list fuera oculto pausa-anim sin-movimiento fondo-foto nav-toggle needs not-found on on-dark on-light open page-hero photo pixel-stair price price-from

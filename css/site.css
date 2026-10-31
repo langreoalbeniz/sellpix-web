@@ -203,6 +203,14 @@ section.con-foto-hero :is(h1, .sp-h1, .sp-eyebrow, .sp-lead, .guide-lead, .bread
 section.con-foto-hero .breadcrumb li + li::before { color: inherit; }
 section.con-foto-hero .sp-btn--secondary:not(.product-buy *) { border-color: var(--color-text-inverse); }
 section.con-foto-hero .product-buy { color: var(--color-text); }
+section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inverse); border-color: var(--color-text-inverse); }
+/* Atajos de Servicios: botones fantasma de 48 px que llevan a cada paquete; el destino es el título de la tarjeta (tabindex -1, recibe el foco) */
+.service-jump { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+[id][tabindex="-1"] { scroll-margin-top: var(--space-9); }
+.service-card [id][tabindex="-1"] { scroll-margin-top: calc(var(--space-9) + var(--space-7)); }
+[id][tabindex="-1"]:focus { outline: none; }
+.pay-note.pay-note--flush { margin-top: 0; }
+@media (prefers-reduced-motion: no-preference) { html:has(.service-jump) { scroll-behavior: smooth; } }
 .credits-list li + li { margin-top: var(--space-3); }
 
 /* Botón «Pausar animaciones» del pie: fantasma y pequeño; solo aparece si hay animaciones que pausar */
