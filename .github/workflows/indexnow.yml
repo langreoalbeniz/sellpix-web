@@ -1,12 +1,20 @@
 name: IndexNow
 
 # Avisa a IndexNow (Bing y los buscadores compatibles) de las URLs públicas que han cambiado, justo después de que
-# GitHub Pages termine de desplegar con éxito. La clave es pública por diseño (no es una credencial) y está publicada en
-# https://sellpix.es/c34d89f7eb43445eb011037759de413f.txt. Un error de IndexNow nunca hace fallar el despliegue.
+# GitHub Pages termine de desplegar con éxito, o a mano con «Run workflow» (opción «todo» = todo el sitemap).
+# La clave es pública por diseño (no es una credencial) y está publicada en
+# https://sellpix.es/c34d89f7eb43445eb011037759de413f.txt. Si IndexNow no responde 200 o 202, el flujo FALLA (en rojo)
+# y deja en el log el código, la respuesta y las URLs enviadas.
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      todo:
+        description: "Enviar todo el sitemap (si no, solo lo que cambió respecto al despliegue anterior)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -15,68 +23,97 @@ permissions:
 jobs:
   avisar:
     name: Enviar las URLs cambiadas a IndexNow
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
       HOST: sellpix.es
       KEY: c34d89f7eb43445eb011037759de413f
-      HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+      ENDPOINT: https://api.indexnow.org/indexnow
+      HEAD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+      TODO: ${{ github.event.inputs.todo }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Descargar el repositorio (commit desplegado, con historial)
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           fetch-depth: 0
 
       - name: Calcular las URLs que han cambiado
         id: urls
         run: |
           set +o pipefail
+          # Las URLs indexables son exactamente las del sitemap (las páginas noindex no están en él).
+          grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's#</\?loc>##g' | sort -u > sitemap-urls.txt
+          echo "El sitemap tiene $(wc -l < sitemap-urls.txt) URLs."
+
           # Base de comparación: el despliegue anterior con éxito que sea antecesor del commit desplegado ahora.
           BASE=""
-          for sha in $(gh run list -R "$GITHUB_REPOSITORY" --workflow pages-build-deployment --status success -L 10 --json headSha -q '.[].headSha'); do
+          for sha in $(gh run list -R "$GITHUB_REPOSITORY" --workflow pages-build-deployment --status success -L 15 --json headSha -q '.[].headSha'); do
             if [ "$sha" != "$HEAD_SHA" ] && git cat-file -e "$sha^{commit}" 2>/dev/null && git merge-base --is-ancestor "$sha" "$HEAD_SHA"; then BASE="$sha"; break; fi
           done
           if [ -z "$BASE" ]; then BASE=$(git rev-parse "$HEAD_SHA~1" 2>/dev/null || true); fi
 
-          # Las URLs indexables son exactamente las del sitemap (las páginas noindex no están en él).
-          grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's#</\?loc>##g' | sort -u > sitemap-urls.txt
-
-          if [ -z "$BASE" ]; then
+          if [ "$TODO" = "true" ]; then
+            echo "Envío manual de todo el sitemap."
+            cp sitemap-urls.txt urls.txt
+          elif [ -z "$BASE" ]; then
             echo "Sin despliegue anterior con el que comparar: se envía todo el sitemap."
             cp sitemap-urls.txt urls.txt
           else
             git diff --name-only "$BASE" "$HEAD_SHA" > cambios.txt
             echo "Comparando $BASE → $HEAD_SHA: $(wc -l < cambios.txt) archivos cambiados"
-            if grep -qE '^(sitemap\.xml$|css/|brand/)' cambios.txt; then
-              echo "Cambio global (sitemap.xml, css/ o brand/): se envía todo el sitemap."
+            grep -E '(^|/)index\.html$' cambios.txt | sed -E 's#(^|/)index\.html$#\1#' | sed "s#^#https://$HOST/#" | sort -u > candidatas.txt
+            if grep -qE '^(sitemap\.xml$|css/|brand/|js/)' cambios.txt; then
+              echo "Cambio global (sitemap.xml, css/, brand/ o js/): se envía todo el sitemap."
+              cp sitemap-urls.txt urls.txt
+            elif [ "$(grep -Fxc -f sitemap-urls.txt candidatas.txt)" -ge 12 ]; then
+              echo "Cambio en muchas páginas a la vez (pie, menú…): se envía todo el sitemap."
               cp sitemap-urls.txt urls.txt
             else
-              grep -E '(^|/)index\.html$' cambios.txt | sed -E 's#(^|/)index\.html$#\1#' | sed "s#^#https://$HOST/#" | sort -u > candidatas.txt
-              # Solo URLs presentes en el sitemap y, por si acaso, nunca confirmar/, gracias/, sobre-mi/ ni la 404.
-              grep -Fx -f sitemap-urls.txt candidatas.txt | grep -vE '/(confirmar|gracias|sobre-mi|creditos)/|404' > urls.txt || true
+              # Páginas HTML cambiadas, más las URLs que el sitemap tiene ahora y no tenía en el despliegue anterior.
+              git show "$BASE:sitemap.xml" 2>/dev/null | grep -o '<loc>[^<]*</loc>' | sed 's#</\?loc>##g' | sort -u > sitemap-anterior.txt || true
+              comm -13 sitemap-anterior.txt sitemap-urls.txt >> candidatas.txt
+              # Solo URLs presentes en el sitemap y, por si acaso, nunca confirmar/, gracias/, sobre-mi/, creditos/ ni la 404.
+              sort -u candidatas.txt | grep -Fx -f sitemap-urls.txt | grep -vE '/(confirmar|gracias|sobre-mi|creditos)/|404' > urls.txt || true
             fi
           fi
           n=$(grep -c . urls.txt || true)
           echo "URLs a enviar: $n"; cat urls.txt
           echo "n=$n" >> "$GITHUB_OUTPUT"
 
+      - name: Comprobar que la clave está publicada
+        if: steps.urls.outputs.n != '0'
+        run: |
+          publicada=$(curl -sS --retry 3 --retry-delay 5 "https://$HOST/$KEY.txt" || true)
+          if [ "$publicada" != "$KEY" ]; then
+            echo "::error::https://$HOST/$KEY.txt no devuelve la clave (devuelve: '$publicada'). IndexNow rechazaría el envío."
+            exit 1
+          fi
+          echo "La clave está publicada en https://$HOST/$KEY.txt."
+
       - name: Enviar a IndexNow
         if: steps.urls.outputs.n != '0'
         run: |
           jq -Rn --arg host "$HOST" --arg key "$KEY" \
             '{host: $host, key: $key, keyLocation: ("https://" + $host + "/" + $key + ".txt"), urlList: [inputs | select(length > 0)]}' urls.txt > cuerpo.json
-          cat cuerpo.json
-          codigo=$(curl -sS -o respuesta.txt -w "%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
-            -H "Content-Type: application/json; charset=utf-8" --data-binary @cuerpo.json || echo "000")
-          echo "IndexNow respondió: $codigo"
-          cat respuesta.txt 2>/dev/null || true
+          echo "Endpoint: $ENDPOINT"
+          echo "Cuerpo enviado:"; cat cuerpo.json
+          for intento in 1 2 3; do
+            codigo=$(curl -sS -o respuesta.txt -w "%{http_code}" -X POST "$ENDPOINT" \
+              -H "Content-Type: application/json; charset=utf-8" --data-binary @cuerpo.json || echo "000")
+            echo "Intento $intento · $(date -u +%Y-%m-%dT%H:%M:%SZ) · IndexNow respondió: $codigo"
+            echo "Respuesta: $(cat respuesta.txt 2>/dev/null)"
+            case "$codigo" in 200|202) break ;; 000|5??) sleep 10 ;; *) break ;; esac
+          done
+          n=$(jq '.urlList | length' cuerpo.json)
           case "$codigo" in
-            200|202) echo "Aviso aceptado (200 recibido, 202 aceptado pendiente de validar la clave)." ;;
-            *) echo "::warning::IndexNow respondió $codigo. El despliegue no se ve afectado." ;;
+            200) echo "OK: IndexNow aceptó $n URLs (200)." ;;
+            202) echo "OK: IndexNow aceptó $n URLs (202, pendiente de validar la clave)." ;;
+            *) echo "::error::IndexNow respondió $codigo; no se han registrado las $n URLs."; exit 1 ;;
           esac
+          { echo "### IndexNow: $codigo · $n URLs"; echo; sed 's/^/- /' urls.txt; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Nada que enviar
         if: steps.urls.outputs.n == '0'
