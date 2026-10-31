@@ -102,6 +102,15 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 - **Radios:** 4 · 8 · 12 · 20 px. Los píxeles de marca llevan un radio del 16 % de su lado.
 - **Movimiento:** de 150 a 250 ms con la curva cubic-bezier(0.2, 0.8, 0.2, 1). Respeta siempre `prefers-reduced-motion`.
 
+### Animaciones de la web
+
+El movimiento acompaña al píxel encendido; nunca anima el contenido. Solo CSS y un IntersectionObserver mínimo, sin librerías.
+
+- **Escalera que se enciende:** en el héroe de la portada y en la página de gracias, la escalera se enciende columna a columna, de izquierda a derecha, y termina en el píxel lima. Cada píxel tarda 250 ms, hay 110 ms entre columnas y el lima entra el último; en total, 900 ms como máximo. Una sola vez, al cargar.
+- **Píxel que se enciende:** el píxel lima de los titulares de sección de la portada, el del precio de cada ficha de producto y el de cada etapa de «Cómo trabajamos» (una mini escalera de cinco barras que sube de etapa en etapa) se encienden una vez, con opacidad y escala, cuando entran en pantalla.
+- **Hover y foco:** botones, tarjetas enlazadas y enlaces de tarjeta cambian de color, borde o fondo en 150 ms. Nunca con sombras.
+- **Nunca se anima:** titulares, párrafos, precios ni botones al cargar (afectaría al LCP), ni nada que mueva el diseño (CLS 0). Sin JavaScript o con `prefers-reduced-motion: reduce` se ve directamente el estado final. Quedan fuera los textos legales, las guías y las páginas `confirmar/`.
+
 ## Componentes base
 
 - **Botón principal:** fondo `lime`, texto `on-lime`, 48 px de alto mínimo. Solo uno por pantalla.

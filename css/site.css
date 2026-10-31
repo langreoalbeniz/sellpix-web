@@ -108,10 +108,28 @@ footer .sp-container {
 .pixel-stair span.on { opacity: 1; }
 .pixel-stair span.ghost { opacity: .08; }
 .pixel-stair span.lit { opacity: 1; background: var(--color-lime); }
+/* Escalera que se enciende columna a columna al cargar (portada y gracias): 250 ms por píxel,
+   110 ms entre columnas, y el píxel lima al final (650 + 250 = 900 ms). Una sola vez. */
 @media (prefers-reduced-motion: no-preference) {
-  .pixel-stair span.lit { animation: blink 2.4s var(--ease) infinite; }
-  @keyframes blink { 0%, 70%, 100% { opacity: 1; } 80% { opacity: .35; } }
+  .pixel-stair--enciende span { animation: encender-escalera var(--duration-base) var(--ease) both; animation-delay: calc(var(--col, 0) * 110ms); }
+  .pixel-stair--enciende span:nth-child(6n+2) { --col: 1; }
+  .pixel-stair--enciende span:nth-child(6n+3) { --col: 2; }
+  .pixel-stair--enciende span:nth-child(6n+4) { --col: 3; }
+  .pixel-stair--enciende span:nth-child(6n+5) { --col: 4; }
+  .pixel-stair--enciende span:nth-child(6n+6) { --col: 5; }
+  .pixel-stair--enciende span.lit { animation-delay: 650ms; }
+  @keyframes encender-escalera { from { opacity: 0; transform: scale(.6); } }
 }
+
+/* Píxeles que se encienden una vez al entrar en pantalla. Solo con <html class="anima">, que pone el script en línea
+   cuando hay IntersectionObserver y no se pide movimiento reducido: sin JavaScript se ven encendidos desde el principio. */
+.anima [data-enciende] { transition: opacity var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
+.anima [data-enciende]:not(.encendido) { opacity: 0; transform: scale(.4); }
+
+/* Transiciones de hover y foco (150 ms, sin sombras): tarjetas enlazadas y enlaces de tarjeta */
+.guide-card, .service-card, .plan, .sp-card { transition: border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease); }
+.guide-card:hover, .guide-card:focus-within { border-color: var(--color-line-strong); }
+.card-link, .plan-link, .cta-secondary, .sp-link, .buy-guarantees a, .guide-card h2 a, .guide-card h3 a { transition: color var(--duration-fast) var(--ease), text-decoration-color var(--duration-fast) var(--ease); }
 
 /* Badge y tag */
 .badge {
