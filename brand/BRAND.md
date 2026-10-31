@@ -95,6 +95,41 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 - **Campo de píxeles:** cuadrados de 3 px cada 24 px en `line-strong` al 35 %, como fondo de sección (clase `.sp-pixel-field`). En la web, algunos puntos se iluminan y se apagan despacio, nunca en `lime`.
 - **Píxel suelto:** un cuadrado `lime` tras la palabra clave de un titular (clase `.sp-pixel`). Como máximo uno por bloque.
 
+## Mascota: Pix
+
+Pix es el píxel lima con ojos. No sustituye al logotipo: es un personaje de apoyo que acompaña al visitante en cuatro sitios, la portada, el cuestionario «¿Qué web necesitas?», `gracias/` y la 404.
+
+**Forma (no se cambia).** Un cuadrado lima (`lime`) con radio del 16 %, y encima una rejilla SVG de 10 × 10 unidades con el desbordamiento visible. Los ojos son `ink` (rectángulos de 1,8 × 1,8 con radio 0,3). Los píxeles acompañantes son de 1 × 1 (radio 0,16) en `line-strong`, nunca en lima.
+
+**Poses.** Solo cambian los ojos y los píxeles grises.
+
+| Pose | Ojos y píxeles |
+| --- | --- |
+| normal | ojos en (2,2; 3) y (6; 3) |
+| parpadea | los mismos ojos con scaleY 0,12 durante unos 150 ms |
+| mira | ojos desplazados entre 0,6 y 1,2 unidades |
+| piensa | ojos en (+0,8; −0,8) y tres píxeles grises en (10,6; 1,4), (12; 0) y (13,6; −1,6), que aparecen uno a uno |
+| contento | ojos en «^»: seis píxeles de 0,8 × 0,8 |
+| duda | ojo izquierdo normal; el derecho, de 1,8 × 0,7 centrado |
+| celebra | contento y seis píxeles grises que salen del centro hacia fuera y se desvanecen (1,1 s) |
+| confundido | ojo izquierdo en (1,9; 3), ojo derecho de 1 × 1 en (6,4; 3,4) e interrogación gris |
+
+**Dónde aparece.**
+- **Portada:** no es un personaje aparte; el píxel lima de la escalera del héroe abre los ojos cada 12,8 s (cuatro respiraciones), mira a un lado y a otro, parpadea y los cierra (3,2 s). Mientras tiene los ojos abiertos, la respiración se queda al 100 %. Con movimiento reducido o en pausa, sin ojos.
+- **Cuestionario** (`que-web-necesitas/`): sentado en la cima de una escalera de tres columnas. Salta al empezar (600 ms), mira las opciones, da un saltito con cada respuesta (300 ms), duda con «Todavía no lo sé» y «Otra o no lo sé», piensa 700 ms antes del resultado y celebra (1,1 s) y se queda contento.
+- **`gracias/`:** celebra una vez al cargar, junto al titular, y se queda contento.
+- **404:** confundido junto al titular; mira despacio a los lados y la interrogación aparece y desaparece (ambiente).
+
+**Reglas.**
+- Nunca en el logotipo, ni en la cabecera o el pie.
+- Uno por pantalla, de 24 px como mínimo.
+- El lima, por debajo del 5 % de la pantalla.
+- Los píxeles acompañantes, en gris (`line-strong`).
+- Solo CSS y SVG, con `transform` y `opacity` (sin GIF, vídeo ni imágenes). Entradas con la curva de marca; ambiente en ease-in-out, parado fuera de pantalla.
+- Quieto en su pose final con movimiento reducido o en pausa (en la portada, sin ojos).
+- `aria-hidden="true"`: es decoración.
+- El marcado sale de `scripts/pix.js` (`npm run pix`); las poses, de `css/site.css`; los saltos del cuestionario, de `js/pix.js`.
+
 ## Espaciado, radios y movimiento
 
 - **Escala de espaciado:** 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128 px.
