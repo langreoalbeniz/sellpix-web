@@ -91,7 +91,7 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 ## Recursos gráficos de píxel
 
-- **Escalera:** una rejilla N×N con columnas que crecen de izquierda a derecha, los píxeles apagados al 9 % de opacidad y el más alto encendido en `lime`. Es el recurso principal para héroes, portadas, tarjetas y posts. En la web, el píxel `lime` respira tras encenderse: opacidad 1 → 0,35 → 1 en bucle, sin brillo ni sombra.
+- **Escalera:** una rejilla N×N con columnas que crecen de izquierda a derecha, los píxeles apagados al 9 % de opacidad y el más alto encendido en `lime`. Es el recurso principal para héroes, portadas, tarjetas y posts. En la web: mientras se monta la escalera, el píxel lima la sube saltando de la cima de una columna a la siguiente (nivel entrada, una sola vez, solo `transform`) y, al llegar arriba, se queda respirando (nivel ambiente: opacidad 1 → 0,35 → 1 en bucle, sin brillo ni sombra). Con movimiento reducido o en pausa, el píxel aparece ya arriba y quieto.
 - **Campo de píxeles:** cuadrados de 3 px cada 24 px en `line-strong` al 35 %, como fondo de sección (clase `.sp-pixel-field`). En la web, algunos puntos se iluminan y se apagan despacio, nunca en `lime`.
 - **Píxel suelto:** un cuadrado `lime` tras la palabra clave de un titular (clase `.sp-pixel`). Como máximo uno por bloque.
 
@@ -111,7 +111,7 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 El movimiento acompaña al píxel encendido y a la entrada de los bloques. Solo CSS y un IntersectionObserver mínimo, sin librerías.
 
-- **Escalera que se enciende (entrada):** toda escalera se enciende columna a columna, de izquierda a derecha, y termina en el píxel lima. Cada píxel tarda 250 ms, hay 110 ms entre columnas y el lima entra el último; en total, 900 ms como máximo. Una sola vez: al cargar si está en el primer pantallazo y, si no, al entrar en pantalla. Después, el píxel lima respira (ambiente).
+- **Escalera que se enciende (entrada):** toda escalera se enciende columna a columna, de izquierda a derecha, y el píxel lima la sube después saltando de la cima de una columna a la siguiente (120 ms por salto, 20 ms de pausa, curva de marca) hasta quedar arriba a la derecha. Cada píxel tarda 250 ms y hay 110 ms entre columnas; en total, 1 s (1,6 s como máximo). Una sola vez: al cargar si está en el primer pantallazo y, si no, al entrar en pantalla. Después, el píxel lima respira (ambiente).
 - **Píxel que se enciende (entrada):** el píxel lima de los titulares de sección de la portada, el del precio de cada ficha de producto y el de cada etapa de «Cómo trabajamos» se encienden una vez, con opacidad y escala, cuando entran en pantalla.
 - **Bloques (entrada):** los titulares de sección y las tarjetas que entran en pantalla al hacer scroll aparecen con opacidad y un desplazamiento de 12 px en `--duration-reveal`, escalonados 80 ms. Lo que se ve en el primer pantallazo se muestra quieto desde el principio.
 - **Ambiente:** respiración del píxel lima, puntos del campo de píxeles y zoom de las fotos. Se paran fuera de pantalla y con el botón «Pausar animaciones» del pie.
