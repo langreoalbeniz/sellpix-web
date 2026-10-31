@@ -1,5 +1,5 @@
 Imágenes de Unsplash (Licencia Unsplash: uso gratuito, comercial incluido, atribución no obligatoria pero recomendada).
-Convertidas a blanco y negro (contraste ×1,08) para SellPix. Se citan en el pie de las páginas que las usan.
+Convertidas a blanco y negro (contraste ×1,08) para SellPix. Su crédito público está solo en la página creditos/ (enlazada desde el pie); este archivo es la fuente interna y no se publica.
 
 == Cómo creamos tu proyecto (img/proyectos/) ==
 hero-1600.jpg        Avtar Singh            https://unsplash.com/photos/odyglVvZv18   Portátil en un escritorio de noche con vistas a la ciudad (uso: idea "comercial 24/7")

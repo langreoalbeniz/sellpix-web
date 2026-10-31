@@ -1,9 +1,0 @@
-Imágenes de Unsplash (Licencia Unsplash: uso gratuito, comercial incluido, atribución no obligatoria pero recomendada).
-Convertidas a blanco y negro para SellPix.
-
-hero-1600.jpg        Avtar Singh            https://unsplash.com/photos/odyglVvZv18   Portátil en un escritorio de noche con vistas a la ciudad (uso: idea "comercial 24/7")
-diagnostico-1600.jpg Scott Graham           https://unsplash.com/photos/5fNmWej4tAA   Notas a mano junto a portátiles (uso: diagnóstico del negocio)
-estrategia-1600.jpg  Vitalii Abakumov       https://unsplash.com/photos/ii_KJyGe2ew   Wireframes dibujados a mano (uso: estrategia y mensajes)
-desarrollo-1600.jpg  Glenn Carstens-Peters  https://unsplash.com/photos/npxXWgQ33ZQ   Manos escribiendo en un portátil (uso: diseño y desarrollo)
-revision-1600.jpg    Headway                https://unsplash.com/photos/5QgIuuBxKwM   Conversación de trabajo con portátil (uso: revisión conjunta)
-negocio-1600.jpg     Vitaly Gariev          https://unsplash.com/photos/QGg-vsPYbu8   Dueña de una cafetería en su local (uso: el cliente / lanzamiento)

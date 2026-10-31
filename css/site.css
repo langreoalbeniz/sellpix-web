@@ -179,9 +179,7 @@ section.con-foto-hero :is(h1, .sp-h1, .sp-eyebrow, .sp-lead, .guide-lead, .bread
 section.con-foto-hero .breadcrumb li + li::before { color: inherit; }
 section.con-foto-hero .sp-btn--secondary:not(.product-buy *) { border-color: var(--color-text-inverse); }
 section.con-foto-hero .product-buy { color: var(--color-text); }
-.footer-fotos { flex-basis: 100%; margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-line); color: var(--color-text-muted); }
-.footer-fotos a { color: inherit; text-decoration: underline; text-decoration-color: var(--color-line-strong); text-underline-offset: 2px; }
-.footer-fotos a:hover { color: var(--color-text); }
+.credits-list li + li { margin-top: var(--space-3); }
 
 /* Botón «Pausar animaciones» del pie: fantasma y pequeño; solo aparece si hay animaciones que pausar */
 .pausa-anim { min-height: 44px; padding: var(--space-2) var(--space-4); font-size: var(--text-small-size); line-height: var(--text-small-line); font-weight: 500; color: var(--color-text-muted); }

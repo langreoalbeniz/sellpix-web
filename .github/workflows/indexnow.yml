@@ -56,7 +56,7 @@ jobs:
             else
               grep -E '(^|/)index\.html$' cambios.txt | sed -E 's#(^|/)index\.html$#\1#' | sed "s#^#https://$HOST/#" | sort -u > candidatas.txt
               # Solo URLs presentes en el sitemap y, por si acaso, nunca confirmar/, gracias/, sobre-mi/ ni la 404.
-              grep -Fx -f sitemap-urls.txt candidatas.txt | grep -vE '/(confirmar|gracias|sobre-mi)/|404' > urls.txt || true
+              grep -Fx -f sitemap-urls.txt candidatas.txt | grep -vE '/(confirmar|gracias|sobre-mi|creditos)/|404' > urls.txt || true
             fi
           fi
           n=$(grep -c . urls.txt || true)
