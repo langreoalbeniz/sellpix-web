@@ -97,7 +97,7 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 ## Mascota: Pix
 
-Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje de apoyo que acompaña al visitante por la web. Pix no habla: mira, se alegra y celebra, pero nunca dice nada ni abre bocadillos de texto.
+Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje de apoyo que acompaña al visitante por la web y, desde el lote 13B, le ayuda: pregunta qué necesita con botones, responde preguntas frecuentes y le lleva a lo que busca. Habla poco y va al grano, y nunca dice nada que no esté ya publicado en la web.
 
 **Forma (no se cambia).** Un cubo lima (`lime`) con los bordes redondeados, dos ojos cuadrados `ink` y una luz y una sombra propias. Es 3D renderizado, no 3D en tiempo real: Blender genera fotogramas WebP desde el modelo aprobado, con la misma luz y la misma cámara, y la web solo cambia de fotograma. Los píxeles acompañantes (los de piensa, celebra y la interrogación) son grises, nunca lima. Las imágenes no se regeneran ni se reencuadran a mano.
 
@@ -119,7 +119,8 @@ Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje
 
 **Dónde aparece.**
 - **Portada:** el símbolo 3D del héroe, con Pix en la cima. Es el LCP en escritorio (precargado); en móvil queda bajo el primer pantallazo.
-- **Acompañante** (`js/pix-acompanante.js`): botón fijo abajo a la derecha (Pix de 56 px en móvil y 72 en escritorio, área táctil de 48 px como mínimo, nombre accesible «Opciones de Pix»). Aparece con un salto de 600 ms cuando no hay otro Pix a la vista y se aparta en el pie, cuando se ve el formulario de contacto o la sección «Conoce a Pix», y con el menú móvil abierto. Mira hacia el ratón en escritorio y gira un fotograma con el scroll en móvil, parpadea cada 5–7 s, se pone contento con un precio a la vista y celebra con un saltito al pulsar «Contratar» o «Suscribirme». Su menú lleva al cuestionario, abre el visor y permite «Ocultar a Pix» (preferencia en el navegador; en el pie queda «Mostrar a Pix»). No se carga en `confirmar/`, las páginas legales, `condiciones/`, `creditos/`, `que-web-necesitas/`, `gracias/` ni la 404.
+- **Acompañante** (`js/pix-acompanante.js`): botón fijo abajo a la derecha (Pix de 56 px en móvil y 72 en escritorio, área táctil de 48 px como mínimo, nombre accesible «Opciones de Pix»). Aparece con un salto de 600 ms cuando no hay otro Pix a la vista y se aparta en el pie, cuando se ve el formulario de contacto o la sección «Conoce a Pix», y con el menú móvil abierto. Mira hacia el ratón en escritorio y gira un fotograma con el scroll en móvil, parpadea cada 5–7 s, se pone contento con un precio a la vista y celebra con un saltito al pulsar «Contratar» o «Suscribirme». Su menú lleva al cuestionario, abre las preguntas frecuentes y el visor, y permite «Ocultar a Pix» (preferencia en el navegador; en el pie queda «Mostrar a Pix»). No se carga en `confirmar/`, las páginas legales, `condiciones/`, `creditos/`, `que-web-necesitas/`, `gracias/` ni la 404.
+- **Asistente** (`js/pix-asistente.js`, paso 1 sin IA): el acompañante saluda con un bocadillo y abre un panel de preguntas frecuentes. **Bocadillo:** una vez por visita (`sessionStorage`, `sellpix_pix_saludo`), a los 8 s de llegar o al 40 % de desplazamiento, lo que ocurra antes (en las guías, solo al final del artículo); pequeño, junto a Pix, con botón de cerrar de 48 px y Esc; nunca tapa el botón lima ni el contenido principal: si se solapara con un CTA o un formulario, no sale (se comprueba con `getBoundingClientRect`). No sale nunca solo en `confirmar/`, los textos legales, `condiciones/`, `creditos/`, `gracias/`, la 404 ni sobre el formulario de contacto. Textos y botones fijados por página (portada, Servicios, fichas, guías, contacto y resto) en `js/pix-asistente.js`. **Panel:** `role="dialog"` con las preguntas sugeridas de la página, un buscador local («Busca en las preguntas frecuentes», sin tildes ni mayúsculas, nada sale del navegador) y «Ver en la web» en cada respuesta; sin coincidencia, Pix duda y «Esto mejor te lo contestamos por email» lleva a `contacto/#formulario`. Pix piensa 300 ms antes de responder y se pone contento al encontrar. **Pix asistente: paso 1 sin IA con `data/pix-faq.json`; paso 2 con IA en el lote 14.**
 - **Cuestionario** (`que-web-necesitas/`): sentado en la cima de una escalera de tres columnas. Salta al empezar (600 ms), mira las opciones, da un saltito con cada respuesta (300 ms), duda con «Todavía no lo sé» y «Otra o no lo sé», piensa 700 ms antes del resultado y celebra (1,1 s) y se queda contento.
 - **`gracias/`:** celebra una vez al cargar, junto al titular, y se queda contento.
 - **404:** confundido junto al titular (el fotograma trae la interrogación); solo parpadea.
@@ -130,11 +131,11 @@ Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje
 **Bio (aprobada el 31/10, texto literal).**
 
 > **Pix**
-> Pix es el píxel que vende. Vivía en lo alto de la escalera de SellPix, encendido y quieto, hasta que un día abrió los ojos y bajó a ver la web. Desde entonces te acompaña mientras navegas: mira por dónde vas, se alegra cuando llegas a lo que buscas y lo celebra contigo cuando das el paso. No habla mucho. Lo suyo es estar pendiente.
+> Pix es el píxel que vende. Vivía en lo alto de la escalera de SellPix, encendido y quieto, hasta que un día abrió los ojos y bajó a ver la web. Desde entonces te acompaña mientras navegas: mira por dónde vas, se alegra cuando llegas a lo que buscas y lo celebra contigo cuando das el paso. Habla poco y va al grano: te pregunta qué necesitas y te lleva a lo que buscas.
 >
 > - **Qué es:** un píxel lima, cuadrado, con los bordes redondeados.
 > - **Dónde vive:** en la cima de la escalera de SellPix.
-> - **Qué hace:** te acompaña por la web y te ayuda a elegir en el cuestionario.
+> - **Qué hace:** te pregunta qué necesitas, responde a tus dudas y te ayuda a elegir.
 > - **Le gusta:** las webs que se entienden a la primera, los precios cerrados y subir escaleras.
 > - **No le gusta:** las ventanas que no se cierran.
 >
@@ -148,9 +149,9 @@ Pix es el píxel lima con ojos, en 3D. No sustituye al logotipo: es un personaje
 - Las sombras nunca se cortan (transparencia 0 en los bordes).
 - Quieto en su pose final con movimiento reducido o en pausa: aparece sin salto, no mira, no parpadea ni reacciona; el menú y el visor siguen funcionando.
 - Realidad aumentada solo al pulsar.
-- Pix no habla.
+- Pix no dice nada que no esté ya publicado en la web: nada de precios, plazos, garantías ni compromisos nuevos (`data/pix-faq.json` lleva texto literal y el flujo de calidad lo comprueba). No usa IA en el paso 1, no tiene red y no guarda lo que se escribe en su buscador.
 - `aria-hidden="true"` y `alt=""` en los Pix decorativos (acompañante, cuestionario, gracias, 404); el de «Conoce a Pix» lleva `alt`.
-- El marcado de los Pix de página sale de `scripts/pix.js` (`npm run pix`); los fotogramas y los saltos, de `js/pix.js`; el acompañante y el visor, de `js/pix-acompanante.js`; el CSS, de `css/site.css`.
+- El marcado de los Pix de página sale de `scripts/pix.js` (`npm run pix`); los fotogramas y los saltos, de `js/pix.js`; el acompañante y el visor, de `js/pix-acompanante.js`; el asistente, de `js/pix-asistente.js` con `js/pix-faq.data.json` (`npm run pix-faq`); el CSS, de `css/site.css`.
 
 ## Espaciado, radios y movimiento
 
