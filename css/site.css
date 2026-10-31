@@ -283,6 +283,51 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .pausa-anim[hidden] { display: none; }
 .pausa-anim:hover { color: var(--color-text); }
 
+/* ── Pix acompañante (js/pix-acompanante.js) ───────────────────────────────────────────────────────────────────
+   Fijo abajo a la derecha, respetando la zona segura. --pix es el cuerpo visible (56 px en móvil, 72 en escritorio);
+   el fotograma mide --pix / 0,42 y es la caja fija, así la sombra entera queda dentro de la pantalla y nunca se corta.
+   El botón (área táctil = el cuerpo, 56 px como mínimo) va sobre el cuerpo; la imagen no recibe clics. z-index por
+   debajo de la cabecera (5) y del modal de Tally. */
+.pix-acomp { --pix: calc(var(--space-7) + var(--space-2)); --marco: calc(var(--pix) / .42); position: fixed; z-index: 4;
+  right: max(var(--space-4), env(safe-area-inset-right)); bottom: max(var(--space-4), env(safe-area-inset-bottom));
+  width: var(--marco); height: var(--marco); transform-origin: 50% 74%; }
+@media (min-width: 1024px) { .pix-acomp { --pix: calc(var(--space-8) + var(--space-2)); } }
+.pix-acomp[hidden] { display: none; }
+.pix-acomp-img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; pointer-events: none; }
+.pix-acomp-boton { position: absolute; left: calc((var(--marco) - var(--pix)) / 2); top: calc(.3 * var(--marco)); width: var(--pix); height: var(--pix);
+  padding: 0; border: 0; background: transparent; border-radius: 16%; cursor: pointer; }
+.pix-acomp-boton:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.pix-acomp-menu { position: absolute; right: calc((var(--marco) - var(--pix)) / 2); bottom: calc(.7 * var(--marco) + var(--space-2)); min-width: 248px;
+  display: flex; flex-direction: column; padding: var(--space-2); background: var(--color-surface); color: var(--color-text);
+  border: 1px solid var(--color-line); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.pix-acomp-menu[hidden] { display: none; }
+.pix-acomp-item { display: block; width: 100%; min-height: 48px; padding: var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-md);
+  background: transparent; color: var(--color-text); font: 500 var(--text-body-size) / var(--text-body-line) var(--font-sans); text-align: left; text-decoration: none; cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease); }
+.pix-acomp-item:hover { background: var(--color-surface-alt); }
+.pix-acomp-item:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: -2px; }
+.mostrar-pix { margin-left: var(--space-2); }
+
+/* ── «Conoce a Pix» (estudio/#pix): bio y ficha de la mascota ─────────────────────────────────────────────────── */
+.pix-bio-grid { display: grid; gap: var(--space-6); align-items: center; }
+@media (min-width: 768px) { .pix-bio-grid { grid-template-columns: auto 1fr; gap: var(--space-8); } }
+.pix-bio-img { display: block; width: 256px; height: 256px; max-width: 100%; justify-self: center; }
+.pix-bio .sp-lead { margin: 0 0 var(--space-5); }
+.pix-bio-ficha { list-style: none; margin: 0 0 var(--space-5); padding: 0; }
+.pix-bio-ficha li + li { margin-top: var(--space-2); }
+.pix-bio [data-pix-visor][hidden] { display: none; }
+
+/* ── Visor 3D y realidad aumentada (<dialog>, model-viewer importado al pulsar) ─────────────────────────────── */
+.pix-visor { width: min(92vw, 560px); max-width: none; padding: var(--space-5); border: 1px solid var(--color-line); border-radius: var(--radius-lg);
+  background: var(--color-surface); color: var(--color-text); box-shadow: var(--shadow-md); }
+.pix-visor::backdrop { background: color-mix(in srgb, var(--color-ink) 60%, transparent); }
+.pix-visor-cabecera { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-4); }
+.pix-visor-cabecera h2 { margin: 0; }
+.pix-visor-escena { min-height: min(60vh, 420px); border-radius: var(--radius-md); background: var(--color-surface-alt); }
+.pix-visor-escena model-viewer { display: block; width: 100%; height: min(60vh, 420px); --poster-color: transparent; }
+.pix-visor-ar { position: absolute; left: 50%; bottom: var(--space-4); transform: translateX(-50%); }
+.pix-visor-nota { margin: var(--space-4) 0 0; color: var(--color-text-muted); }
+
 /* Transiciones de hover y foco (150 ms, sin sombras): tarjetas enlazadas y enlaces de tarjeta */
 .guide-card, .service-card, .plan, .sp-card { transition: border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease); }
 .guide-card:hover, .guide-card:focus-within { border-color: var(--color-line-strong); }
