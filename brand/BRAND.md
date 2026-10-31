@@ -16,7 +16,7 @@ Una web es una pantalla de píxeles. En SellPix, cada píxel trabaja para vender
 2. **Rejilla de píxeles.** Todo se apoya en una rejilla de 4 px. Los recursos gráficos son cuadrados redondeados alineados: escaleras, campos de puntos y bloques.
 3. **Bordes, no sombras.** Las superficies se separan con líneas finas o con un cambio de fondo. Las sombras solo aparecen en menús y modales.
 4. **Aire y contundencia.** Titulares grandes y compactos, mucho espacio en blanco y pocos elementos por pantalla.
-5. **Sin adornos.** Nada de degradados, emojis, fotos de banco ni ilustraciones genéricas.
+5. **Sin adornos.** Nada de degradados, emojis ni ilustraciones genéricas. Las fotos solo se usan según el apartado «Fotografía».
 
 ## Logotipo
 
@@ -91,8 +91,8 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 
 ## Recursos gráficos de píxel
 
-- **Escalera:** una rejilla N×N con columnas que crecen de izquierda a derecha, los píxeles apagados al 9 % de opacidad y el más alto encendido en `lime`. Es el recurso principal para héroes, portadas, tarjetas y posts.
-- **Campo de píxeles:** cuadrados de 3 px cada 24 px en `line-strong` al 35 %, como fondo de sección (clase `.sp-pixel-field`).
+- **Escalera:** una rejilla N×N con columnas que crecen de izquierda a derecha, los píxeles apagados al 9 % de opacidad y el más alto encendido en `lime`. Es el recurso principal para héroes, portadas, tarjetas y posts. En la web, el píxel `lime` respira tras encenderse: opacidad 1 → 0,35 → 1 en bucle, sin brillo ni sombra.
+- **Campo de píxeles:** cuadrados de 3 px cada 24 px en `line-strong` al 35 %, como fondo de sección (clase `.sp-pixel-field`). En la web, algunos puntos se iluminan y se apagan despacio, nunca en `lime`.
 - **Píxel suelto:** un cuadrado `lime` tras la palabra clave de un titular (clase `.sp-pixel`). Como máximo uno por bloque.
 
 ## Espaciado, radios y movimiento
@@ -100,16 +100,23 @@ Los valores son tamaño/interlineado en px. El cambio de escala de móvil a escr
 - **Escala de espaciado:** 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128 px.
 - **Contenedor:** 1200 px de ancho máximo, con 16 px de margen lateral en móvil y 24 px en escritorio.
 - **Radios:** 4 · 8 · 12 · 20 px. Los píxeles de marca llevan un radio del 16 % de su lado.
-- **Movimiento:** de 150 a 250 ms con la curva cubic-bezier(0.2, 0.8, 0.2, 1). Respeta siempre `prefers-reduced-motion`.
+- **Movimiento, en tres niveles:**
+  - **Interfaz** (botones, hover, foco): 150–250 ms.
+  - **Entrada** (escalera, bloques al hacer scroll): 500–900 ms, una sola vez. Token `--duration-reveal`.
+  - **Ambiente** (pulso del píxel lima, campo de píxeles, zoom de fotos): 3–20 s, en bucle. Token `--duration-ambient`.
+  - Curva cubic-bezier(0.2, 0.8, 0.2, 1) para interfaz y entrada; ease-in-out para ambiente. Solo `opacity` y `transform`.
+  - Respeta siempre `prefers-reduced-motion`. Las animaciones de ambiente se paran fuera de pantalla y con el botón «Pausar animaciones» del pie (WCAG 2.2.2). Nunca se animan textos legales, precios ni botones al cargar.
 
 ### Animaciones de la web
 
-El movimiento acompaña al píxel encendido; nunca anima el contenido. Solo CSS y un IntersectionObserver mínimo, sin librerías.
+El movimiento acompaña al píxel encendido y a la entrada de los bloques. Solo CSS y un IntersectionObserver mínimo, sin librerías.
 
-- **Escalera que se enciende:** en el héroe de la portada y en la página de gracias, la escalera se enciende columna a columna, de izquierda a derecha, y termina en el píxel lima. Cada píxel tarda 250 ms, hay 110 ms entre columnas y el lima entra el último; en total, 900 ms como máximo. Una sola vez, al cargar.
-- **Píxel que se enciende:** el píxel lima de los titulares de sección de la portada, el del precio de cada ficha de producto y el de cada etapa de «Cómo trabajamos» (una mini escalera de cinco barras que sube de etapa en etapa) se encienden una vez, con opacidad y escala, cuando entran en pantalla.
-- **Hover y foco:** botones, tarjetas enlazadas y enlaces de tarjeta cambian de color, borde o fondo en 150 ms. Nunca con sombras.
-- **Nunca se anima:** titulares, párrafos, precios ni botones al cargar (afectaría al LCP), ni nada que mueva el diseño (CLS 0). Sin JavaScript o con `prefers-reduced-motion: reduce` se ve directamente el estado final. Quedan fuera los textos legales, las guías y las páginas `confirmar/`.
+- **Escalera que se enciende (entrada):** toda escalera se enciende columna a columna, de izquierda a derecha, y termina en el píxel lima. Cada píxel tarda 250 ms, hay 110 ms entre columnas y el lima entra el último; en total, 900 ms como máximo. Una sola vez: al cargar si está en el primer pantallazo y, si no, al entrar en pantalla. Después, el píxel lima respira (ambiente).
+- **Píxel que se enciende (entrada):** el píxel lima de los titulares de sección de la portada, el del precio de cada ficha de producto y el de cada etapa de «Cómo trabajamos» se encienden una vez, con opacidad y escala, cuando entran en pantalla.
+- **Bloques (entrada):** los titulares de sección y las tarjetas que entran en pantalla al hacer scroll aparecen con opacidad y un desplazamiento de 12 px en `--duration-reveal`, escalonados 80 ms. Lo que se ve en el primer pantallazo se muestra quieto desde el principio.
+- **Ambiente:** respiración del píxel lima, puntos del campo de píxeles y zoom de las fotos. Se paran fuera de pantalla y con el botón «Pausar animaciones» del pie.
+- **Hover y foco (interfaz):** botones, tarjetas enlazadas y enlaces de tarjeta cambian de color, borde o fondo en 150 ms. Nunca con sombras.
+- **Nunca se anima:** párrafos, precios ni botones al cargar (afectaría al LCP), ni nada que mueva el diseño (CLS 0). Sin JavaScript todo se ve ya encendido y con `prefers-reduced-motion: reduce` no se anima nada. Quedan fuera los textos legales, el cuerpo de las guías y las páginas `confirmar/`.
 
 ## Componentes base
 
@@ -141,6 +148,12 @@ El movimiento acompaña al píxel encendido; nunca anima el contenido. Solo CSS 
 
 Datos de contacto para las aplicaciones: hola@sellpix.es · sellpix.es.
 
-## Fotografía en «Cómo creamos tu proyecto»
+## Fotografía
 
-La página `proyectos/` es la única excepción a «sin fotos de banco». Usa fotografías de Unsplash **en blanco y negro, abstractas y sin poses**: escritorios, manos trabajando, bocetos, una conversación de trabajo vista de lejos. Nada de modelos mirando a cámara ni escenas de oficina genéricas. Se sirven desde `img/proyectos/` en .webp y .jpg, a 800 y 1600 px, y su crédito figura en `img/proyectos/CREDITOS.txt` y en el pie de la página. En el resto de la web siguen sin usarse fotos de banco.
+Las fotos solo se usan según este apartado. Son de Unsplash, **en blanco y negro, abstractas y sin personas posando**: carreteras de noche con larga exposición, macros de píxeles de pantalla, ciudades de noche. Nada de servidores, oficinas genéricas ni modelos.
+
+- **Uso:** como fondo de sección, siempre bajo una capa sólida de `surface-inverse` al 70–80 %, con el texto en AA y en `text-inverse`. Máximo una foto por página más la del bloque de cierre, que es la misma en toda la web. Nunca en el primer pantallazo de la portada.
+- **Movimiento:** zoom ambiente de 1 a 1,06 en unos 20 s (solo `transform`).
+- **Asignación:** cierre, carretera A73 (Markus Spiske); Servicios, subpíxeles (Gyula Jónás); Asturias, Oviedo de noche (Vitalii Kyktov); mantenimientos, ciudad de noche (Kevin Bosc). Se sirven desde `img/fondos/`.
+- **Formato:** .webp y .jpg a 800 y 1600 px, con `<img>` y `loading="lazy"`, nunca `background-image`. Créditos en `img/CREDITOS.txt` y en el pie de las páginas que las usan.
+- **«Cómo creamos tu proyecto»:** la página `proyectos/` usa fotografías propias de su tema en blanco y negro, abstractas y sin poses: escritorios, manos trabajando, bocetos, una conversación de trabajo vista de lejos. Nada de modelos mirando a cámara ni escenas de oficina genéricas. Se sirven desde `img/proyectos/` en .webp y .jpg, a 800 y 1600 px, y su crédito figura en `img/CREDITOS.txt` y en el pie de la página.

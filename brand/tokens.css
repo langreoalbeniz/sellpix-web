@@ -88,6 +88,8 @@
   --gutter: 16px;
   --duration-fast: 150ms;
   --duration-base: 250ms;
+  --duration-reveal: 600ms;
+  --duration-ambient: 3200ms;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
