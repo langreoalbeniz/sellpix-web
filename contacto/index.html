@@ -322,10 +322,19 @@
   document.querySelectorAll('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 </script>
 <script>
-  /* Tally solo cuando el formulario se acerca a la pantalla. Sin JavaScript queda el enlace a tally.so. */
+  /* Tally solo cuando el formulario se acerca a la pantalla. Sin JavaScript queda el enlace a tally.so.
+     Navegadores automatizados (navigator.webdriver) y hosts distintos de sellpix.es / www.sellpix.es no lo cargan: queda el enlace de respaldo. */
   (function () {
     var slot = document.querySelector('.tally-slot');
     if (!slot) return;
+    if (navigator.webdriver === true || !/^(www\.)?sellpix\.es$/.test(location.hostname)) {
+      var respaldo = slot.querySelector('.tally-fallback');
+      if (respaldo && respaldo.firstChild && respaldo.querySelector('a')) {
+        respaldo.firstChild.nodeValue = 'Aquí no se carga el formulario. ';
+        respaldo.querySelector('a').textContent = 'Ábrelo en Tally';
+      }
+      return;
+    }
     var url = slot.getAttribute('data-tally');
     var done = false;
     function load() {
