@@ -690,3 +690,14 @@ p, li, .sp-lead { text-wrap: pretty; }
 /* Pix sube para no quedar tapado por la barra */
 .barra-compra-activa .pix-acomp { bottom: calc(var(--space-9) + var(--space-2)); }
 .barra-compra-activa body { padding-bottom: var(--space-9); }
+
+/* ── Pulido visual (estudio del 3/11) ────────────────────────────────── */
+/* «/mes» va pegado al precio; solo «IVA incluido» baja a su línea */
+.service-card p.price .price-unit { flex-basis: auto; }
+/* Etiqueta compacta también en las tarjetas de la portada (nunca una barra a todo el ancho) */
+.plan .tag { align-self: flex-start; }
+/* Enlaces dentro del contenido: texto normal con subrayado lima fino (nunca azul del navegador) */
+:where(main :is(p, li, dd, td) a:not([class])) { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-lime); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color var(--duration-fast) var(--ease); }
+:where(main :is(p, li, dd, td) a:not([class])):hover { text-decoration-color: var(--color-text); }
+/* Respiro entre una lista y el párrafo que la sigue */
+ul.checklist + p, ul + p.u-mt-5 { margin-top: var(--space-5); }
