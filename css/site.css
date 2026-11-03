@@ -410,9 +410,6 @@ section.con-foto-hero .service-jump .sp-btn--ghost { color: var(--color-text-inv
 .eyebrow-block { display: block; margin-bottom: var(--space-4); color: var(--color-text-muted); }
 .eyebrow-block--tight { margin-bottom: var(--space-3); }
 
-/* Lienzos de marca para miniaturas de proyecto: colores fijos en los dos temas */
-.fill-paper { background: var(--color-paper); color: var(--color-ink); }
-.fill-ink { background: var(--color-ink); color: var(--color-paper); }
 .fill-lime { background: var(--color-lime); color: var(--color-on-lime); }
 
 /* Utilidades */
