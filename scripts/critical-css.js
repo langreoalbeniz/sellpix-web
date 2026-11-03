@@ -32,6 +32,7 @@ const PRIMERA_PANTALLA = {
     contact-jump contact-layout service-jump pix pix--sm pix-titular hero-3d hero-texto pixel-stair--3 pixel-stair--quiz pixel-stair--sin-lima quiz-lead-corto quiz-lead-largo quiz-cabeza pix-titular--pregunta hero-quiz quiz-hero quiz-head quiz quiz-card quiz-titulo quiz-paso quiz-opciones quiz-opcion quiz-pie not-found cta-actions cta-secondary detail-dot dot expect-list eyebrow-block eyebrow-block--tight
     faq-figure featured footer-legal footer-links footer-logo footer-place ghost guide guide-card guide-grid guide-hero
     guide-layout guide-lead guide-meta guide-toc header-actions header-cta hero how-hero js-year legal legal-data legal-hero
+    footer-grid footer-brand footer-tagline footer-mail footer-col footer-title footer-bottom
     anima encendido pixel-stair--enciende gracias-grid stage-stair lit mobile-menu campo-vivo con-foto con-foto-hero credits-list fuera oculto pausa-anim sin-movimiento fondo-foto nav-toggle needs not-found on on-dark on-light open page-hero photo pixel-stair price price-from
     price-tax price-unit product-buy buy-scope product-cols product-hero product-price product-section proof section-head
     service-card service-tag services-grid site-header site-logo site-nav skip sp-body sp-btn sp-btn--ghost

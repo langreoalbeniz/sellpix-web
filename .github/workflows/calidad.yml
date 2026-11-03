@@ -77,6 +77,16 @@ jobs:
           npm ci --ignore-scripts
           node scripts/pix3d-bordes.js
 
+      - name: Analítica y Tally solo en el sitio real
+        # Todas las páginas llevan el fragmento canónico de Cloudflare (no carga con navigator.webdriver ni fuera de sellpix.es) y
+        # js/contratar.js y contacto/ llevan el mismo filtro para Tally (node scripts/analitica.js).
+        run: node scripts/analitica.js --check
+
+      - name: Enlaces internos y de pago (sin abrir Stripe ni Tally)
+        # Archivos y anclas internos, y enlaces de Stripe y formularios de Tally contra data/servicios.json, solo por su texto:
+        # abrir un enlace de pago crea una sesión de Checkout y visitar un formulario cuenta en Tally.
+        run: node scripts/enlaces.js
+
       - name: Dossier al día
         # descargas/sellpix-dossier.pdf tiene que ser el que genera npm run dossier con dossier/dossier.md y los datos actuales.
         run: node scripts/dossier.js --check
@@ -101,6 +111,10 @@ jobs:
           python3 -m http.server 8080 --bind 127.0.0.1 > servidor.log 2>&1 &
           for i in $(seq 1 20); do curl -fs -o /dev/null http://localhost:8080/ && break; sleep 1; done
           curl -fsI http://localhost:8080/ | head -1
+
+      - name: Enlaces responden 200 en local
+        # Pide cada recurso interno enlazado al servidor local. scripts/enlaces.js se niega a hacer peticiones a Stripe y a Tally.
+        run: node scripts/enlaces.js --base=http://localhost:8080
 
       - name: pa11y sin errores (WCAG 2 AA)
         run: |
