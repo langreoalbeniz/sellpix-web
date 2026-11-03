@@ -389,7 +389,9 @@
 </script>
 <script>
   /* Tally solo cuando el formulario se acerca a la pantalla. Sin JavaScript queda el enlace a tally.so.
-     Navegadores automatizados (navigator.webdriver) y hosts distintos de sellpix.es / www.sellpix.es no lo cargan: queda el enlace de respaldo. */
+     Navegadores automatizados (navigator.webdriver) y hosts distintos de sellpix.es / www.sellpix.es no lo cargan: queda el enlace de respaldo.
+     Medición sin cookies: si se llega desde un anuncio, se pasan al formulario solo gclid y utm_source/medium/campaign/term
+     (campos ocultos de Tally), con valores validados; no se guarda nada en el navegador. */
   (function () {
     var slot = document.querySelector('.tally-slot');
     if (!slot) return;
@@ -401,7 +403,19 @@
       }
       return;
     }
-    var url = slot.getAttribute('data-tally');
+    var url = slot.getAttribute('data-tally') + origenDelAnuncio();
+    function origenDelAnuncio() {
+      var claves = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
+      var valido = /^(?:[A-Za-z0-9_\-.~]|%[0-9A-Fa-f]{2})+$/;
+      var vistos = {}, extra = '';
+      location.search.slice(1).split('&').forEach(function (par) {
+        var i = par.indexOf('='), k = i < 0 ? par : par.slice(0, i), v = i < 0 ? '' : par.slice(i + 1);
+        if (claves.indexOf(k) < 0 || vistos[k] || !v || v.length > 200 || !valido.test(v)) return;
+        vistos[k] = true;
+        extra += '&' + k + '=' + v;
+      });
+      return extra;
+    }
     var done = false;
     function load() {
       if (done) return;
