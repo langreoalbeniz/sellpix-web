@@ -7,6 +7,10 @@ Concepto: **el píxel encendido**. Cada píxel trabaja para vender, y el píxel 
 El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes o programes:
 @brand/BRAND.md
 
+## LÍMITES
+
+Los de `C:\Users\oddba\Documents\sellpix-conocimiento\metodo\LIMITES.md` (versión 2, Alberto, 3/11/2026): pagos, planes, dominios, altas de cuentas, publicar, enviar son de Alberto. Borrar está autorizado cuando la tarea lo pide y se apunta en el informe. A Alberto solo se le escribe por bloqueos o decisiones suyas, nunca con informes de avance.
+
 ## Reglas obligatorias
 
 1. **Colores, tipografías, espaciados, radios y sombras salen SIEMPRE de `brand/tokens.css`** (`--color-*`, `--font-*`, `--text-*`, `--space-*`, `--radius-*`, `--shadow-*`). Nunca escribas un hex, un tamaño de fuente o un margen sueltos. Si falta un valor, añádelo primero a `brand/tokens.json` y `brand/tokens.css` y avisa.
