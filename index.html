@@ -168,7 +168,8 @@
   .sales-item { display: flex; flex-direction: column; gap: var(--space-3); background: var(--color-surface); }
   .sales-item h3 { margin: 0; }
   .sales-item p { margin: 0; color: var(--color-text-muted); }
-  .sales-pixel { display: block; width: 12px; height: 12px; border-radius: 2px; background: var(--color-lime); }
+  .sales-pixel { display: block; width: 12px; height: 12px; border-radius: 2px; background: var(--color-line-strong); }
+  .sales-item:last-child .sales-pixel { background: var(--color-lime); }
   .guide-grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 
   /* Móvil: menos altura. Tarjetas del bloque comercial sin marco, escaleras decorativas más pequeñas */
