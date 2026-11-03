@@ -12,7 +12,7 @@
     "pix3d-bordes": "node scripts/pix3d-bordes.js",
     "pix-faq": "node scripts/pix-faq.js",
     "sitemap": "node scripts/sitemap.js",
-    "comprobar": "node scripts/precios.js --check && node scripts/llms.js --check && node scripts/cuestionario.js --check && node scripts/pix.js --check && node scripts/pix-faq.js --check && node scripts/pix3d-bordes.js && node scripts/analitica.js --check && node scripts/enlaces.js && node scripts/critical-css.js --check && node scripts/dossier.js --check",
+    "pie": "node scripts/pie.js", "comprobar": "node scripts/pie.js --check && node scripts/precios.js --check && node scripts/llms.js --check && node scripts/cuestionario.js --check && node scripts/pix.js --check && node scripts/pix-faq.js --check && node scripts/pix3d-bordes.js && node scripts/analitica.js --check && node scripts/enlaces.js && node scripts/critical-css.js --check && node scripts/dossier.js --check",
     "analitica": "node scripts/analitica.js",
     "enlaces": "node scripts/enlaces.js"
   },

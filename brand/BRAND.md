@@ -184,6 +184,9 @@ El movimiento acompaña al píxel encendido y a la entrada de los bloques. Solo 
 - **Tarjeta:** fondo `surface-alt` (o `surface` sobre el campo de píxeles), borde `line`, radio de 12 px.
 - **Etiqueta:** Pixelify Sans en mayúsculas, con fondo `lime` si destaca («LA MÁS PEDIDA») o con borde si informa («CONCEPTO»).
 - **Foco de teclado:** 2 px en `focus-ring` (negro en claro, lima en oscuro), separado 2 px del elemento.
+- **Pie de página:** fondo `surface-alt`, logotipo de 36 px, la línea «Diseño web con criterio comercial.», el email y tres columnas (Servicios, El estudio, Legal) con títulos en Pixelify; abajo, © y el botón de pausa. Enlaces en `text`, nunca en lima. Lo genera `scripts/pie.js`.
+- **Tarjeta de precio:** el precio va en `text` (Bricolage 800) y la etiqueta «Precio de lanzamiento» es compacta (nunca una barra a todo el ancho); las listas usan un píxel cuadrado de `line-strong` como viñeta; al pasar el ratón la tarjeta sube 2 px (solo `transform`, sin sombra).
+- **Tipografía fina:** `text-wrap: balance` en titulares y `pretty` en párrafos; la selección de texto es lima con `on-lime`.
 
 ## Voz y tono
 
