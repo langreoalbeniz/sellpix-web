@@ -125,5 +125,9 @@
     "pagina-adicional": { "nombre": "Página adicional", "precio": 60, "base": 49.59, "iva": 10.41, "unidad": "página" },
     "revision-extra": { "nombre": "Revisión extra", "precio": 50, "base": 41.32, "iva": 8.68, "unidad": "ronda" },
     "entrega-urgente": { "nombre": "Entrega urgente", "precio": null, "texto": "bajo consulta" }
+  },
+  "formularios": {
+    "_nota": "Formularios de Tally que no son de un servicio ni el de contacto (aOOWGy, en scripts/enlaces.js). Sin precio. scripts/enlaces.js comprueba que cada uno solo va en su página.",
+    "auditoria": { "nombre": "Auditoría gratuita", "tally": "gbaVZJ", "pagina": "auditoria-gratuita/index.html" }
   }
 }

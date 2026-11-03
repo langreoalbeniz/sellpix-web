@@ -65,7 +65,7 @@ function comprobar() {
   }
   const claude = leer('CLAUDE.md');
   if (!claude.includes(CANONICO)) problemas.push('CLAUDE.md: el fragmento de Cloudflare no coincide con el canónico de scripts/analitica.js');
-  for (const f of ['js/contratar.js', 'contacto/index.html']) {
+  for (const f of ['js/contratar.js', 'contacto/index.html', 'auditoria-gratuita/index.html']) {
     const t = leer(f);
     if (!t.includes('navigator.webdriver === true') || !t.includes('(www\\.)?sellpix\\.es$')) problemas.push(f + ': falta el filtro de navegadores automatizados y host para Tally');
   }
@@ -74,7 +74,7 @@ function comprobar() {
     for (const p of problemas) console.error(' - ' + p);
     process.exit(1);
   }
-  console.log('Analítica y Tally: ' + n + ' páginas con el fragmento canónico de Cloudflare; filtro presente en contratar.js y contacto/; CLAUDE.md al día.');
+  console.log('Analítica y Tally: ' + n + ' páginas con el fragmento canónico de Cloudflare; filtro presente en contratar.js, contacto/ y auditoria-gratuita/; CLAUDE.md al día.');
 }
 
 if (process.argv.includes('--check')) comprobar(); else aplicar();

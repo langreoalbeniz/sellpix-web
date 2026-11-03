@@ -131,6 +131,8 @@ for (const f of paginas) {
 const servicios = DATOS.servicios;
 const stripeDe = new Map(Object.entries(servicios).map(([k, s]) => [s.stripe, k]));
 const tallyDe = new Map(Object.entries(servicios).map(([k, s]) => [s.tally, k]));
+// Formularios sin servicio (auditoría gratuita…): cada uno solo en su página.
+const formularioDe = new Map(Object.entries(DATOS.formularios || {}).filter(([k]) => !k.startsWith('_')).map(([k, x]) => [x.tally, { k, pagina: x.pagina }]));
 for (const [k, e] of Object.entries(DATOS.extras || {})) if (e.stripe) stripeDe.set(e.stripe, 'extra:' + k);
 const ultimo = (url) => new URL(url).pathname.split('/').filter(Boolean).pop();
 // Página de producto y de confirmar/ de cada servicio (WooCommerce comparte página de producto con WordPress).
@@ -156,6 +158,8 @@ for (const f of paginas) {
   for (const m of t.matchAll(/tally\.so\/(?:r|embed|popup)\/([A-Za-z0-9]+)/g)) ids.add(m[1]);
   for (const m of t.matchAll(/data-contratar-form="([^"]+)"/g)) ids.add(m[1]);
   for (const id of ids) {
+    const otro = formularioDe.get(id);
+    if (otro) { if (f !== otro.pagina) error(f, 'el formulario «' + otro.k + '» (' + id + ') solo va en ' + otro.pagina); continue; }
     if (id !== FORMULARIO_CONTACTO && !tallyDe.has(id)) error(f, 'formulario de Tally ' + id + ' que no está en data/servicios.json');
     if (id === FORMULARIO_CONTACTO && f !== 'contacto/index.html') error(f, 'el formulario de contacto (' + id + ') solo va en contacto/');
     const k = tallyDe.get(id);
