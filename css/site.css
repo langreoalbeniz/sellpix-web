@@ -680,3 +680,14 @@ p, li, .sp-lead { text-wrap: pretty; }
 ::selection { background: var(--color-lime); color: var(--color-on-lime); }
 .sp-card, .guide-card { transition: border-color var(--duration-fast) var(--ease), transform var(--duration-base) var(--ease); }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) { .guide-card:hover, .sp-card:hover { transform: translateY(-2px); } }
+
+/* ── Barra de compra fija en móvil (js/barra-compra.js) ──────────────── */
+.barra-compra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) max(var(--space-4), env(safe-area-inset-right)) max(var(--space-3), env(safe-area-inset-bottom)) max(var(--space-4), env(safe-area-inset-left)); background: var(--color-surface); border-top: 1px solid var(--color-line); }
+.barra-compra[hidden] { display: none; }
+.barra-compra-precio { margin: 0; display: flex; flex-direction: column; line-height: 1.1; color: var(--color-text); }
+.barra-compra-precio strong { font-family: var(--font-display); font-weight: 800; font-size: var(--text-h3-size); letter-spacing: var(--text-h3-tracking); }
+.barra-compra-precio small { font-size: var(--text-caption-size); color: var(--color-text-muted); }
+@media (min-width: 768px) { .barra-compra { display: none; } }
+/* Pix sube para no quedar tapado por la barra */
+.barra-compra-activa .pix-acomp { bottom: calc(var(--space-9) + var(--space-2)); }
+.barra-compra-activa body { padding-bottom: var(--space-9); }
