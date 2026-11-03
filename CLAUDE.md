@@ -9,7 +9,7 @@ El manual completo de marca está aquí y debes seguirlo en todo lo que diseñes
 
 ## LÍMITES
 
-Los de `C:\Users\oddba\Documents\sellpix-conocimiento\metodo\LIMITES.md` (versión 2, Alberto, 3/11/2026): pagos, planes, dominios, altas de cuentas, publicar, enviar son de Alberto. Borrar está autorizado cuando la tarea lo pide y se apunta en el informe. A Alberto solo se le escribe por bloqueos o decisiones suyas, nunca con informes de avance.
+Los de `C:\Users\oddba\Documents\sellpix-conocimiento\metodo\LIMITES.md` (versión 2, Alberto, 3/11/2026): pagos, planes, dominios, altas de cuentas, publicar, enviar son de Alberto. Borrar está autorizado cuando la tarea lo pide y se apunta en el informe. A Alberto solo se le escribe por bloqueos o decisiones suyas, nunca con informes de avance. Herramientas y conectores: `C:\Users\oddba\Documents\sellpix-conocimiento\metodo\POLITICA-HERRAMIENTAS.md` (las que gastan créditos, con el «sí» de Alberto; cambios en vivo si es más eficiente, guardando antes la última versión que funciona y volviendo atrás si falla).
 
 ## Reglas obligatorias
 
