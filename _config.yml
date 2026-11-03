@@ -14,7 +14,8 @@ exclude:
   - .gitignore
   - .claude
   - .github
-  - auditoria
+  # Con barra final: sin ella, Jekyll excluye también todo lo que empieza por «auditoria» (auditoria-gratuita/)
+  - auditoria/
   - scripts
   # Créditos internos (la página pública es creditos/)
   - img/CREDITOS.txt
