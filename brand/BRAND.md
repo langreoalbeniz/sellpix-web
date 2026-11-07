@@ -193,7 +193,7 @@ El movimiento acompaña al píxel encendido y a la entrada de los bloques. Solo 
 
 - **Tratamiento y estilo:** de tú, frases cortas, sin superlativos ni tecnicismos.
 - **Enfoque:** se habla del negocio del cliente y de sus ventas, no de la tecnología.
-- **Promesas:** nada de cifras ni resultados sin medir. No se publican casos de clientes ni demostraciones; el método se explica en «Cómo creamos tu proyecto».
+- **Promesas:** nada de cifras ni resultados sin medir. Desde el 07/11/2026 se publican casos reales de clientes, solo con datos verificables el mismo día y con el texto aprobado por Alberto; no hay demostraciones. El método se explica en «Cómo creamos tu proyecto».
 - **Idioma:** español por defecto; el eslogan se mantiene siempre en inglés.
 - **Uso de IA:** se dice abiertamente.
 
