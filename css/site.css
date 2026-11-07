@@ -701,3 +701,22 @@ p, li, .sp-lead { text-wrap: pretty; }
 :where(main :is(p, li, dd, td) a:not([class])):hover { text-decoration-color: var(--color-text); }
 /* Respiro entre una lista y el párrafo que la sigue */
 ul.checklist + p, ul + p.u-mt-5 { margin-top: var(--space-5); }
+
+/* ── Cine + Bento (rediseño de noviembre de 2026) ─────────────────────────────────────────────
+   Botones en píldora de 58 px, rejilla bento sobre --color-bento y tarjetas de 30 px. Texto fijo claro (--color-on-ink)
+   sobre fotos con capa oscura y sobre rellenos ink. El lima sigue siendo solo relleno. */
+.sp-btn--pill { min-height: var(--size-btn-lg); padding: 0 var(--space-6); border-radius: var(--radius-full); }
+.sp-btn--on-ink { background: transparent; color: var(--color-on-ink); border-color: var(--color-on-ink); }
+.sp-btn--on-ink:hover { border-color: var(--color-lime); }
+.sp-btn--play { gap: var(--space-3); padding: 0 var(--space-5) 0 var(--space-1); }
+.sp-btn__dot { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-full); background: var(--color-lime); }
+.sp-btn__dot svg { width: 14px; height: 16px; fill: var(--color-on-lime); }
+.bento { background: var(--color-bento); padding: var(--space-3); display: grid; gap: var(--space-6); }
+@media (min-width: 1024px) { .bento { padding: var(--space-5); } }
+.bento > * { min-width: 0; }
+.bento-inner { max-width: var(--container-wide); margin-inline: auto; display: grid; gap: var(--space-4); }
+.bento-card { background: var(--color-surface-raised); border: 1px solid var(--color-line); border-radius: var(--radius-2xl); padding: var(--space-5); position: relative; overflow: hidden; }
+@media (min-width: 1024px) { .bento-card { padding: var(--space-6); } }
+.bento-card--ink { background: var(--color-ink); border-color: var(--color-line); color: var(--color-on-ink); }
+.bento-card--lime { background: var(--color-lime); border-color: var(--color-lime); color: var(--color-on-lime); }
+.bento-title { margin: 0; padding: var(--space-7) 0 var(--space-2); font-family: var(--font-display); font-weight: 800; font-size: var(--text-h1-size); line-height: var(--text-h1-line); letter-spacing: var(--text-h1-tracking); color: var(--color-text); }
