@@ -193,7 +193,7 @@ El movimiento acompaña al píxel encendido y a la entrada de los bloques. Solo 
 
 - **Tratamiento y estilo:** de tú, frases cortas, sin superlativos ni tecnicismos.
 - **Enfoque:** se habla del negocio del cliente y de sus ventas, no de la tecnología.
-- **Promesas:** nada de cifras ni resultados sin medir. No se publican casos de clientes ni demostraciones; el método se explica en «Cómo creamos tu proyecto».
+- **Promesas:** nada de cifras ni resultados sin medir. Desde el 07/11/2026 se publican casos reales de clientes, solo con datos verificables el mismo día y con el texto aprobado por Alberto; no hay demostraciones. El método se explica en «Cómo creamos tu proyecto».
 - **Idioma:** español por defecto; el eslogan se mantiene siempre en inglés.
 - **Uso de IA:** se dice abiertamente.
 
@@ -221,3 +221,13 @@ Las fotos solo se usan según este apartado. Son de Unsplash, **en blanco y negr
 - **Formato:** .webp y .jpg a 800 y 1600 px, con `<img>` (`loading="lazy"` en el bloque de cierre; en las cabeceras, `fetchpriority="high"` y precarga), nunca `background-image`. Fuente interna de los datos en `img/CREDITOS.txt` (no se publica).
 - **«Cómo creamos tu proyecto»:** la página `proyectos/` usa fotografías propias de su tema en blanco y negro, abstractas y sin poses: escritorios, manos trabajando, bocetos, una conversación de trabajo vista de lejos. Nada de modelos mirando a cámara ni escenas de oficina genéricas. Se sirven desde `img/proyectos/` en .webp y .jpg, a 800 y 1600 px, y su crédito está solo en `creditos/`.
 - **Créditos:** todos en una sola página, `creditos/`, enlazada desde el pie de todas las páginas junto a los enlaces legales. Es el único sitio donde se ven: ni en el pie de cada página ni en `proyectos/`. Recoge fotos (autor, enlace a Unsplash y página donde se usa) y tipografías (OFL).
+
+## Rediseño «Cine + Bento» (07/11/2026)
+
+Aprobado por Alberto el 07/11/2026; de momento solo en la portada (fase 2: resto de páginas).
+
+- **Héroe:** foto en blanco y negro (Oviedo de noche, `img/fondos/`) bajo una capa sólida `ink` al 60 %, titular con la frase clave sobre relleno lima (`.cine-mark`) y tarjeta de Pix con su frase literal «Pix es el píxel que vende.». Texto con `on-ink` y `on-ink-muted`.
+- **Tira lima** estática (sin marquesina, por WCAG 2.2.2) con los mensajes clave.
+- **Bento:** fondo `bento` (#E9E7E1 claro, #111111 oscuro), tarjetas de 30 px en `surface-raised`, variantes `ink` y `lime`; bordes `line`, sin sombras.
+- **Botones:** píldora de 58 px. Principal lima («Ver precios»), «Pide presupuesto» fantasma sobre foto y «Ver cómo trabajamos» con círculo lima (enlaza a `proyectos/`). Un solo lima principal por pantalla.
+- **Fotos de la portada:** héroe y cita del estudio (máximo dos), siempre bajo capa sólida. Cierre con el símbolo 3D en tarjeta `ink`.

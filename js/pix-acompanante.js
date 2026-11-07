@@ -246,7 +246,7 @@
     if (oculto) botonPie();
     /* Otro Pix a la vista, el pie o el formulario de contacto: Pix se aparta */
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { bloquear(e.target.getAttribute('data-pix-bloqueo'), e.isIntersecting); }); });
-    [['hero', '.hero-3d'], ['pix', '#pix'], ['formulario', '#formulario'], ['pie', 'footer']].forEach(function (par) {
+    [['hero', '.hero-3d'], ['cierre', '.bento-cta-3d'], ['pix', '#pix'], ['formulario', '#formulario'], ['pie', 'footer']].forEach(function (par) {
       var n = document.querySelector(par[1]); if (!n) return;
       n.setAttribute('data-pix-bloqueo', par[0]); bloqueos[par[0]] = true; io.observe(n);
     });
