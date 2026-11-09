@@ -29,6 +29,7 @@ Datos de contacto: hola@sellpix.es. Primer contacto y propuesta por email; reuni
 - [Abrir una tienda online en Shopify: qué necesitas y qué cuesta](https://sellpix.es/guias/abrir-tienda-online-shopify/)
 - [Cuánto cuesta una página web para un pequeño negocio](https://sellpix.es/guias/cuanto-cuesta-una-pagina-web-pequeno-negocio/)
 - [Cuánto cuesta el mantenimiento de una página web](https://sellpix.es/guias/mantenimiento-web-que-incluye/)
+- [Qué cambia para tu web con la IA de Google](https://sellpix.es/guias/que-cambia-para-tu-web-con-la-ia/)
 - [Cómo debe ser la web de una clínica de estética en Asturias](https://sellpix.es/guias/diseno-web-clinicas-de-estetica-asturias/)
 - [Cómo debe ser la web de una peluquería en Asturias](https://sellpix.es/guias/diseno-web-peluquerias-asturias/)
 - [Cómo debe ser la web de una academia en Asturias](https://sellpix.es/guias/diseno-web-academias-asturias/)
